@@ -1,0 +1,1446 @@
+\hypertarget{class_s_p_h_solver}{
+\section{SPHSolver Class Reference}
+\label{class_s_p_h_solver}\index{SPHSolver@{SPHSolver}}
+}
+
+
+creates fluid particles and perform SPH fluid simulation at every iteration  
+
+
+
+
+{\ttfamily \#include $<$SPHSolver.h$>$}
+
+
+
+Collaboration diagram for SPHSolver:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=400pt]{class_s_p_h_solver__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_s_p_h_solver_abe3a0bdf9c42b4213944bc0332020e65}{SPHSolver} ()
+\begin{DoxyCompactList}\small\item\em ctor \item\end{DoxyCompactList}\item 
+\hyperlink{class_s_p_h_solver_a81a0ee1c05b649912faa1e9839f71883}{$\sim$SPHSolver} ()
+\begin{DoxyCompactList}\small\item\em dtor \item\end{DoxyCompactList}\item 
+void \hyperlink{class_s_p_h_solver_a38ef1e0f18763b28118e3be3a8ba7d08}{updateFluid} (\hyperlink{class_environment_and_rigid_body}{EnvironmentAndRigidBody} $\ast$io\_\-environment, \hyperlink{class_integrate}{Integrate} $\ast$\_\-integrate)
+\begin{DoxyCompactList}\small\item\em update the fluid state at each timestep interval \item\end{DoxyCompactList}\item 
+std::vector$<$ std::vector$<$ ngl::Vector $>$ $>$ \hyperlink{class_s_p_h_solver_ab8ad27fc25e030d731e249ccfd2efd20}{getFluidParticlePositionList} ()
+\begin{DoxyCompactList}\small\item\em return the huge position list of all the fluid particles \item\end{DoxyCompactList}\item 
+std::vector$<$ std::string $>$ \hyperlink{class_s_p_h_solver_aa73e68cd39ecbc3e0c868315b1699fcb}{getFluidNameList} ()
+\begin{DoxyCompactList}\small\item\em return the list storing the names of different fluid created \item\end{DoxyCompactList}\item 
+std::string \hyperlink{class_s_p_h_solver_adcadefbe7d620b8782065a8899bc8040}{getVisualizationType} ()
+\begin{DoxyCompactList}\small\item\em return the shader name to be used for displaying the simulation data \item\end{DoxyCompactList}\item 
+std::vector$<$ \hyperlink{class_fluid_particle}{FluidParticle} $>$ \hyperlink{class_s_p_h_solver_ad389df7449294b5a8de1fc163acbf29b}{getFluidParticleList} ()
+\begin{DoxyCompactList}\small\item\em return the list of fluid particles being simulated \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_s_p_h_solver_a4a224b16ea8c301048fb88cdbd0ac505}{getDrawFluidParticles} ()
+\begin{DoxyCompactList}\small\item\em returns the flag for drawing fluids \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+ngl::Vector \hyperlink{class_s_p_h_solver_af6b1adebbc96d3cb22f6990a05694f70}{calculateInterfaceTensionGradientComponent} (ngl::Real \_\-massPerDensity, ngl::Real \_\-interfaceColourCoefficient, ngl::Vector \_\-seperationVector)
+\begin{DoxyCompactList}\small\item\em calculate Interface Tension Gradient Component \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_s_p_h_solver_ac1f193569656db4fe11aa5f716c5169b}{calculateInterfaceTensionLaplacianComponent} (ngl::Real \_\-massPerDensity, ngl::Real \_\-interfaceColourCoefficient, ngl::Real \_\-seperationLength)
+\begin{DoxyCompactList}\small\item\em calculate Interface Tension Laplacian Component \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_s_p_h_solver_ad137f4330190d8627fdb93ba373bb406}{calculatePressureForceComponent} (ngl::Real \_\-fluidParticleScalerPressure, ngl::Real \_\-fluidParticleDensity, ngl::Real \_\-neighbourFluidParticleScalerPressure, ngl::Real \_\-neighbourFluidDensity, ngl::Real \_\-neighbourFluidParticleMass, ngl::Vector \_\-seperationLength)
+\begin{DoxyCompactList}\small\item\em calculate Pressure Force Component \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_s_p_h_solver_a5913e7c1cd5a66c51eb03762025c0782}{calculateViscosityForceComponent} (ngl::Real \_\-massPerDensity, ngl::Vector \_\-fluidParticleCurrentVelocity, ngl::Vector \_\-neighbourFluidParticleCurrentVelocity, ngl::Real \_\-seperationLength)
+\begin{DoxyCompactList}\small\item\em calculate Viscosity Force Component \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_s_p_h_solver_a5ff4d84f41872763f04dfac24bda7e5d}{calculateSurfaceTennsionGradientComponent} (ngl::Real \_\-massPerDensity, ngl::Real \_\-surfaceColourCoefficient, ngl::Vector \_\-seperationVector)
+\begin{DoxyCompactList}\small\item\em calculate Surface Tension Gradient Component \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_s_p_h_solver_abcc8f4b80a896833cdfb9f1ca71b28a2}{calculateSurfaceTensionLaplacianComponent} (ngl::Real \_\-massPerDensity, ngl::Real \_\-surfaceColourCoefficient, ngl::Real \_\-seperationLength)
+\begin{DoxyCompactList}\small\item\em calculate Surface Tension Laplacian Component \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_s_p_h_solver_a293590ab5fbacd0a13bbd36dc3971e8d}{KernelPoly} (const ngl::Real \_\-seperationLength)
+\begin{DoxyCompactList}\small\item\em calculate the poly 6 kernel \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_s_p_h_solver_a2431a032b4972d7e684642e4d8c9e058}{KernelPolyGradient} (const ngl::Vector \_\-seperationVector)
+\begin{DoxyCompactList}\small\item\em calculate the poly 6 gradient kernel \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_s_p_h_solver_ae0189c4c0301b0bb25d792b3b7ab08f5}{KernelPolyLaplacian} (const ngl::Real \_\-seperationLength)
+\begin{DoxyCompactList}\small\item\em calculate the poly 6 laplacian kernel \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_s_p_h_solver_a5086e88784204568d4cf4e227309025f}{KernelPressureGradient} (const ngl::Vector \_\-seperationVector)
+\begin{DoxyCompactList}\small\item\em calculate the pressure (spiky) gradient kernel \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_s_p_h_solver_a3e4f7c09c45d3f49fa38f813d55e724b}{KernelViscosityLaplacian} (const ngl::Real \_\-seperationLength)
+\begin{DoxyCompactList}\small\item\em calculate the viscosity laplacian kernel \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_s_p_h_solver_a22ef88cb68a8f4befa6f281e10cf65a6}{normalizeVector} (const ngl::Vector \_\-vector)
+\begin{DoxyCompactList}\small\item\em normalise a vector \item\end{DoxyCompactList}\item 
+int \hyperlink{class_s_p_h_solver_acfa822e4291299eb6e6875347515572c}{getFluidIdFromName} (const std::string \_\-name)
+\begin{DoxyCompactList}\small\item\em get a particle fluid id from its name \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::vector$<$ \hyperlink{class_fluid_particle}{FluidParticle} $>$ \hyperlink{class_s_p_h_solver_ae158d26d2bb95bdc260e289e6b8c3b0a}{m\_\-fluidParticleList}
+\begin{DoxyCompactList}\small\item\em list of particles making up the fluid simulation \item\end{DoxyCompactList}\item 
+std::vector$<$ std::string $>$ \hyperlink{class_s_p_h_solver_a7eacf79d8d39f885736c50ac8dd81aa2}{m\_\-fluidNameList}
+\item 
+ngl::Real \hyperlink{class_s_p_h_solver_a09a49a1460b8d9d311c177bb61d614fc}{m\_\-smoothingLength}
+\begin{DoxyCompactList}\small\item\em smoothing kernel length \item\end{DoxyCompactList}\item 
+\hyperlink{class_spatial_hashing}{SpatialHashing} $\ast$ \hyperlink{class_s_p_h_solver_a1743796456c478d5e444d83384bef1dd}{m\_\-spatialHashing}
+\begin{DoxyCompactList}\small\item\em the neighbouring structure for the fluid particles \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_s_p_h_solver_ad5a368aa4d10c71bb1aafe84c9f9f838}{m\_\-weightPoly}
+\begin{DoxyCompactList}\small\item\em pre-\/calculated part of the poly 6 kernel \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_s_p_h_solver_a90434405f6296766d54626fe0582d664}{m\_\-weightPolyGradient}
+\begin{DoxyCompactList}\small\item\em pre-\/calculated part of the poly 6 gradient kernel \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_s_p_h_solver_a76b956a2ddc98d9055438a0b57edba15}{m\_\-weightPolyLaplacian}
+\begin{DoxyCompactList}\small\item\em pre-\/calculated part of the poly 6 laplacian kernel \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_s_p_h_solver_a69a9cc39ecf773ca645afd281794cf9a}{m\_\-weightPressureGradient}
+\begin{DoxyCompactList}\small\item\em pre-\/calculated part of the pressure gradient kernel \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_s_p_h_solver_a7c059675a5ca3fec7f4bf7e59d19f5ab}{m\_\-weightViscosityLaplacian}
+\begin{DoxyCompactList}\small\item\em pre-\/calculated part of the viscosity laplacian kernel \item\end{DoxyCompactList}\item 
+int \hyperlink{class_s_p_h_solver_ad168b241193a5a34b33553cbd8a26c6f}{m\_\-iteration}
+\begin{DoxyCompactList}\small\item\em iteration counter \item\end{DoxyCompactList}\item 
+std::string \hyperlink{class_s_p_h_solver_a60c10a0a436f307626d3422fb05809ce}{m\_\-visualizationType}
+\begin{DoxyCompactList}\small\item\em shading type of fluid particles \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_s_p_h_solver_a67a0ab46b9a3105400546a758ac6f2d1}{m\_\-drawFluidParticles}
+\begin{DoxyCompactList}\small\item\em flag to control to display fluid particles in OpenGL Window \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+creates fluid particles and perform SPH fluid simulation at every iteration 
+
+Definition at line 23 of file SPHSolver.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_s_p_h_solver_abe3a0bdf9c42b4213944bc0332020e65}{
+\index{SPHSolver@{SPHSolver}!SPHSolver@{SPHSolver}}
+\index{SPHSolver@{SPHSolver}!SPHSolver@{SPHSolver}}
+\subsubsection[{SPHSolver}]{\setlength{\rightskip}{0pt plus 5cm}SPHSolver::SPHSolver ()}}
+\label{class_s_p_h_solver_abe3a0bdf9c42b4213944bc0332020e65}
+
+
+ctor 
+
+
+
+Definition at line 11 of file SPHSolver.cpp.
+
+
+
+References SimulationParameters::initialiseSPHFluidSolver(), m\_\-drawFluidParticles, m\_\-fluidNameList, m\_\-fluidParticleList, m\_\-iteration, m\_\-smoothingLength, m\_\-spatialHashing, m\_\-visualizationType, m\_\-weightPoly, m\_\-weightPolyGradient, m\_\-weightPolyLaplacian, m\_\-weightPressureGradient, and m\_\-weightViscosityLaplacian.
+
+
+
+
+\begin{DoxyCode}
+12 {
+13     //create particles and initialise parameters
+14     SimulationParameters::initialiseSPHFluidSolver
+15             (
+16                 m_smoothingLength,
+17                 m_fluidParticleList,
+18                 m_visualizationType,
+19                 m_drawFluidParticles,
+20                 m_fluidNameList
+21             );
+22 
+23     //precompute kernel weight multipliers
+24     m_weightPoly = (315.0 / (64.0 * ngl::PI * pow(m_smoothingLength, 9)));
+25     m_weightPolyGradient = (-945.0 / (32.0 * ngl::PI * pow(m_smoothingLength, 9))
+      );
+26     m_weightPolyLaplacian = (-945.0 / (32.0 * ngl::PI * pow(m_smoothingLength, 9)
+      ));
+27     m_weightPressureGradient = (-45.0 / (ngl::PI * pow(m_smoothingLength, 6)));
+28     m_weightViscosityLaplacian = (45.0 / (ngl::PI * pow(m_smoothingLength, 6)));
+29 
+30     //create neighbouring structure
+31     m_spatialHashing = new SpatialHashing(m_fluidParticleList.size(), 
+      m_smoothingLength);
+32 
+33     m_iteration = 0;
+34 
+35 //    for (int i = 0; i < m_fluidNameList.size(); ++i)
+36 //    {
+37 //    std::cout << "names of particle are :: " << m_fluidNameList[i] << std::endl
+      ;
+38 //    }
+39 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{class_s_p_h_solver_abe3a0bdf9c42b4213944bc0332020e65_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_a81a0ee1c05b649912faa1e9839f71883}{
+\index{SPHSolver@{SPHSolver}!$\sim$SPHSolver@{$\sim$SPHSolver}}
+\index{$\sim$SPHSolver@{$\sim$SPHSolver}!SPHSolver@{SPHSolver}}
+\subsubsection[{$\sim$SPHSolver}]{\setlength{\rightskip}{0pt plus 5cm}SPHSolver::$\sim$SPHSolver ()}}
+\label{class_s_p_h_solver_a81a0ee1c05b649912faa1e9839f71883}
+
+
+dtor 
+
+
+
+Definition at line 41 of file SPHSolver.cpp.
+
+
+
+References m\_\-spatialHashing.
+
+
+
+
+\begin{DoxyCode}
+42 {
+43     //clean up
+44     std::cout << "Fluid SPHSolver Cleanup" << std::endl;
+45 
+46     //delete objects
+47     delete m_spatialHashing;
+48 }
+\end{DoxyCode}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_s_p_h_solver_af6b1adebbc96d3cb22f6990a05694f70}{
+\index{SPHSolver@{SPHSolver}!calculateInterfaceTensionGradientComponent@{calculateInterfaceTensionGradientComponent}}
+\index{calculateInterfaceTensionGradientComponent@{calculateInterfaceTensionGradientComponent}!SPHSolver@{SPHSolver}}
+\subsubsection[{calculateInterfaceTensionGradientComponent}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector SPHSolver::calculateInterfaceTensionGradientComponent (ngl::Real {\em \_\-massPerDensity}, \/  ngl::Real {\em \_\-interfaceColourCoefficient}, \/  ngl::Vector {\em \_\-seperationVector})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_af6b1adebbc96d3cb22f6990a05694f70}
+
+
+calculate Interface Tension Gradient Component 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-massPerDensity}]mass per density of the fluid particle \item[\mbox{$\leftarrow$} {\em \_\-interfaceColourCoefficient}]interface colour coefflicient of the fluid particle \item[\mbox{$\leftarrow$} {\em \_\-seperationVector}]distance vector between the fluid particle and the neighbour fluid particle \end{DoxyParams}
+
+
+Definition at line 379 of file SPHSolver.cpp.
+
+
+
+References KernelPolyGradient().
+
+
+
+
+\begin{DoxyCode}
+380 {
+381 
+382     ngl::Vector interfaceTensionGradientComponent;
+383     ngl::Vector surfaceGradient =  KernelPolyGradient(_seperationVector);
+384 
+385     interfaceTensionGradientComponent = _massPerDensity * _interfaceColourCoeffic
+      ient * surfaceGradient;
+386 
+387     return interfaceTensionGradientComponent;
+388 
+389 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{class_s_p_h_solver_af6b1adebbc96d3cb22f6990a05694f70_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_ac1f193569656db4fe11aa5f716c5169b}{
+\index{SPHSolver@{SPHSolver}!calculateInterfaceTensionLaplacianComponent@{calculateInterfaceTensionLaplacianComponent}}
+\index{calculateInterfaceTensionLaplacianComponent@{calculateInterfaceTensionLaplacianComponent}!SPHSolver@{SPHSolver}}
+\subsubsection[{calculateInterfaceTensionLaplacianComponent}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real SPHSolver::calculateInterfaceTensionLaplacianComponent (ngl::Real {\em \_\-massPerDensity}, \/  ngl::Real {\em \_\-interfaceColourCoefficient}, \/  ngl::Real {\em \_\-seperationLength})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_ac1f193569656db4fe11aa5f716c5169b}
+
+
+calculate Interface Tension Laplacian Component 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-massPerDensity}]mass per density of the fluid particle \item[\mbox{$\leftarrow$} {\em \_\-interfaceColourCoefficient}]interface colour coefflicient of the fluid particle \item[\mbox{$\leftarrow$} {\em \_\-seperationLength}]amplitube of the distance vector between the fluid particle and the neighbour fluid particle \end{DoxyParams}
+
+
+Definition at line 391 of file SPHSolver.cpp.
+
+
+
+References KernelPolyLaplacian().
+
+
+
+
+\begin{DoxyCode}
+393 {
+394 
+395     ngl::Real interfaceTensionLaplacianComponent;
+396     ngl::Real surfaceLaplacian = KernelPolyLaplacian(_seperationLength);
+397 
+398     interfaceTensionLaplacianComponent = _massPerDensity * _interfaceColourCoeffi
+      cient * surfaceLaplacian;
+399 
+400     return interfaceTensionLaplacianComponent;
+401 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{class_s_p_h_solver_ac1f193569656db4fe11aa5f716c5169b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_ad137f4330190d8627fdb93ba373bb406}{
+\index{SPHSolver@{SPHSolver}!calculatePressureForceComponent@{calculatePressureForceComponent}}
+\index{calculatePressureForceComponent@{calculatePressureForceComponent}!SPHSolver@{SPHSolver}}
+\subsubsection[{calculatePressureForceComponent}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector SPHSolver::calculatePressureForceComponent (ngl::Real {\em \_\-fluidParticleScalerPressure}, \/  ngl::Real {\em \_\-fluidParticleDensity}, \/  ngl::Real {\em \_\-neighbourFluidParticleScalerPressure}, \/  ngl::Real {\em \_\-neighbourFluidDensity}, \/  ngl::Real {\em \_\-neighbourFluidParticleMass}, \/  ngl::Vector {\em \_\-seperationLength})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_ad137f4330190d8627fdb93ba373bb406}
+
+
+calculate Pressure Force Component 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-fluidParticleScalerPressure}]\item[\mbox{$\leftarrow$} {\em \_\-fluidParticleDensity}]density of the fluid particle \item[\mbox{$\leftarrow$} {\em \_\-neighbourFluidParticleScalerPressure}]\item[\mbox{$\leftarrow$} {\em \_\-neighbourFluidDensity}]density of the neighbour fluid particle \item[\mbox{$\leftarrow$} {\em \_\-neighbourFluidParticleMass}]mass of the neighbour fluid particle \item[\mbox{$\leftarrow$} {\em \_\-seperationLength}]distance vector between the fluid particle and the neighbour fluid particle \end{DoxyParams}
+
+
+Definition at line 260 of file SPHSolver.cpp.
+
+
+
+References KernelPressureGradient().
+
+
+
+
+\begin{DoxyCode}
+268 {
+269       ngl::Vector pressureForceComponent = 0;
+270 
+271       ngl::Real _fluidParticleDensitySquared = pow (_fluidParticleDensity,2);
+272 
+273       ngl::Real _neighbourFluidParticleDensitySquared = pow(_neighbourFluidPartic
+      leDensity,2);
+274 
+275       ngl::Vector pressureGradient = KernelPressureGradient(_seperationVector);
+276 
+277       pressureForceComponent = ((_fluidParticleScalerPressure / _fluidParticleDen
+      sitySquared) + (_neighbourFluidParticleScalerPressure/_neighbourFluidParticleDens
+      itySquared))
+278                             * _neighboutFluidParticleMass * pressureGradient;
+279 
+280       return pressureForceComponent;
+281 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{class_s_p_h_solver_ad137f4330190d8627fdb93ba373bb406_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_a5ff4d84f41872763f04dfac24bda7e5d}{
+\index{SPHSolver@{SPHSolver}!calculateSurfaceTennsionGradientComponent@{calculateSurfaceTennsionGradientComponent}}
+\index{calculateSurfaceTennsionGradientComponent@{calculateSurfaceTennsionGradientComponent}!SPHSolver@{SPHSolver}}
+\subsubsection[{calculateSurfaceTennsionGradientComponent}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector SPHSolver::calculateSurfaceTennsionGradientComponent (ngl::Real {\em \_\-massPerDensity}, \/  ngl::Real {\em \_\-surfaceColourCoefficient}, \/  ngl::Vector {\em \_\-seperationVector})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a5ff4d84f41872763f04dfac24bda7e5d}
+
+
+calculate Surface Tension Gradient Component 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-massPerDensity}]mass per density of the fluid particle \item[\mbox{$\leftarrow$} {\em \_\-surfaceColourCoefficient}]surface colour coefficient of the fluid particle \item[\mbox{$\leftarrow$} {\em \_\-seperationVector}]distance vector between the fluid particle and the neighbour fluid particle \end{DoxyParams}
+
+
+Definition at line 299 of file SPHSolver.cpp.
+
+
+
+References KernelPolyGradient().
+
+
+
+
+\begin{DoxyCode}
+304 {
+305     ngl::Vector surfaceTensionGradientComponent = 0;
+306 
+307     ngl::Vector surfaceGradient =  KernelPolyGradient(_seperationVector);
+308 
+309     surfaceTensionGradientComponent = _massPerDensity * _surfaceColourCoefficient
+       * surfaceGradient;
+310 
+311     return surfaceTensionGradientComponent;
+312 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{class_s_p_h_solver_a5ff4d84f41872763f04dfac24bda7e5d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_abcc8f4b80a896833cdfb9f1ca71b28a2}{
+\index{SPHSolver@{SPHSolver}!calculateSurfaceTensionLaplacianComponent@{calculateSurfaceTensionLaplacianComponent}}
+\index{calculateSurfaceTensionLaplacianComponent@{calculateSurfaceTensionLaplacianComponent}!SPHSolver@{SPHSolver}}
+\subsubsection[{calculateSurfaceTensionLaplacianComponent}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real SPHSolver::calculateSurfaceTensionLaplacianComponent (ngl::Real {\em \_\-massPerDensity}, \/  ngl::Real {\em \_\-surfaceColourCoefficient}, \/  ngl::Real {\em \_\-seperationLength})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_abcc8f4b80a896833cdfb9f1ca71b28a2}
+
+
+calculate Surface Tension Laplacian Component 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-massPerDensity}]mass per density of the fluid particle \item[\mbox{$\leftarrow$} {\em \_\-surfaceColourCoefficient}]surface colour coefficient of the fluid particle \item[\mbox{$\leftarrow$} {\em \_\-seperationLength}]amplitude of the distance vector between the fluid particle and neighbour fluid particle \end{DoxyParams}
+
+
+Definition at line 314 of file SPHSolver.cpp.
+
+
+
+References KernelPolyLaplacian().
+
+
+
+
+\begin{DoxyCode}
+320 {
+321     ngl::Real surfaceTensionLaplacianComponent = 0;
+322 
+323     ngl::Real surfaceLaplacian = KernelPolyLaplacian(_seperationLength);
+324 
+325     surfaceTensionLaplacianComponent = _massPerDensity * _surfaceColourCoefficien
+      t * surfaceLaplacian;
+326 
+327     return surfaceTensionLaplacianComponent;
+328 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{class_s_p_h_solver_abcc8f4b80a896833cdfb9f1ca71b28a2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_a5913e7c1cd5a66c51eb03762025c0782}{
+\index{SPHSolver@{SPHSolver}!calculateViscosityForceComponent@{calculateViscosityForceComponent}}
+\index{calculateViscosityForceComponent@{calculateViscosityForceComponent}!SPHSolver@{SPHSolver}}
+\subsubsection[{calculateViscosityForceComponent}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector SPHSolver::calculateViscosityForceComponent (ngl::Real {\em \_\-massPerDensity}, \/  ngl::Vector {\em \_\-fluidParticleCurrentVelocity}, \/  ngl::Vector {\em \_\-neighbourFluidParticleCurrentVelocity}, \/  ngl::Real {\em \_\-seperationLength})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a5913e7c1cd5a66c51eb03762025c0782}
+
+
+calculate Viscosity Force Component 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-massPerDensity}]mass per density of the fluid particle \item[\mbox{$\leftarrow$} {\em \_\-fluidParticleCurrentVelocity}]current velocity of the fluid particle \item[\mbox{$\leftarrow$} {\em \_\-neighbourFluidParticleCurrentVelocity}]current velocity of the neighbour fluid particle \item[\mbox{$\leftarrow$} {\em \_\-seperationLength}]amplitube of the distance vector between fluid particle and the neighbour fluid particle \end{DoxyParams}
+
+
+Definition at line 283 of file SPHSolver.cpp.
+
+
+
+References KernelViscosityLaplacian().
+
+
+
+
+\begin{DoxyCode}
+289 {
+290     ngl::Vector viscosityForceComponent = 0;
+291 
+292     ngl::Real viscosityLaplacian = KernelViscosityLaplacian(_seperationLength);
+293 
+294     viscosityForceComponent = _massPerDensity * (_neighbourFluidParticleCurrentVe
+      locity - _fluidParticleCurrentVelocity) * viscosityLaplacian;
+295 
+296     return viscosityForceComponent;
+297 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{class_s_p_h_solver_a5913e7c1cd5a66c51eb03762025c0782_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_a4a224b16ea8c301048fb88cdbd0ac505}{
+\index{SPHSolver@{SPHSolver}!getDrawFluidParticles@{getDrawFluidParticles}}
+\index{getDrawFluidParticles@{getDrawFluidParticles}!SPHSolver@{SPHSolver}}
+\subsubsection[{getDrawFluidParticles}]{\setlength{\rightskip}{0pt plus 5cm}bool SPHSolver::getDrawFluidParticles ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_s_p_h_solver_a4a224b16ea8c301048fb88cdbd0ac505}
+
+
+returns the flag for drawing fluids 
+
+
+
+Definition at line 54 of file SPHSolver.h.
+
+
+
+References m\_\-drawFluidParticles.
+
+
+
+
+\begin{DoxyCode}
+54 {return m_drawFluidParticles;}
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{class_s_p_h_solver_a4a224b16ea8c301048fb88cdbd0ac505_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_acfa822e4291299eb6e6875347515572c}{
+\index{SPHSolver@{SPHSolver}!getFluidIdFromName@{getFluidIdFromName}}
+\index{getFluidIdFromName@{getFluidIdFromName}!SPHSolver@{SPHSolver}}
+\subsubsection[{getFluidIdFromName}]{\setlength{\rightskip}{0pt plus 5cm}int SPHSolver::getFluidIdFromName (const std::string {\em \_\-name})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_acfa822e4291299eb6e6875347515572c}
+
+
+get a particle fluid id from its name 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-name}]the fluid name \end{DoxyParams}
+\hypertarget{class_s_p_h_solver_aa73e68cd39ecbc3e0c868315b1699fcb}{
+\index{SPHSolver@{SPHSolver}!getFluidNameList@{getFluidNameList}}
+\index{getFluidNameList@{getFluidNameList}!SPHSolver@{SPHSolver}}
+\subsubsection[{getFluidNameList}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$std::string$>$ SPHSolver::getFluidNameList ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_s_p_h_solver_aa73e68cd39ecbc3e0c868315b1699fcb}
+
+
+return the list storing the names of different fluid created 
+
+
+
+Definition at line 45 of file SPHSolver.h.
+
+
+
+References m\_\-fluidNameList.
+
+
+
+
+\begin{DoxyCode}
+45 {return m_fluidNameList;}
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{class_s_p_h_solver_aa73e68cd39ecbc3e0c868315b1699fcb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_ad389df7449294b5a8de1fc163acbf29b}{
+\index{SPHSolver@{SPHSolver}!getFluidParticleList@{getFluidParticleList}}
+\index{getFluidParticleList@{getFluidParticleList}!SPHSolver@{SPHSolver}}
+\subsubsection[{getFluidParticleList}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<${\bf FluidParticle}$>$ SPHSolver::getFluidParticleList ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_s_p_h_solver_ad389df7449294b5a8de1fc163acbf29b}
+
+
+return the list of fluid particles being simulated 
+
+
+
+Definition at line 51 of file SPHSolver.h.
+
+
+
+References m\_\-fluidParticleList.
+
+
+
+
+\begin{DoxyCode}
+51 {return m_fluidParticleList;}
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{class_s_p_h_solver_ad389df7449294b5a8de1fc163acbf29b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_ab8ad27fc25e030d731e249ccfd2efd20}{
+\index{SPHSolver@{SPHSolver}!getFluidParticlePositionList@{getFluidParticlePositionList}}
+\index{getFluidParticlePositionList@{getFluidParticlePositionList}!SPHSolver@{SPHSolver}}
+\subsubsection[{getFluidParticlePositionList}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$ std::vector$<$ ngl::Vector $>$ $>$ SPHSolver::getFluidParticlePositionList ()}}
+\label{class_s_p_h_solver_ab8ad27fc25e030d731e249ccfd2efd20}
+
+
+return the huge position list of all the fluid particles 
+
+
+
+Definition at line 403 of file SPHSolver.cpp.
+
+
+
+References m\_\-fluidNameList, and m\_\-fluidParticleList.
+
+
+
+
+\begin{DoxyCode}
+404 {
+405     std::vector<std::vector<ngl::Vector> > fluidParticlePositionsList;
+406 
+407     for (int i = 0; i< m_fluidNameList.size(); ++i)
+408     {
+409         std::string name = m_fluidNameList[i];
+410         std::vector<ngl::Vector> positionList;
+411         positionList.reserve(m_fluidParticleList.size());
+412 
+413         for (int k = 0; k<m_fluidParticleList.size(); ++k)
+414         {
+415             if (m_fluidParticleList[k].getName() == name)
+416             {
+417                 positionList.push_back(m_fluidParticleList[k].getCurrentPosition(
+      ));
+418             }
+419         }
+420         fluidParticlePositionsList.push_back(positionList);
+421     }
+422     return fluidParticlePositionsList;
+423 }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{class_s_p_h_solver_ab8ad27fc25e030d731e249ccfd2efd20_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_adcadefbe7d620b8782065a8899bc8040}{
+\index{SPHSolver@{SPHSolver}!getVisualizationType@{getVisualizationType}}
+\index{getVisualizationType@{getVisualizationType}!SPHSolver@{SPHSolver}}
+\subsubsection[{getVisualizationType}]{\setlength{\rightskip}{0pt plus 5cm}std::string SPHSolver::getVisualizationType ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_s_p_h_solver_adcadefbe7d620b8782065a8899bc8040}
+
+
+return the shader name to be used for displaying the simulation data 
+
+
+
+Definition at line 48 of file SPHSolver.h.
+
+
+
+References m\_\-visualizationType.
+
+
+
+
+\begin{DoxyCode}
+48 {return m_visualizationType;}
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{class_s_p_h_solver_adcadefbe7d620b8782065a8899bc8040_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_a293590ab5fbacd0a13bbd36dc3971e8d}{
+\index{SPHSolver@{SPHSolver}!KernelPoly@{KernelPoly}}
+\index{KernelPoly@{KernelPoly}!SPHSolver@{SPHSolver}}
+\subsubsection[{KernelPoly}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real SPHSolver::KernelPoly (const ngl::Real {\em \_\-seperationLength})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a293590ab5fbacd0a13bbd36dc3971e8d}
+
+
+calculate the poly 6 kernel 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-seperationLength}]amplitude of the distance vector between the fluid particle and neighbour fluid particle \end{DoxyParams}
+
+
+Definition at line 330 of file SPHSolver.cpp.
+
+
+
+References m\_\-smoothingLength, and m\_\-weightPoly.
+
+
+
+
+\begin{DoxyCode}
+331 {
+332     ngl::Real weight = m_weightPoly * (pow(pow(m_smoothingLength, 2) - pow(_seper
+      ationLength, 2), 3));
+333 
+334     return weight;
+335 }
+\end{DoxyCode}
+
+
+\hypertarget{class_s_p_h_solver_a2431a032b4972d7e684642e4d8c9e058}{
+\index{SPHSolver@{SPHSolver}!KernelPolyGradient@{KernelPolyGradient}}
+\index{KernelPolyGradient@{KernelPolyGradient}!SPHSolver@{SPHSolver}}
+\subsubsection[{KernelPolyGradient}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector SPHSolver::KernelPolyGradient (const ngl::Vector {\em \_\-seperationVector})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a2431a032b4972d7e684642e4d8c9e058}
+
+
+calculate the poly 6 gradient kernel 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-seperationVector}]distance vector between the fluid particle and the neighbour fluid particle \end{DoxyParams}
+
+
+Definition at line 337 of file SPHSolver.cpp.
+
+
+
+References m\_\-smoothingLength, and m\_\-weightPolyGradient.
+
+
+
+
+\begin{DoxyCode}
+338 {
+339     ngl::Vector weight = 0;
+340     ngl::Real seperationLength = _seperationVector.length();
+341 
+342     weight = m_weightPolyGradient * _seperationVector * pow(pow(
+      m_smoothingLength, 2) - pow(seperationLength, 2), 2);
+343 
+344     return weight;
+345 }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{class_s_p_h_solver_a2431a032b4972d7e684642e4d8c9e058_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_ae0189c4c0301b0bb25d792b3b7ab08f5}{
+\index{SPHSolver@{SPHSolver}!KernelPolyLaplacian@{KernelPolyLaplacian}}
+\index{KernelPolyLaplacian@{KernelPolyLaplacian}!SPHSolver@{SPHSolver}}
+\subsubsection[{KernelPolyLaplacian}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real SPHSolver::KernelPolyLaplacian (const ngl::Real {\em \_\-seperationLength})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_ae0189c4c0301b0bb25d792b3b7ab08f5}
+
+
+calculate the poly 6 laplacian kernel 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-seperationLength}]amplitude of the distance vector between the fluid particle and neighbour fluid particle \end{DoxyParams}
+
+
+Definition at line 347 of file SPHSolver.cpp.
+
+
+
+References m\_\-smoothingLength, and m\_\-weightPolyLaplacian.
+
+
+
+
+\begin{DoxyCode}
+348 {
+349     ngl::Real weight = m_weightPolyLaplacian * (pow(m_smoothingLength, 2) - pow(_
+      seperationLength, 2)) * ((3.0 * pow(m_smoothingLength, 2)) - (7.0 * pow(_seperati
+      onLength, 2)));
+350 
+351     return weight;
+352 }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{class_s_p_h_solver_ae0189c4c0301b0bb25d792b3b7ab08f5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_a5086e88784204568d4cf4e227309025f}{
+\index{SPHSolver@{SPHSolver}!KernelPressureGradient@{KernelPressureGradient}}
+\index{KernelPressureGradient@{KernelPressureGradient}!SPHSolver@{SPHSolver}}
+\subsubsection[{KernelPressureGradient}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector SPHSolver::KernelPressureGradient (const ngl::Vector {\em \_\-seperationVector})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a5086e88784204568d4cf4e227309025f}
+
+
+calculate the pressure (spiky) gradient kernel 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-seperationVector}]distance vector between the fluid particle and the neighbour fluid particle \end{DoxyParams}
+
+
+Definition at line 354 of file SPHSolver.cpp.
+
+
+
+References m\_\-smoothingLength, m\_\-weightPressureGradient, and normalizeVector().
+
+
+
+
+\begin{DoxyCode}
+355 {
+356     ngl::Vector weight = 0;
+357     ngl::Real seperationLength = _seperationVector.length();
+358 
+359     weight = m_weightPressureGradient * pow(m_smoothingLength - seperationLength,
+       2) * normalizeVector(_seperationVector);
+360 
+361     return weight;
+362 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{class_s_p_h_solver_a5086e88784204568d4cf4e227309025f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{class_s_p_h_solver_a5086e88784204568d4cf4e227309025f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_a3e4f7c09c45d3f49fa38f813d55e724b}{
+\index{SPHSolver@{SPHSolver}!KernelViscosityLaplacian@{KernelViscosityLaplacian}}
+\index{KernelViscosityLaplacian@{KernelViscosityLaplacian}!SPHSolver@{SPHSolver}}
+\subsubsection[{KernelViscosityLaplacian}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real SPHSolver::KernelViscosityLaplacian (const ngl::Real {\em \_\-seperationLength})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a3e4f7c09c45d3f49fa38f813d55e724b}
+
+
+calculate the viscosity laplacian kernel 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-seperationLength}]amplitude of the distance vector between the fluid particle and neighbour fluid particle \end{DoxyParams}
+
+
+Definition at line 364 of file SPHSolver.cpp.
+
+
+
+References m\_\-smoothingLength, and m\_\-weightViscosityLaplacian.
+
+
+
+
+\begin{DoxyCode}
+365 {
+366     ngl::Real weight = m_weightViscosityLaplacian * (m_smoothingLength - _seperat
+      ionLength);
+367 
+368     return weight;
+369 }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{class_s_p_h_solver_a3e4f7c09c45d3f49fa38f813d55e724b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_a22ef88cb68a8f4befa6f281e10cf65a6}{
+\index{SPHSolver@{SPHSolver}!normalizeVector@{normalizeVector}}
+\index{normalizeVector@{normalizeVector}!SPHSolver@{SPHSolver}}
+\subsubsection[{normalizeVector}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector SPHSolver::normalizeVector (const ngl::Vector {\em \_\-vector})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a22ef88cb68a8f4befa6f281e10cf65a6}
+
+
+normalise a vector 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-vector}]the vector to normalise \end{DoxyParams}
+
+
+Definition at line 371 of file SPHSolver.cpp.
+
+
+
+
+\begin{DoxyCode}
+372 {
+373     ngl::Vector v = _vector;
+374     if (_vector.length() > 0.0001f) v.normalize();
+375 
+376     return v;
+377 }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{class_s_p_h_solver_a22ef88cb68a8f4befa6f281e10cf65a6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_s_p_h_solver_a38ef1e0f18763b28118e3be3a8ba7d08}{
+\index{SPHSolver@{SPHSolver}!updateFluid@{updateFluid}}
+\index{updateFluid@{updateFluid}!SPHSolver@{SPHSolver}}
+\subsubsection[{updateFluid}]{\setlength{\rightskip}{0pt plus 5cm}void SPHSolver::updateFluid ({\bf EnvironmentAndRigidBody} $\ast$ {\em io\_\-environment}, \/  {\bf Integrate} $\ast$ {\em \_\-integrate})}}
+\label{class_s_p_h_solver_a38ef1e0f18763b28118e3be3a8ba7d08}
+
+
+update the fluid state at each timestep interval 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftrightarrow$} {\em io\_\-environment}]pointer to the enviornment class for performing collision check and resolution \item[\mbox{$\leftarrow$} {\em \_\-integrate}]pointer to the integrate class used to perform integration \end{DoxyParams}
+
+
+Definition at line 51 of file SPHSolver.cpp.
+
+
+
+References EnvironmentAndRigidBody::checkCollision(), Particle::getCurrentPosition(), Particle::getCurrentVelocity(), FluidParticle::getDensity(), Particle::getId(), Particle::getMass(), FluidParticle::getScalerPressure(), Integrate::integrateNext(), and SimulationParameters::s\_\-accelerationOfFreeFall.
+
+
+
+
+\begin{DoxyCode}
+55 {
+56     //clear neighbour map
+57     m_spatialHashing->clearHashmap();
+58 
+59 #pragma omp parallel
+60 
+61 {
+62     //refresh neighbour list
+63     m_spatialHashing->refreshHashmap(m_fluidParticleList);
+64 }
+65 
+66 #pragma omp parallel
+67 {
+68 #pragma omp for schedule(dynamic, 50)
+69     //density-pressure calculations
+70     for (int i = 0; i < m_fluidParticleList.size(); ++i)
+71     {
+72         /*------Search and gather neighbour fluid particles for the current fluid
+       particle-----------------------------------------*/
+73 
+74         std::vector<FluidParticle> neighbourList = m_spatialHashing->
+      searchFluidParticleNeighbours(m_fluidParticleList[i].getCurrentPosition());
+75 
+76         /*-----Calculate Density-------------------------------------------------
+      ---------------------------*/
+77 
+78         ngl::Real density = 0.0;
+79         for (int j = 0; j < neighbourList.size(); j++)
+80         {
+81             //accumulate density
+82             density += neighbourList[j].getMass() * KernelPoly((
+      m_fluidParticleList[i].getCurrentPosition() - neighbourList[j].getCurrentPosition
+      ()).length());
+83         }
+84 
+85         m_fluidParticleList[i].setDensity(density);
+86 
+87         /*-----Calculate Scaler Pressure Value-----------------------------------
+      ------------------- */
+88 
+89         ngl::Real _scalerPressure = 0;
+90 
+91         _scalerPressure = m_fluidParticleList[i].getGasConstant() * (
+      m_fluidParticleList[i].getDensity() - m_fluidParticleList[i].getRestDensity());
+92 
+93         m_fluidParticleList[i].setScalerPressure(_scalerPressure);
+94     }
+95 
+96 #pragma omp for schedule(dynamic, 50)
+97     /*----Calculation of Fluid Forces--------------------------------------------
+      -------------------------*/
+98 
+99     for (int i = 0; i < m_fluidParticleList.size(); ++i)
+100     {
+101         //getCurrentPosition() net forces accumulate
+102         m_fluidParticleList[i].resetForces();
+103 
+104         //get neighbours of current particle
+105         std::vector<FluidParticle> neighbourList = m_spatialHashing->
+      searchFluidParticleNeighbours(m_fluidParticleList[i].getCurrentPosition());
+106 
+107         //calculate internal forces of current particle
+108         ngl::Real massPerDensity = 0;
+109         ngl::Vector seperationVector = 0;
+110         ngl::Real seperationLength = 0.0;
+111 
+112         ngl::Vector pressure = 0;
+113         ngl::Vector viscosity = 0;
+114 
+115         ngl::Vector surfaceGradient = 0;
+116         ngl::Real surfaceLaplacian = 0;
+117 
+118         ngl::Vector surfaceTensionGradient = 0;
+119         ngl::Real surfaceTensionLaplacian = 0;
+120         ngl::Vector interfaceTensionGradient = 0;
+121         ngl::Real interfaceTensionLaplacian = 0;
+122 
+123 
+124             for (int j = 0; j < neighbourList.size(); j++)
+125             {
+126                 /*----Get neighbour fluid particle-------------------------------
+      ---*/
+127                 FluidParticle neighbour = neighbourList[j];
+128 
+129                 /*-----Calculating repetative values-----------------------------
+      ----*/
+130 
+131                 massPerDensity = neighbour.getMass() / neighbour.getDensity();
+132                 seperationVector = m_fluidParticleList[i].getCurrentPosition() - 
+      neighbour.getCurrentPosition();
+133                 seperationLength = seperationVector.length();
+134 
+135                 /*------Calculating the pressure and viscosity force on the curre
+      nt particle applied by the neighbour particle----------*/
+136 
+137                 if (neighbour.getId() != m_fluidParticleList[i].getId())
+138                 {
+139                     /* Accumulate all the Pressure Force for the current fluid pa
+      rticle */
+140 
+141                     pressure = pressure + calculatePressureForceComponent(
+      m_fluidParticleList[i].getScalerPressure(),m_fluidParticleList[i].getDensity(),
+142                                                                           neighbo
+      ur.getScalerPressure(),neighbour.getDensity(),
+143                                                                           neighbo
+      ur.getMass(),seperationVector);
+144 
+145                     /* Accumulate all Viscosity Force for the current fluid parti
+      cle */
+146 
+147                     viscosity = viscosity + calculateViscosityForceComponent(mass
+      PerDensity,m_fluidParticleList[i].getCurrentVelocity(),
+148                                                                              neig
+      hbour.getCurrentVelocity(),seperationLength);
+149 
+150                 }
+151 
+152                 /* Accumulate Surface Tension Gradinet by calculating and accumul
+      ating Surface Tension Gradient Component */
+153 
+154                 surfaceTensionGradient = surfaceTensionGradient +
+155                                          
+      calculateSurfaceTennsionGradientComponent(massPerDensity, m_fluidParticleList[i].
+      getSurfaceColorCoefficient(),seperationVector);
+156 
+157                 /* Accumulate Surface Tension Laplacian by calculating and accumu
+      lating Surface Tension Laplacian Component */
+158 
+159                 surfaceTensionLaplacian = surfaceTensionLaplacian +
+160                                           
+      calculateSurfaceTensionLaplacianComponent(massPerDensity,m_fluidParticleList[i].g
+      etSurfaceColorCoefficient(),seperationLength);
+161 
+162                 /* Accumulate Interface Tension Gradient by calculating and accum
+      ulating Interface Tension Gradient Component */
+163 
+164                 interfaceTensionGradient = surfaceTensionGradient +
+165                                            
+      calculateInterfaceTensionGradientComponent(massPerDensity,m_fluidParticleList[i].
+      getInterfaceColorCoefficient(),seperationVector);
+166 
+167                 /* Accumulate Interface Tension Laplacian by calculating and accu
+      mulating Interface Tension Laplacian */
+168 
+169                 interfaceTensionLaplacian = surfaceTensionLaplacian +
+170                                             
+      calculateInterfaceTensionLaplacianComponent(massPerDensity,m_fluidParticleList[i]
+      .getInterfaceColorCoefficient(),seperationLength);
+171 
+172             }
+173 
+174     /*---Calculating and Setting Pressure Force ---------------------------------
+      -----------------------------------------*/
+175 
+176     ngl::Vector pressureForce = 0;
+177 
+178     pressureForce = -1.0 * m_fluidParticleList[i].getDensity() * pressure;
+179 
+180     m_fluidParticleList[i].setPressureForce(pressureForce);
+181 
+182     /*---Calculating and Setting Viscosity Force --------------------------------
+      -----------------------------------------*/
+183 
+184     ngl::Vector viscosityForce = 0;
+185 
+186     viscosityForce = viscosity * m_fluidParticleList[i].getViscosityConstant();
+187 
+188     m_fluidParticleList[i].setViscosityForce(viscosityForce);
+189 
+190     /*---Calculating and Setting Surface Tension Force --------------------------
+      -------------------------------------------*/
+191 
+192     ngl::Vector surfaceTensionForce = 0;
+193 
+194     m_fluidParticleList[i].setSurfaceTensionForce(surfaceTensionForce);
+195     if (surfaceTensionGradient.length() > m_fluidParticleList[i].getSurfaceTensio
+      nThreshold())
+196         {
+197             surfaceTensionForce = -1.0 * m_fluidParticleList[i].getSurfaceTension
+      Coefficient() * normalizeVector(surfaceTensionGradient) * surfaceTensionLaplacian
+      ;
+198 
+199             m_fluidParticleList[i].setSurfaceTensionForce(surfaceTensionForce);
+200         }
+201 
+202     /*---Calculating and Setting Interface Tension Force-------------------------
+      ---------------------------------------------*/
+203 
+204     ngl::Vector interfaceTensionForce = 0;
+205 
+206     m_fluidParticleList[i].setInterfaceTensionForce(interfaceTensionForce);
+207         if (interfaceTensionGradient.length() > m_fluidParticleList[i].getInterfa
+      ceTensionThreshold())
+208         {
+209             interfaceTensionForce = -1.0 * m_fluidParticleList[i].getInterfaceTen
+      sionCoefficient() * normalizeVector(interfaceTensionGradient) * interfaceTensionL
+      aplacian;
+210 
+211             m_fluidParticleList[i].setInterfaceTensionForce(interfaceTensionForce
+      );
+212         }
+213 
+214     /*--- Calculating and setting the gravity force------------------------------
+      ------------------------------------*/
+215 
+216     ngl::Vector gravityForce;
+217 
+218     ngl::Real _x = 0; ngl::Real _y = 0; ngl::Real _z = 0;
+219     _y =  m_fluidParticleList[i].getDensity() * 
+      SimulationParameters::s_accelerationOfFreeFall;
+220     gravityForce.set(_x,_y,_z);
+221 
+222     m_fluidParticleList[i].setGravityForce(gravityForce);
+223 
+224     /*---Calculating and Setting Acceleration by calculating the total resultant 
+      forces and dividing then by density----------------------------*/
+225 
+226     ngl::Vector netForce = 0;
+227 
+228     netForce = m_fluidParticleList[i].getGravityForce() + m_fluidParticleList[i].
+      getPressureForce() + m_fluidParticleList[i].getViscosityForce() +
+229                m_fluidParticleList[i].getSurfaceTensionForce() + 
+      m_fluidParticleList[i].getInterfaceTensionForce();
+230 
+231     m_fluidParticleList[i].setNetForce(netForce);
+232 
+233     ngl::Vector acceleration = 0;
+234 
+235     acceleration = m_fluidParticleList[i].getNetForce() / m_fluidParticleList[i].
+      getDensity();
+236 
+237     m_fluidParticleList[i].updateAcceleration(acceleration);
+238 
+239     }
+240 
+241 #pragma omp for schedule(dynamic, 50)
+242     /*-----Integration of fluid and calculating its movement--------*/
+243 
+244     for (int i = 0; i < m_fluidParticleList.size(); ++i)
+245     {
+246 
+247             _integrate->integrateNext(m_fluidParticleList[i]);
+248     }
+249 
+250 #pragma omp for schedule(dynamic, 50)
+251     /*----Checking and Handling Collision of Fluid with the Environment Box and R
+      igid Bodies--------------*/
+252     for (int i = 0; i < m_fluidParticleList.size(); ++i)
+253     {
+254         io_environment->checkCollision(m_fluidParticleList[i]);
+255     }
+256 }
+257 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{class_s_p_h_solver_a38ef1e0f18763b28118e3be3a8ba7d08_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{class_s_p_h_solver_a38ef1e0f18763b28118e3be3a8ba7d08_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_s_p_h_solver_a67a0ab46b9a3105400546a758ac6f2d1}{
+\index{SPHSolver@{SPHSolver}!m\_\-drawFluidParticles@{m\_\-drawFluidParticles}}
+\index{m\_\-drawFluidParticles@{m\_\-drawFluidParticles}!SPHSolver@{SPHSolver}}
+\subsubsection[{m\_\-drawFluidParticles}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf SPHSolver::m\_\-drawFluidParticles}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a67a0ab46b9a3105400546a758ac6f2d1}
+
+
+flag to control to display fluid particles in OpenGL Window 
+
+
+
+Definition at line 91 of file SPHSolver.h.
+
+\hypertarget{class_s_p_h_solver_a7eacf79d8d39f885736c50ac8dd81aa2}{
+\index{SPHSolver@{SPHSolver}!m\_\-fluidNameList@{m\_\-fluidNameList}}
+\index{m\_\-fluidNameList@{m\_\-fluidNameList}!SPHSolver@{SPHSolver}}
+\subsubsection[{m\_\-fluidNameList}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$std::string$>$ {\bf SPHSolver::m\_\-fluidNameList}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a7eacf79d8d39f885736c50ac8dd81aa2}
+
+
+Definition at line 61 of file SPHSolver.h.
+
+\hypertarget{class_s_p_h_solver_ae158d26d2bb95bdc260e289e6b8c3b0a}{
+\index{SPHSolver@{SPHSolver}!m\_\-fluidParticleList@{m\_\-fluidParticleList}}
+\index{m\_\-fluidParticleList@{m\_\-fluidParticleList}!SPHSolver@{SPHSolver}}
+\subsubsection[{m\_\-fluidParticleList}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<${\bf FluidParticle}$>$ {\bf SPHSolver::m\_\-fluidParticleList}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_ae158d26d2bb95bdc260e289e6b8c3b0a}
+
+
+list of particles making up the fluid simulation 
+
+
+
+Definition at line 59 of file SPHSolver.h.
+
+\hypertarget{class_s_p_h_solver_ad168b241193a5a34b33553cbd8a26c6f}{
+\index{SPHSolver@{SPHSolver}!m\_\-iteration@{m\_\-iteration}}
+\index{m\_\-iteration@{m\_\-iteration}!SPHSolver@{SPHSolver}}
+\subsubsection[{m\_\-iteration}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf SPHSolver::m\_\-iteration}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_ad168b241193a5a34b33553cbd8a26c6f}
+
+
+iteration counter 
+
+
+
+Definition at line 85 of file SPHSolver.h.
+
+\hypertarget{class_s_p_h_solver_a09a49a1460b8d9d311c177bb61d614fc}{
+\index{SPHSolver@{SPHSolver}!m\_\-smoothingLength@{m\_\-smoothingLength}}
+\index{m\_\-smoothingLength@{m\_\-smoothingLength}!SPHSolver@{SPHSolver}}
+\subsubsection[{m\_\-smoothingLength}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf SPHSolver::m\_\-smoothingLength}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a09a49a1460b8d9d311c177bb61d614fc}
+
+
+smoothing kernel length 
+
+
+
+Definition at line 64 of file SPHSolver.h.
+
+\hypertarget{class_s_p_h_solver_a1743796456c478d5e444d83384bef1dd}{
+\index{SPHSolver@{SPHSolver}!m\_\-spatialHashing@{m\_\-spatialHashing}}
+\index{m\_\-spatialHashing@{m\_\-spatialHashing}!SPHSolver@{SPHSolver}}
+\subsubsection[{m\_\-spatialHashing}]{\setlength{\rightskip}{0pt plus 5cm}{\bf SpatialHashing}$\ast$ {\bf SPHSolver::m\_\-spatialHashing}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a1743796456c478d5e444d83384bef1dd}
+
+
+the neighbouring structure for the fluid particles 
+
+
+
+Definition at line 67 of file SPHSolver.h.
+
+\hypertarget{class_s_p_h_solver_a60c10a0a436f307626d3422fb05809ce}{
+\index{SPHSolver@{SPHSolver}!m\_\-visualizationType@{m\_\-visualizationType}}
+\index{m\_\-visualizationType@{m\_\-visualizationType}!SPHSolver@{SPHSolver}}
+\subsubsection[{m\_\-visualizationType}]{\setlength{\rightskip}{0pt plus 5cm}std::string {\bf SPHSolver::m\_\-visualizationType}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a60c10a0a436f307626d3422fb05809ce}
+
+
+shading type of fluid particles 
+
+
+
+Definition at line 88 of file SPHSolver.h.
+
+\hypertarget{class_s_p_h_solver_ad5a368aa4d10c71bb1aafe84c9f9f838}{
+\index{SPHSolver@{SPHSolver}!m\_\-weightPoly@{m\_\-weightPoly}}
+\index{m\_\-weightPoly@{m\_\-weightPoly}!SPHSolver@{SPHSolver}}
+\subsubsection[{m\_\-weightPoly}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf SPHSolver::m\_\-weightPoly}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_ad5a368aa4d10c71bb1aafe84c9f9f838}
+
+
+pre-\/calculated part of the poly 6 kernel 
+
+
+
+Definition at line 70 of file SPHSolver.h.
+
+\hypertarget{class_s_p_h_solver_a90434405f6296766d54626fe0582d664}{
+\index{SPHSolver@{SPHSolver}!m\_\-weightPolyGradient@{m\_\-weightPolyGradient}}
+\index{m\_\-weightPolyGradient@{m\_\-weightPolyGradient}!SPHSolver@{SPHSolver}}
+\subsubsection[{m\_\-weightPolyGradient}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf SPHSolver::m\_\-weightPolyGradient}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a90434405f6296766d54626fe0582d664}
+
+
+pre-\/calculated part of the poly 6 gradient kernel 
+
+
+
+Definition at line 73 of file SPHSolver.h.
+
+\hypertarget{class_s_p_h_solver_a76b956a2ddc98d9055438a0b57edba15}{
+\index{SPHSolver@{SPHSolver}!m\_\-weightPolyLaplacian@{m\_\-weightPolyLaplacian}}
+\index{m\_\-weightPolyLaplacian@{m\_\-weightPolyLaplacian}!SPHSolver@{SPHSolver}}
+\subsubsection[{m\_\-weightPolyLaplacian}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf SPHSolver::m\_\-weightPolyLaplacian}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a76b956a2ddc98d9055438a0b57edba15}
+
+
+pre-\/calculated part of the poly 6 laplacian kernel 
+
+
+
+Definition at line 76 of file SPHSolver.h.
+
+\hypertarget{class_s_p_h_solver_a69a9cc39ecf773ca645afd281794cf9a}{
+\index{SPHSolver@{SPHSolver}!m\_\-weightPressureGradient@{m\_\-weightPressureGradient}}
+\index{m\_\-weightPressureGradient@{m\_\-weightPressureGradient}!SPHSolver@{SPHSolver}}
+\subsubsection[{m\_\-weightPressureGradient}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf SPHSolver::m\_\-weightPressureGradient}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a69a9cc39ecf773ca645afd281794cf9a}
+
+
+pre-\/calculated part of the pressure gradient kernel 
+
+
+
+Definition at line 79 of file SPHSolver.h.
+
+\hypertarget{class_s_p_h_solver_a7c059675a5ca3fec7f4bf7e59d19f5ab}{
+\index{SPHSolver@{SPHSolver}!m\_\-weightViscosityLaplacian@{m\_\-weightViscosityLaplacian}}
+\index{m\_\-weightViscosityLaplacian@{m\_\-weightViscosityLaplacian}!SPHSolver@{SPHSolver}}
+\subsubsection[{m\_\-weightViscosityLaplacian}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf SPHSolver::m\_\-weightViscosityLaplacian}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_s_p_h_solver_a7c059675a5ca3fec7f4bf7e59d19f5ab}
+
+
+pre-\/calculated part of the viscosity laplacian kernel 
+
+
+
+Definition at line 82 of file SPHSolver.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_s_p_h_solver_8h}{SPHSolver.h}\item 
+src/\hyperlink{_s_p_h_solver_8cpp}{SPHSolver.cpp}\end{DoxyCompactItemize}

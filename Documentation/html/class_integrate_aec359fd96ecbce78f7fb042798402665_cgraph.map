@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" href="$class_particle.html#a0c30fc4edf9e8fba9c015cdd0c4d7dc0" title="return the current acceleration" alt="" coords="235,5,440,32"/>
+<area shape="rect" href="$class_particle.html#a7bb9e571a782e273da7efcf77b3b578f" title="return the current position" alt="" coords="248,56,427,83"/>
+<area shape="rect" href="$class_particle.html#af19d3d862218eda779fc03d5e1678abe" title="return the current velocity" alt="" coords="248,107,427,133"/>
+<area shape="rect" href="$class_particle.html#ab3de889d46b3e95cf91b08674865d128" title="return the last acceleration" alt="" coords="244,157,431,184"/>
+<area shape="rect" href="$class_particle.html#a4ea44dad91df2b0374f2d40d44452b76" title="update the position to a new value" alt="" coords="257,208,417,235"/>
+<area shape="rect" href="$class_particle.html#adacb41b0128b528cb8313337fa224672" title="update the velocity to a new value" alt="" coords="257,259,417,285"/>
+</map>

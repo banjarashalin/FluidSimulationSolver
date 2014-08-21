@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" href="$class_particle.html#aa036d0b56d97a9f56d9c5e3ab9035b9d" title="return the radius" alt="" coords="457,5,636,32"/>
+<area shape="rect" href="$class_particle.html#a7bb9e571a782e273da7efcf77b3b578f" title="return the current position" alt="" coords="457,56,636,83"/>
+<area shape="rect" href="$class_particle.html#af19d3d862218eda779fc03d5e1678abe" title="return the current velocity" alt="" coords="457,107,636,133"/>
+<area shape="rect" href="$class_particle.html#a4ea44dad91df2b0374f2d40d44452b76" title="update the position to a new value" alt="" coords="467,157,627,184"/>
+<area shape="rect" href="$class_particle.html#adacb41b0128b528cb8313337fa224672" title="update the velocity to a new value" alt="" coords="467,208,627,235"/>
+</map>

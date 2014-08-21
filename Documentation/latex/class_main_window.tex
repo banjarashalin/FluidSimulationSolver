@@ -1,0 +1,140 @@
+\hypertarget{class_main_window}{
+\section{MainWindow Class Reference}
+\label{class_main_window}\index{MainWindow@{MainWindow}}
+}
+
+
+contains all the UI extended from MainWindow.ui and our \hyperlink{class_g_l_window}{GLWindow}  
+
+
+
+
+{\ttfamily \#include $<$MainWindow.h$>$}
+
+
+
+Collaboration diagram for MainWindow:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_main_window__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{MainWindow} (QWidget $\ast$parent=0)
+\begin{DoxyCompactList}\small\item\em ctor \item\end{DoxyCompactList}\item 
+\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$MainWindow} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ui::MainWindow $\ast$ \hyperlink{class_main_window_a5a3eb262660797d9a4d52ed16edb6d11}{m\_\-ui}
+\begin{DoxyCompactList}\small\item\em the handle to the main GUI window, used for creating all the UI and the gl window \item\end{DoxyCompactList}\item 
+\hyperlink{class_g_l_window}{GLWindow} $\ast$ \hyperlink{class_main_window_a8f18111d1b422167f8b9a688f38f8969}{m\_\-gl}
+\begin{DoxyCompactList}\small\item\em openGL widget \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contains all the UI extended from MainWindow.ui and our \hyperlink{class_g_l_window}{GLWindow} 
+
+Definition at line 22 of file MainWindow.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\subsubsection[{MainWindow}]{\setlength{\rightskip}{0pt plus 5cm}MainWindow::MainWindow (QWidget $\ast$ {\em parent} = {\ttfamily 0})\hspace{0.3cm}{\ttfamily  \mbox{[}explicit\mbox{]}}}}
+\label{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}
+
+
+ctor 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em parent}]the main application window for the GUI \end{DoxyParams}
+
+
+Definition at line 6 of file MainWindow.cpp.
+
+
+
+References m\_\-gl, and m\_\-ui.
+
+
+
+
+\begin{DoxyCode}
+7                                       :
+8     QMainWindow(parent),
+9     m_ui(new Ui::MainWindow)
+10 {
+11     m_ui->setupUi(this);
+12     m_gl=new GLWindow(this);
+13     m_ui->s_mainWindowGridLayout->addWidget(m_gl,0,0,2,1,0);
+14 
+}
+\end{DoxyCode}
+
+
+\hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{
+\index{MainWindow@{MainWindow}!$\sim$MainWindow@{$\sim$MainWindow}}
+\index{$\sim$MainWindow@{$\sim$MainWindow}!MainWindow@{MainWindow}}
+\subsubsection[{$\sim$MainWindow}]{\setlength{\rightskip}{0pt plus 5cm}MainWindow::$\sim$MainWindow ()}}
+\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}
+
+
+Definition at line 16 of file MainWindow.cpp.
+
+
+
+References m\_\-ui.
+
+
+
+
+\begin{DoxyCode}
+17 {
+18     delete m_ui;
+19 }
+\end{DoxyCode}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_main_window_a8f18111d1b422167f8b9a688f38f8969}{
+\index{MainWindow@{MainWindow}!m\_\-gl@{m\_\-gl}}
+\index{m\_\-gl@{m\_\-gl}!MainWindow@{MainWindow}}
+\subsubsection[{m\_\-gl}]{\setlength{\rightskip}{0pt plus 5cm}{\bf GLWindow}$\ast$ {\bf MainWindow::m\_\-gl}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_main_window_a8f18111d1b422167f8b9a688f38f8969}
+
+
+openGL widget 
+
+
+
+Definition at line 38 of file MainWindow.h.
+
+\hypertarget{class_main_window_a5a3eb262660797d9a4d52ed16edb6d11}{
+\index{MainWindow@{MainWindow}!m\_\-ui@{m\_\-ui}}
+\index{m\_\-ui@{m\_\-ui}!MainWindow@{MainWindow}}
+\subsubsection[{m\_\-ui}]{\setlength{\rightskip}{0pt plus 5cm}Ui::MainWindow$\ast$ {\bf MainWindow::m\_\-ui}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_main_window_a5a3eb262660797d9a4d52ed16edb6d11}
+
+
+the handle to the main GUI window, used for creating all the UI and the gl window 
+
+
+
+Definition at line 35 of file MainWindow.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_main_window_8h}{MainWindow.h}\item 
+src/\hyperlink{_main_window_8cpp}{MainWindow.cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,783 @@
+\hypertarget{class_environment_and_rigid_body}{
+\section{EnvironmentAndRigidBody Class Reference}
+\label{class_environment_and_rigid_body}\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+}
+
+
+stores all rigid body spheres and boundary and manages collisions of fluids with rigid body spheres and Boundary Box  
+
+
+
+
+{\ttfamily \#include $<$EnvironmentAndRigidBody.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_environment_and_rigid_body_adbea7b16726fc80bdaa7cfe528cfe380}{EnvironmentAndRigidBody} ()
+\begin{DoxyCompactList}\small\item\em ctor \item\end{DoxyCompactList}\item 
+\hyperlink{class_environment_and_rigid_body_afab15b296ce8014225d98c0504d443ce}{$\sim$EnvironmentAndRigidBody} ()
+\begin{DoxyCompactList}\small\item\em dtor \item\end{DoxyCompactList}\item 
+void \hyperlink{class_environment_and_rigid_body_a5f3b1304b9a7ba38c69367385340e2cb}{checkCollision} (\hyperlink{class_particle}{Particle} \&io\_\-fluidParticle)
+\begin{DoxyCompactList}\small\item\em detects and handles collision among particles (sphere rbd and fluid particle) \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_environment_and_rigid_body_ad9b64871e62d1cc242683d4bcb785930}{getObstacleEnabled} () const 
+\begin{DoxyCompactList}\small\item\em returns whether RBD interaction is enabled \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_environment_and_rigid_body_ad1877fcc8892fd5ddf67169fe81e9c48}{getBoundaryRestitutionCoefficientForFluid} () const 
+\begin{DoxyCompactList}\small\item\em returns the restitution coefficient for fluid interaction with boundary \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_environment_and_rigid_body_affe6ded30a2dcaf201668e4754ba9f9b}{getRBDSphereRestitutionCoefficient} () const 
+\begin{DoxyCompactList}\small\item\em return the restitution coefficient for fluid interaction with RBD \item\end{DoxyCompactList}\item 
+std::vector$<$ \hyperlink{class_particle}{Particle} $>$ \& \hyperlink{class_environment_and_rigid_body_ab8f19c02935c0763d700dadf8ff4c097}{getRBDSphereList} ()
+\begin{DoxyCompactList}\small\item\em return the list of passive Sphere Rigid Bodies \item\end{DoxyCompactList}\item 
+void \hyperlink{class_environment_and_rigid_body_a1dd9536fc21a143341c904bc08f49f2b}{setBoundaryRestitutionCoefficientForFluid} (const ngl::Real \_\-value)
+\begin{DoxyCompactList}\small\item\em set the restitution coefficient for fluid interaction with boundary \item\end{DoxyCompactList}\item 
+ngl::BBox $\ast$ \hyperlink{class_environment_and_rigid_body_a9f816e09b8e10a8b90eca8c844c103b5}{getBBox} ()
+\begin{DoxyCompactList}\small\item\em return a pointer to Boundary Box \item\end{DoxyCompactList}\item 
+ngl::Colour \hyperlink{class_environment_and_rigid_body_a8ca2c863d79b81cc83b2be0529de0a96}{getBoundaryColour} ()
+\begin{DoxyCompactList}\small\item\em return the colour of Boundary Box required for Rendering \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_environment_and_rigid_body_acfad78cb6ae8ab9d7fb04479c98a618e}{checkAndSolveCollisionWithRBDSphere} (\hyperlink{class_particle}{Particle} \&io\_\-fluidParticle, \hyperlink{class_particle}{Particle} \&\_\-rbdSphere)
+\begin{DoxyCompactList}\small\item\em handle collision between fluid and passive sphere rigid body \item\end{DoxyCompactList}\item 
+void \hyperlink{class_environment_and_rigid_body_ad2f2263fff1ed7f94bb920b7970bdfa3}{checkAndSolveCollisionWithBoundary} (\hyperlink{class_particle}{Particle} \&io\_\-fluidParticle)
+\begin{DoxyCompactList}\small\item\em handle collision between fluid and boundary box \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_environment_and_rigid_body_a3d3cb8603f2c0a1688fc2747b4c3ee78}{m\_\-obstacleEnabled}
+\begin{DoxyCompactList}\small\item\em flag to determine if RBD interaction is enabled \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_environment_and_rigid_body_aadb7dcf7549b62ed3dd79534ca552994}{m\_\-boundaryDimension}
+\begin{DoxyCompactList}\small\item\em boundary dimension \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_environment_and_rigid_body_a5508f26bcf4f0cd9bf0db1694f015468}{m\_\-boundaryPosition}
+\begin{DoxyCompactList}\small\item\em boundary centre position \item\end{DoxyCompactList}\item 
+ngl::BBox $\ast$ \hyperlink{class_environment_and_rigid_body_a59cc8a4afd1d9813b84261dc128b5a9f}{m\_\-boundaryBBox}
+\begin{DoxyCompactList}\small\item\em boundary bounding box object used for collision handling \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_environment_and_rigid_body_a45b08a9025d762d4266b03ec1ea86513}{m\_\-boundaryRestitutionCoefficientForFluid}
+\begin{DoxyCompactList}\small\item\em restitution coefficient for fluid interaction with boundary \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_environment_and_rigid_body_a4cfcbd844ca7a166697423f403f8d46d}{m\_\-rbdSphereRestitutionCoefficient}
+\begin{DoxyCompactList}\small\item\em restitution coefficient for fluid interaction with RBD \item\end{DoxyCompactList}\item 
+std::vector$<$ \hyperlink{class_particle}{Particle} $>$ \hyperlink{class_environment_and_rigid_body_a1360e9aac7908d4a130338ee3e8c04cb}{m\_\-sphereRBDList}
+\begin{DoxyCompactList}\small\item\em list of passive Sphere Rigid Bodies \item\end{DoxyCompactList}\item 
+ngl::Colour \hyperlink{class_environment_and_rigid_body_a432ab35af420a258e44e77487c2abeb3}{m\_\-boundaryColour}
+\begin{DoxyCompactList}\small\item\em colour for the Boundary Box \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+stores all rigid body spheres and boundary and manages collisions of fluids with rigid body spheres and Boundary Box 
+
+Definition at line 17 of file EnvironmentAndRigidBody.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_environment_and_rigid_body_adbea7b16726fc80bdaa7cfe528cfe380}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{EnvironmentAndRigidBody}]{\setlength{\rightskip}{0pt plus 5cm}EnvironmentAndRigidBody::EnvironmentAndRigidBody ()}}
+\label{class_environment_and_rigid_body_adbea7b16726fc80bdaa7cfe528cfe380}
+
+
+ctor 
+
+
+
+Definition at line 8 of file EnvironmentAndRigidBody.cpp.
+
+
+
+References SimulationParameters::initialiseEnvironment(), m\_\-boundaryBBox, m\_\-boundaryColour, m\_\-boundaryDimension, m\_\-boundaryPosition, m\_\-boundaryRestitutionCoefficientForFluid, m\_\-obstacleEnabled, m\_\-rbdSphereRestitutionCoefficient, and m\_\-sphereRBDList.
+
+
+
+
+\begin{DoxyCode}
+9 {
+10     //create params from config
+11     SimulationParameters::initialiseEnvironment
+12                             (
+13                                 m_obstacleEnabled,
+14                                 m_boundaryPosition,
+15                                 m_boundaryDimension,
+16                                 m_boundaryRestitutionCoefficientForFluid,
+17                                 m_sphereRBDList,
+18                                 m_rbdSphereRestitutionCoefficient,
+19                                 m_boundaryColour
+20                             );
+21 
+22     //create bbox for boundary
+23     m_boundaryBBox = new ngl::BBox(m_boundaryPosition, m_boundaryDimension.m_x, 
+      m_boundaryDimension.m_y, m_boundaryDimension.m_z);
+24 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=403pt]{class_environment_and_rigid_body_adbea7b16726fc80bdaa7cfe528cfe380_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_environment_and_rigid_body_afab15b296ce8014225d98c0504d443ce}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!$\sim$EnvironmentAndRigidBody@{$\sim$EnvironmentAndRigidBody}}
+\index{$\sim$EnvironmentAndRigidBody@{$\sim$EnvironmentAndRigidBody}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{$\sim$EnvironmentAndRigidBody}]{\setlength{\rightskip}{0pt plus 5cm}EnvironmentAndRigidBody::$\sim$EnvironmentAndRigidBody ()}}
+\label{class_environment_and_rigid_body_afab15b296ce8014225d98c0504d443ce}
+
+
+dtor 
+
+
+
+Definition at line 26 of file EnvironmentAndRigidBody.cpp.
+
+
+
+References m\_\-boundaryBBox.
+
+
+
+
+\begin{DoxyCode}
+27 {
+28     //clean up
+29     std::cout << "EnvironmentAndRigidBody Cleanup" << std::endl;
+30 
+31     delete m_boundaryBBox;
+32 }
+\end{DoxyCode}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_environment_and_rigid_body_ad2f2263fff1ed7f94bb920b7970bdfa3}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!checkAndSolveCollisionWithBoundary@{checkAndSolveCollisionWithBoundary}}
+\index{checkAndSolveCollisionWithBoundary@{checkAndSolveCollisionWithBoundary}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{checkAndSolveCollisionWithBoundary}]{\setlength{\rightskip}{0pt plus 5cm}void EnvironmentAndRigidBody::checkAndSolveCollisionWithBoundary ({\bf Particle} \& {\em io\_\-fluidParticle})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_environment_and_rigid_body_ad2f2263fff1ed7f94bb920b7970bdfa3}
+
+
+handle collision between fluid and boundary box 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftrightarrow$} {\em io\_\-fluidParticle}]the particle affected by the collision resolution \end{DoxyParams}
+
+
+Definition at line 89 of file EnvironmentAndRigidBody.cpp.
+
+
+
+References Particle::getCollisionRadius(), Particle::getCurrentPosition(), Particle::getCurrentVelocity(), Particle::updatePosition(), and Particle::updateVelocity().
+
+
+
+
+\begin{DoxyCode}
+92 {
+93 
+94     //determine bounds of box
+95     ngl::Real xMax = m_boundaryBBox->center().m_x + (m_boundaryBBox->width()/2.0f
+      );
+96     ngl::Real xMin = m_boundaryBBox->center().m_x - (m_boundaryBBox->width()/2.0f
+      );
+97     ngl::Real yMax = m_boundaryBBox->center().m_y + (m_boundaryBBox->height()/2.0
+      f);
+98     ngl::Real yMin = m_boundaryBBox->center().m_y - (m_boundaryBBox->height()/2.0
+      f);
+99     ngl::Real zMax = m_boundaryBBox->center().m_z + (m_boundaryBBox->depth()/2.0f
+      );
+100     ngl::Real zMin = m_boundaryBBox->center().m_z - (m_boundaryBBox->depth()/2.0f
+      );
+101 
+102     //move bounds closer due to difference in particle radius
+103 
+104     xMax -= io_fluidParticle.getCollisionRadius();
+105     xMin += io_fluidParticle.getCollisionRadius();
+106     yMax -= io_fluidParticle.getCollisionRadius();
+107     yMin += io_fluidParticle.getCollisionRadius();
+108     zMax -= io_fluidParticle.getCollisionRadius();
+109     zMin += io_fluidParticle.getCollisionRadius();
+110 
+111     //get position of particle
+112     ngl::Vector currentPosition = io_fluidParticle.getCurrentPosition();
+113 
+114     ngl::Real restitutionCoefficient = m_boundaryRestitutionCoefficientForFluid;
+115 
+116     if (currentPosition.m_x > xMax)
+117     {
+118         //set position to boundary edge
+119         io_fluidParticle.updatePosition(ngl::Vector(xMax, io_fluidParticle.
+      getCurrentPosition().m_y, io_fluidParticle.getCurrentPosition().m_z));
+120 
+121         //calculate new velocity (reflect on face normal with restitution factor
+122         io_fluidParticle.updateVelocity(ngl::Vector(-restitutionCoefficient * io_
+      fluidParticle.getCurrentVelocity().m_x, io_fluidParticle.getCurrentVelocity().m_y
+      , io_fluidParticle.getCurrentVelocity().m_z));
+123 
+124     }
+125     if (currentPosition.m_x < xMin)
+126     {
+127         //set position to boundary edge
+128         io_fluidParticle.updatePosition(ngl::Vector(xMin, io_fluidParticle.
+      getCurrentPosition().m_y, io_fluidParticle.getCurrentPosition().m_z));
+129 
+130         //calculate new velocity (reflect on face normal with restitution factor
+131         io_fluidParticle.updateVelocity(ngl::Vector(-restitutionCoefficient * io_
+      fluidParticle.getCurrentVelocity().m_x, io_fluidParticle.getCurrentVelocity().m_y
+      , io_fluidParticle.getCurrentVelocity().m_z));
+132     }
+133     if (currentPosition.m_y > yMax)
+134     {
+135         //set position to boundary edge
+136         io_fluidParticle.updatePosition(ngl::Vector(io_fluidParticle.
+      getCurrentPosition().m_x, yMax, io_fluidParticle.getCurrentPosition().m_z));
+137 
+138         //calculate new velocity (reflect on face normal with restitution factor
+139         io_fluidParticle.updateVelocity(ngl::Vector(io_fluidParticle.
+      getCurrentVelocity().m_x, -restitutionCoefficient * io_fluidParticle.
+      getCurrentVelocity().m_y, io_fluidParticle.getCurrentVelocity().m_z));
+140     }
+141     if (currentPosition.m_y < yMin)
+142     {
+143         //set position to boundary edge
+144         io_fluidParticle.updatePosition(ngl::Vector(io_fluidParticle.
+      getCurrentPosition().m_x, yMin, io_fluidParticle.getCurrentPosition().m_z));
+145 
+146         //calculate new velocity (reflect on face normal with restitution factor
+147         io_fluidParticle.updateVelocity(ngl::Vector(io_fluidParticle.
+      getCurrentVelocity().m_x, -restitutionCoefficient * io_fluidParticle.
+      getCurrentVelocity().m_y, io_fluidParticle.getCurrentVelocity().m_z));
+148     }
+149     if (currentPosition.m_z > zMax)
+150     {
+151         io_fluidParticle.updatePosition(ngl::Vector(io_fluidParticle.
+      getCurrentPosition().m_x, io_fluidParticle.getCurrentPosition().m_y, zMax));
+152 
+153         //calculate new velocity (reflect on face normal with restitution factor
+154         io_fluidParticle.updateVelocity(ngl::Vector(io_fluidParticle.
+      getCurrentVelocity().m_x, io_fluidParticle.getCurrentVelocity().m_y, -restitution
+      Coefficient * io_fluidParticle.getCurrentVelocity().m_z));
+155     }
+156     if (currentPosition.m_z < zMin)
+157     {
+158         io_fluidParticle.updatePosition(ngl::Vector(io_fluidParticle.
+      getCurrentPosition().m_x, io_fluidParticle.getCurrentPosition().m_y, zMin));
+159 
+160         //calculate new velocity (reflect on face normal with restitution factor
+161         io_fluidParticle.updateVelocity(ngl::Vector(io_fluidParticle.
+      getCurrentVelocity().m_x, io_fluidParticle.getCurrentVelocity().m_y, -restitution
+      Coefficient * io_fluidParticle.getCurrentVelocity().m_z));
+162     }
+163 
+164 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{class_environment_and_rigid_body_ad2f2263fff1ed7f94bb920b7970bdfa3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{class_environment_and_rigid_body_ad2f2263fff1ed7f94bb920b7970bdfa3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_environment_and_rigid_body_acfad78cb6ae8ab9d7fb04479c98a618e}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!checkAndSolveCollisionWithRBDSphere@{checkAndSolveCollisionWithRBDSphere}}
+\index{checkAndSolveCollisionWithRBDSphere@{checkAndSolveCollisionWithRBDSphere}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{checkAndSolveCollisionWithRBDSphere}]{\setlength{\rightskip}{0pt plus 5cm}void EnvironmentAndRigidBody::checkAndSolveCollisionWithRBDSphere ({\bf Particle} \& {\em io\_\-fluidParticle}, \/  {\bf Particle} \& {\em \_\-rbdSphere})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_environment_and_rigid_body_acfad78cb6ae8ab9d7fb04479c98a618e}
+
+
+handle collision between fluid and passive sphere rigid body 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftrightarrow$} {\em io\_\-fluidParticle}]the particle affected by the collision resolution \item[\mbox{$\leftarrow$} {\em \_\-rbdSphere}]the rigid body sphere against which collision is checked \end{DoxyParams}
+
+
+Definition at line 52 of file EnvironmentAndRigidBody.cpp.
+
+
+
+References Particle::getCollisionRadius(), Particle::getCurrentPosition(), Particle::getCurrentVelocity(), Particle::updatePosition(), and Particle::updateVelocity().
+
+
+
+
+\begin{DoxyCode}
+56 {
+57 
+58     ngl::Real restitutionCoefficient = m_rbdSphereRestitutionCoefficient;
+59     //initialise variables
+60     ngl::Vector X = io_fluidParticle.getCurrentPosition();
+61     ngl::Vector C = _rbdSphere.getCurrentPosition();
+62     ngl::Vector XC = X - C;
+63     ngl::Vector CX = C - X;
+64 
+65     ngl::Real r = io_fluidParticle.getCollisionRadius() + _rbdSphere.
+      getCollisionRadius();
+66 
+67     //calculate implicit function value for a sphere
+68     ngl::Real Fx = XC.lengthSquared() - (r * r);
+69 
+70     if (Fx < 0)
+71     {
+72         //calculate contact point
+73         ngl::Vector CP = C + (r * (XC / XC.length()));
+74 
+75         //calculate normal
+76         ngl::Vector n = (Fx < 0 ? -1 : Fx == 0 ? 0 : 1) * (CX / CX.length());
+77 
+78         io_fluidParticle.updatePosition(CP);
+79 
+80         ngl::Real dot = n.dot(io_fluidParticle.getCurrentVelocity());
+81 
+82         ngl::Vector vel = io_fluidParticle.getCurrentVelocity() - ((1.0 + restitu
+      tionCoefficient) * dot * n);
+83 
+84         io_fluidParticle.updateVelocity(vel);
+85     }
+86 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{class_environment_and_rigid_body_acfad78cb6ae8ab9d7fb04479c98a618e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{class_environment_and_rigid_body_acfad78cb6ae8ab9d7fb04479c98a618e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_environment_and_rigid_body_a5f3b1304b9a7ba38c69367385340e2cb}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!checkCollision@{checkCollision}}
+\index{checkCollision@{checkCollision}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{checkCollision}]{\setlength{\rightskip}{0pt plus 5cm}void EnvironmentAndRigidBody::checkCollision ({\bf Particle} \& {\em io\_\-fluidParticle})}}
+\label{class_environment_and_rigid_body_a5f3b1304b9a7ba38c69367385340e2cb}
+
+
+detects and handles collision among particles (sphere rbd and fluid particle) 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftrightarrow$} {\em io\_\-fluidParticle}]checks for collision with boundary and rigidbody \end{DoxyParams}
+
+
+Definition at line 35 of file EnvironmentAndRigidBody.cpp.
+
+
+
+References checkAndSolveCollisionWithBoundary(), checkAndSolveCollisionWithRBDSphere(), m\_\-obstacleEnabled, and m\_\-sphereRBDList.
+
+
+
+
+\begin{DoxyCode}
+38 {
+39     if (m_obstacleEnabled)
+40     {
+41         BOOST_FOREACH(Particle& rbdSphere, m_sphereRBDList)
+42         {
+43                 /*-------Check Collisions against Rigid Body Spheres-------------
+      -------*/
+44                 checkAndSolveCollisionWithRBDSphere(io_fluidParticle, rbdSphere);
+      
+45         }
+46      }
+47     /*-----------Check Collision against the Boundry Box------------------*/
+48     checkAndSolveCollisionWithBoundary(io_fluidParticle);
+49 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=382pt]{class_environment_and_rigid_body_a5f3b1304b9a7ba38c69367385340e2cb_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{class_environment_and_rigid_body_a5f3b1304b9a7ba38c69367385340e2cb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_environment_and_rigid_body_a9f816e09b8e10a8b90eca8c844c103b5}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!getBBox@{getBBox}}
+\index{getBBox@{getBBox}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{getBBox}]{\setlength{\rightskip}{0pt plus 5cm}ngl::BBox$\ast$ EnvironmentAndRigidBody::getBBox ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_environment_and_rigid_body_a9f816e09b8e10a8b90eca8c844c103b5}
+
+
+return a pointer to Boundary Box 
+
+
+
+Definition at line 50 of file EnvironmentAndRigidBody.h.
+
+
+
+References m\_\-boundaryBBox.
+
+
+
+
+\begin{DoxyCode}
+50 {return m_boundaryBBox;}
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{class_environment_and_rigid_body_a9f816e09b8e10a8b90eca8c844c103b5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_environment_and_rigid_body_a8ca2c863d79b81cc83b2be0529de0a96}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!getBoundaryColour@{getBoundaryColour}}
+\index{getBoundaryColour@{getBoundaryColour}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{getBoundaryColour}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Colour EnvironmentAndRigidBody::getBoundaryColour ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_environment_and_rigid_body_a8ca2c863d79b81cc83b2be0529de0a96}
+
+
+return the colour of Boundary Box required for Rendering 
+
+
+
+Definition at line 53 of file EnvironmentAndRigidBody.h.
+
+
+
+References m\_\-boundaryColour.
+
+
+
+
+\begin{DoxyCode}
+53 {return m_boundaryColour;}
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{class_environment_and_rigid_body_a8ca2c863d79b81cc83b2be0529de0a96_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_environment_and_rigid_body_ad1877fcc8892fd5ddf67169fe81e9c48}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!getBoundaryRestitutionCoefficientForFluid@{getBoundaryRestitutionCoefficientForFluid}}
+\index{getBoundaryRestitutionCoefficientForFluid@{getBoundaryRestitutionCoefficientForFluid}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{getBoundaryRestitutionCoefficientForFluid}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real EnvironmentAndRigidBody::getBoundaryRestitutionCoefficientForFluid () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_environment_and_rigid_body_ad1877fcc8892fd5ddf67169fe81e9c48}
+
+
+returns the restitution coefficient for fluid interaction with boundary 
+
+
+
+Definition at line 37 of file EnvironmentAndRigidBody.h.
+
+
+
+References m\_\-boundaryRestitutionCoefficientForFluid.
+
+
+
+
+\begin{DoxyCode}
+37 { return m_boundaryRestitutionCoefficientForFluid; }
+\end{DoxyCode}
+
+
+\hypertarget{class_environment_and_rigid_body_ad9b64871e62d1cc242683d4bcb785930}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!getObstacleEnabled@{getObstacleEnabled}}
+\index{getObstacleEnabled@{getObstacleEnabled}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{getObstacleEnabled}]{\setlength{\rightskip}{0pt plus 5cm}bool EnvironmentAndRigidBody::getObstacleEnabled () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_environment_and_rigid_body_ad9b64871e62d1cc242683d4bcb785930}
+
+
+returns whether RBD interaction is enabled 
+
+
+
+Definition at line 34 of file EnvironmentAndRigidBody.h.
+
+
+
+References m\_\-obstacleEnabled.
+
+
+
+
+\begin{DoxyCode}
+34 { return m_obstacleEnabled; }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{class_environment_and_rigid_body_ad9b64871e62d1cc242683d4bcb785930_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_environment_and_rigid_body_ab8f19c02935c0763d700dadf8ff4c097}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!getRBDSphereList@{getRBDSphereList}}
+\index{getRBDSphereList@{getRBDSphereList}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{getRBDSphereList}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<${\bf Particle}$>$\& EnvironmentAndRigidBody::getRBDSphereList ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_environment_and_rigid_body_ab8f19c02935c0763d700dadf8ff4c097}
+
+
+return the list of passive Sphere Rigid Bodies 
+
+
+
+Definition at line 43 of file EnvironmentAndRigidBody.h.
+
+
+
+References m\_\-sphereRBDList.
+
+
+
+
+\begin{DoxyCode}
+43 { return m_sphereRBDList; }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{class_environment_and_rigid_body_ab8f19c02935c0763d700dadf8ff4c097_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_environment_and_rigid_body_affe6ded30a2dcaf201668e4754ba9f9b}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!getRBDSphereRestitutionCoefficient@{getRBDSphereRestitutionCoefficient}}
+\index{getRBDSphereRestitutionCoefficient@{getRBDSphereRestitutionCoefficient}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{getRBDSphereRestitutionCoefficient}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real EnvironmentAndRigidBody::getRBDSphereRestitutionCoefficient () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_environment_and_rigid_body_affe6ded30a2dcaf201668e4754ba9f9b}
+
+
+return the restitution coefficient for fluid interaction with RBD 
+
+
+
+Definition at line 40 of file EnvironmentAndRigidBody.h.
+
+
+
+References m\_\-rbdSphereRestitutionCoefficient.
+
+
+
+
+\begin{DoxyCode}
+40 { return m_rbdSphereRestitutionCoefficient; }
+\end{DoxyCode}
+
+
+\hypertarget{class_environment_and_rigid_body_a1dd9536fc21a143341c904bc08f49f2b}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!setBoundaryRestitutionCoefficientForFluid@{setBoundaryRestitutionCoefficientForFluid}}
+\index{setBoundaryRestitutionCoefficientForFluid@{setBoundaryRestitutionCoefficientForFluid}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{setBoundaryRestitutionCoefficientForFluid}]{\setlength{\rightskip}{0pt plus 5cm}void EnvironmentAndRigidBody::setBoundaryRestitutionCoefficientForFluid (const ngl::Real {\em \_\-value})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_environment_and_rigid_body_a1dd9536fc21a143341c904bc08f49f2b}
+
+
+set the restitution coefficient for fluid interaction with boundary 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-value}]the new value \end{DoxyParams}
+
+
+Definition at line 47 of file EnvironmentAndRigidBody.h.
+
+
+
+References m\_\-boundaryRestitutionCoefficientForFluid.
+
+
+
+
+\begin{DoxyCode}
+47 { m_boundaryRestitutionCoefficientForFluid = _value; }
+\end{DoxyCode}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_environment_and_rigid_body_a59cc8a4afd1d9813b84261dc128b5a9f}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!m\_\-boundaryBBox@{m\_\-boundaryBBox}}
+\index{m\_\-boundaryBBox@{m\_\-boundaryBBox}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{m\_\-boundaryBBox}]{\setlength{\rightskip}{0pt plus 5cm}ngl::BBox$\ast$ {\bf EnvironmentAndRigidBody::m\_\-boundaryBBox}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_environment_and_rigid_body_a59cc8a4afd1d9813b84261dc128b5a9f}
+
+
+boundary bounding box object used for collision handling 
+
+
+
+Definition at line 67 of file EnvironmentAndRigidBody.h.
+
+\hypertarget{class_environment_and_rigid_body_a432ab35af420a258e44e77487c2abeb3}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!m\_\-boundaryColour@{m\_\-boundaryColour}}
+\index{m\_\-boundaryColour@{m\_\-boundaryColour}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{m\_\-boundaryColour}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Colour {\bf EnvironmentAndRigidBody::m\_\-boundaryColour}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_environment_and_rigid_body_a432ab35af420a258e44e77487c2abeb3}
+
+
+colour for the Boundary Box 
+
+
+
+Definition at line 79 of file EnvironmentAndRigidBody.h.
+
+\hypertarget{class_environment_and_rigid_body_aadb7dcf7549b62ed3dd79534ca552994}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!m\_\-boundaryDimension@{m\_\-boundaryDimension}}
+\index{m\_\-boundaryDimension@{m\_\-boundaryDimension}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{m\_\-boundaryDimension}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf EnvironmentAndRigidBody::m\_\-boundaryDimension}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_environment_and_rigid_body_aadb7dcf7549b62ed3dd79534ca552994}
+
+
+boundary dimension 
+
+
+
+Definition at line 61 of file EnvironmentAndRigidBody.h.
+
+\hypertarget{class_environment_and_rigid_body_a5508f26bcf4f0cd9bf0db1694f015468}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!m\_\-boundaryPosition@{m\_\-boundaryPosition}}
+\index{m\_\-boundaryPosition@{m\_\-boundaryPosition}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{m\_\-boundaryPosition}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf EnvironmentAndRigidBody::m\_\-boundaryPosition}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_environment_and_rigid_body_a5508f26bcf4f0cd9bf0db1694f015468}
+
+
+boundary centre position 
+
+
+
+Definition at line 64 of file EnvironmentAndRigidBody.h.
+
+\hypertarget{class_environment_and_rigid_body_a45b08a9025d762d4266b03ec1ea86513}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!m\_\-boundaryRestitutionCoefficientForFluid@{m\_\-boundaryRestitutionCoefficientForFluid}}
+\index{m\_\-boundaryRestitutionCoefficientForFluid@{m\_\-boundaryRestitutionCoefficientForFluid}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{m\_\-boundaryRestitutionCoefficientForFluid}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf EnvironmentAndRigidBody::m\_\-boundaryRestitutionCoefficientForFluid}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_environment_and_rigid_body_a45b08a9025d762d4266b03ec1ea86513}
+
+
+restitution coefficient for fluid interaction with boundary 
+
+
+
+Definition at line 70 of file EnvironmentAndRigidBody.h.
+
+\hypertarget{class_environment_and_rigid_body_a3d3cb8603f2c0a1688fc2747b4c3ee78}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!m\_\-obstacleEnabled@{m\_\-obstacleEnabled}}
+\index{m\_\-obstacleEnabled@{m\_\-obstacleEnabled}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{m\_\-obstacleEnabled}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf EnvironmentAndRigidBody::m\_\-obstacleEnabled}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_environment_and_rigid_body_a3d3cb8603f2c0a1688fc2747b4c3ee78}
+
+
+flag to determine if RBD interaction is enabled 
+
+
+
+Definition at line 58 of file EnvironmentAndRigidBody.h.
+
+\hypertarget{class_environment_and_rigid_body_a4cfcbd844ca7a166697423f403f8d46d}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!m\_\-rbdSphereRestitutionCoefficient@{m\_\-rbdSphereRestitutionCoefficient}}
+\index{m\_\-rbdSphereRestitutionCoefficient@{m\_\-rbdSphereRestitutionCoefficient}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{m\_\-rbdSphereRestitutionCoefficient}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf EnvironmentAndRigidBody::m\_\-rbdSphereRestitutionCoefficient}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_environment_and_rigid_body_a4cfcbd844ca7a166697423f403f8d46d}
+
+
+restitution coefficient for fluid interaction with RBD 
+
+
+
+Definition at line 73 of file EnvironmentAndRigidBody.h.
+
+\hypertarget{class_environment_and_rigid_body_a1360e9aac7908d4a130338ee3e8c04cb}{
+\index{EnvironmentAndRigidBody@{EnvironmentAndRigidBody}!m\_\-sphereRBDList@{m\_\-sphereRBDList}}
+\index{m\_\-sphereRBDList@{m\_\-sphereRBDList}!EnvironmentAndRigidBody@{EnvironmentAndRigidBody}}
+\subsubsection[{m\_\-sphereRBDList}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<${\bf Particle}$>$ {\bf EnvironmentAndRigidBody::m\_\-sphereRBDList}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_environment_and_rigid_body_a1360e9aac7908d4a130338ee3e8c04cb}
+
+
+list of passive Sphere Rigid Bodies 
+
+
+
+Definition at line 76 of file EnvironmentAndRigidBody.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_environment_and_rigid_body_8h}{EnvironmentAndRigidBody.h}\item 
+src/\hyperlink{_environment_and_rigid_body_8cpp}{EnvironmentAndRigidBody.cpp}\end{DoxyCompactItemize}

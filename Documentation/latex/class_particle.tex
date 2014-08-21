@@ -1,0 +1,1123 @@
+\hypertarget{class_particle}{
+\section{Particle Class Reference}
+\label{class_particle}\index{Particle@{Particle}}
+}
+
+
+base particle class to all others, it is used and extended to represent fluid and passive rigid bodies  
+
+
+
+
+{\ttfamily \#include $<$Particle.h$>$}
+
+
+
+Inheritance diagram for Particle:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=400pt]{class_particle__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_particle_a6210a8af42489bad229736c176f9d1c9}{Particle} (const int \_\-id, const ngl::Real \_\-mass, const ngl::Vector \_\-position, const ngl::Colour \_\-colour, const ngl::Real \_\-collisionRadius, const ngl::Real \_\-drawRadius, const ngl::Vector \_\-velocity=0, const ngl::Vector \_\-acceleration=0, const ngl::Vector \_\-netForce=0)
+\begin{DoxyCompactList}\small\item\em ctor \item\end{DoxyCompactList}\item 
+\hyperlink{class_particle_ad030d0fe7b88cf81744b127c99244ff4}{$\sim$Particle} ()
+\begin{DoxyCompactList}\small\item\em dtor \item\end{DoxyCompactList}\item 
+int \hyperlink{class_particle_ad9688047786047c9fecf0c304b4f6294}{getId} () const 
+\begin{DoxyCompactList}\small\item\em return the id \item\end{DoxyCompactList}\item 
+void \hyperlink{class_particle_a874b156fe77eec11b80075c5708c283c}{setId} (const int \_\-id)
+\begin{DoxyCompactList}\small\item\em sets the id \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_particle_a51c37948e3b1e36f812be660c306c93b}{getMass} () const 
+\begin{DoxyCompactList}\small\item\em return the mass \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_particle_aaac2b15b45cd70fddfb6736290458e76}{getLastPosition} () const 
+\begin{DoxyCompactList}\small\item\em return the last position \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_particle_a7bb9e571a782e273da7efcf77b3b578f}{getCurrentPosition} () const 
+\begin{DoxyCompactList}\small\item\em return the current position \item\end{DoxyCompactList}\item 
+void \hyperlink{class_particle_a6e5693325b3f5b49458e66624576a0a7}{setPosition} (const ngl::Vector \_\-p)
+\begin{DoxyCompactList}\small\item\em sets the position \item\end{DoxyCompactList}\item 
+void \hyperlink{class_particle_a4ea44dad91df2b0374f2d40d44452b76}{updatePosition} (const ngl::Vector \_\-p)
+\begin{DoxyCompactList}\small\item\em update the position to a new value \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_particle_ab12a2455cfdb31df6dd9e67eaffee833}{getLastVelocity} () const 
+\begin{DoxyCompactList}\small\item\em return the last velocity \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_particle_af19d3d862218eda779fc03d5e1678abe}{getCurrentVelocity} () const 
+\begin{DoxyCompactList}\small\item\em return the current velocity \item\end{DoxyCompactList}\item 
+void \hyperlink{class_particle_ad823b77c5f15777b71f2756698c6ec23}{setVelocity} (const ngl::Vector \_\-v)
+\begin{DoxyCompactList}\small\item\em sets the velocity \item\end{DoxyCompactList}\item 
+void \hyperlink{class_particle_adacb41b0128b528cb8313337fa224672}{updateVelocity} (const ngl::Vector \_\-v)
+\begin{DoxyCompactList}\small\item\em update the velocity to a new value \item\end{DoxyCompactList}\item 
+void \hyperlink{class_particle_ac8899fda0ce03b91b12421e4867b7158}{resetNetForce} ()
+\begin{DoxyCompactList}\small\item\em reset all the forces \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_particle_aa2d47cd6b196082fffc22b5f43e6d237}{getNetForce} () const 
+\begin{DoxyCompactList}\small\item\em return the Net Force \item\end{DoxyCompactList}\item 
+void \hyperlink{class_particle_a1f67bd1a59758665c698c07c135e5b10}{setNetForce} (const ngl::Vector \_\-netForce)
+\begin{DoxyCompactList}\small\item\em set the Net Force \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_particle_ab3de889d46b3e95cf91b08674865d128}{getLastAcceleration} () const 
+\begin{DoxyCompactList}\small\item\em return the last acceleration \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_particle_a0c30fc4edf9e8fba9c015cdd0c4d7dc0}{getCurrentAcceleration} () const 
+\begin{DoxyCompactList}\small\item\em return the current acceleration \item\end{DoxyCompactList}\item 
+void \hyperlink{class_particle_a41bb1603300645f52e875e2b71bfb98c}{setAcceleration} (const ngl::Vector \_\-acceleration)
+\begin{DoxyCompactList}\small\item\em set the acceleration \item\end{DoxyCompactList}\item 
+void \hyperlink{class_particle_a3dc6c80a3666583b038e90d8baac21e0}{updateAcceleration} (const ngl::Vector \_\-acceleration)
+\begin{DoxyCompactList}\small\item\em update the acceleration \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_particle_aa036d0b56d97a9f56d9c5e3ab9035b9d}{getCollisionRadius} () const 
+\begin{DoxyCompactList}\small\item\em return the radius \item\end{DoxyCompactList}\item 
+void \hyperlink{class_particle_ad2926117bb4f364e653f0db90df6569c}{setCollisionRadius} (const ngl::Real \_\-radius)
+\begin{DoxyCompactList}\small\item\em set the radius \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_particle_afeef52fff1d0ad2d8580c6245f5ef743}{getDrawRadius} () const 
+\begin{DoxyCompactList}\small\item\em return the radius \item\end{DoxyCompactList}\item 
+void \hyperlink{class_particle_a642d3b2a89568e2b697fabb248684c2d}{setDrawRadius} (const ngl::Real \_\-radius)
+\begin{DoxyCompactList}\small\item\em set the radius \item\end{DoxyCompactList}\item 
+ngl::Colour \hyperlink{class_particle_a5c4df471b87953ad02ed2674583a26e4}{getParticleColour} () const 
+\begin{DoxyCompactList}\small\item\em return the current colour \item\end{DoxyCompactList}\item 
+void \hyperlink{class_particle_afa5226e879eb60ca5902a733c7c365fb}{setParticleColour} (const ngl::Colour \_\-c)
+\begin{DoxyCompactList}\small\item\em set the colour \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_particle_a24c5edf015f4c3d067acf1a054f31f93}{m\_\-id}
+\begin{DoxyCompactList}\small\item\em unique id of the particle \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_particle_ab166ef7b23d6516e11f42adca0d6620e}{m\_\-mass}
+\begin{DoxyCompactList}\small\item\em mass of the particle \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_particle_aeeb21b06bc3c2152e452226e2b25a6ea}{m\_\-lastPosition}
+\begin{DoxyCompactList}\small\item\em last position of the particle \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_particle_aac033d4c7197975a3ed76dba63108475}{m\_\-currentPosition}
+\begin{DoxyCompactList}\small\item\em position of the particle \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_particle_ac5c460e66588981d09c3aa86b920d8bb}{m\_\-lastVelocity}
+\begin{DoxyCompactList}\small\item\em last velocity of the particle \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_particle_a00a3cb9ed10bf70c3a4e20f631ef7b0a}{m\_\-currentVelocity}
+\begin{DoxyCompactList}\small\item\em velocity of the particle \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_particle_a352c3a71df0b2dc011808e8fc0ace062}{m\_\-lastAcceleration}
+\begin{DoxyCompactList}\small\item\em last acceleration of the particle \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_particle_adc620b3f6a45d397f0a674eef75cee84}{m\_\-currentAcceleration}
+\begin{DoxyCompactList}\small\item\em acceleration of the particle \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_particle_ad328d5b0f44818766286c928e436d36c}{m\_\-netForce}
+\begin{DoxyCompactList}\small\item\em net force on the particle \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_particle_a680993dfd34187f6fb392b54761b285d}{m\_\-drawRadius}
+\begin{DoxyCompactList}\small\item\em draw sphere radius \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_particle_a8bbc5654eda48d6b06c8d768d52cd74b}{m\_\-collisionRadius}
+\begin{DoxyCompactList}\small\item\em collision sphere radius \item\end{DoxyCompactList}\item 
+ngl::Colour \hyperlink{class_particle_a8c2475846190984cc19c9b3b0b668870}{m\_\-particleColour}
+\begin{DoxyCompactList}\small\item\em colour of particle for rendering \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+base particle class to all others, it is used and extended to represent fluid and passive rigid bodies 
+
+Definition at line 20 of file Particle.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_particle_a6210a8af42489bad229736c176f9d1c9}{
+\index{Particle@{Particle}!Particle@{Particle}}
+\index{Particle@{Particle}!Particle@{Particle}}
+\subsubsection[{Particle}]{\setlength{\rightskip}{0pt plus 5cm}Particle::Particle (const int {\em \_\-id}, \/  const ngl::Real {\em \_\-mass}, \/  const ngl::Vector {\em \_\-position}, \/  const ngl::Colour {\em \_\-colour}, \/  const ngl::Real {\em \_\-collisionRadius}, \/  const ngl::Real {\em \_\-drawRadius}, \/  const ngl::Vector {\em \_\-velocity} = {\ttfamily 0}, \/  const ngl::Vector {\em \_\-acceleration} = {\ttfamily 0}, \/  const ngl::Vector {\em \_\-netForce} = {\ttfamily 0})}}
+\label{class_particle_a6210a8af42489bad229736c176f9d1c9}
+
+
+ctor 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-id}]the id of the particle \item[\mbox{$\leftarrow$} {\em \_\-mass}]the mass of the particle \item[\mbox{$\leftarrow$} {\em \_\-position}]the position of the particle \item[\mbox{$\leftarrow$} {\em \_\-colour}]the colour of the particle \item[\mbox{$\leftarrow$} {\em \_\-collisionRadius}]the radius of the particle \item[\mbox{$\leftarrow$} {\em \_\-drawRadius}]radius of the spheres to be drawn \item[\mbox{$\leftarrow$} {\em \_\-velocity}]the velocity of the particle \item[\mbox{$\leftarrow$} {\em \_\-acceleration}]the acceleration of the particle \item[\mbox{$\leftarrow$} {\em \_\-netForce}]the net force acting on the partcile \end{DoxyParams}
+
+
+Definition at line 7 of file Particle.cpp.
+
+
+
+
+\begin{DoxyCode}
+18 {
+19     //init params
+20     m_id = _id;
+21 
+22     m_mass = _mass;
+23 
+24     m_currentPosition = _position;
+25     m_lastPosition = m_currentPosition;
+26 
+27     m_currentVelocity = _velocity;
+28     m_lastVelocity = m_currentVelocity;
+29 
+30     m_currentAcceleration = _acceleration;
+31     m_lastAcceleration = m_currentAcceleration;
+32 
+33     m_netForce = _netForce;
+34 
+35     m_collisionRadius = _collisionRadius;
+36 
+37     m_drawRadius = _drawRadius;
+38 
+39     m_particleColour = _colour;
+40 }
+\end{DoxyCode}
+
+
+\hypertarget{class_particle_ad030d0fe7b88cf81744b127c99244ff4}{
+\index{Particle@{Particle}!$\sim$Particle@{$\sim$Particle}}
+\index{$\sim$Particle@{$\sim$Particle}!Particle@{Particle}}
+\subsubsection[{$\sim$Particle}]{\setlength{\rightskip}{0pt plus 5cm}Particle::$\sim$Particle ()}}
+\label{class_particle_ad030d0fe7b88cf81744b127c99244ff4}
+
+
+dtor 
+
+
+
+Definition at line 42 of file Particle.cpp.
+
+
+
+
+\begin{DoxyCode}
+43 {
+44 }
+\end{DoxyCode}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_particle_aa036d0b56d97a9f56d9c5e3ab9035b9d}{
+\index{Particle@{Particle}!getCollisionRadius@{getCollisionRadius}}
+\index{getCollisionRadius@{getCollisionRadius}!Particle@{Particle}}
+\subsubsection[{getCollisionRadius}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real Particle::getCollisionRadius () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_aa036d0b56d97a9f56d9c5e3ab9035b9d}
+
+
+return the radius 
+
+
+
+Definition at line 112 of file Particle.h.
+
+
+
+References m\_\-collisionRadius.
+
+
+
+
+\begin{DoxyCode}
+112 { return m_collisionRadius; }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{class_particle_aa036d0b56d97a9f56d9c5e3ab9035b9d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_particle_a0c30fc4edf9e8fba9c015cdd0c4d7dc0}{
+\index{Particle@{Particle}!getCurrentAcceleration@{getCurrentAcceleration}}
+\index{getCurrentAcceleration@{getCurrentAcceleration}!Particle@{Particle}}
+\subsubsection[{getCurrentAcceleration}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector Particle::getCurrentAcceleration () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_a0c30fc4edf9e8fba9c015cdd0c4d7dc0}
+
+
+return the current acceleration 
+
+
+
+Definition at line 101 of file Particle.h.
+
+
+
+References m\_\-currentAcceleration.
+
+
+
+
+\begin{DoxyCode}
+101 { return m_currentAcceleration; }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{class_particle_a0c30fc4edf9e8fba9c015cdd0c4d7dc0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_particle_a7bb9e571a782e273da7efcf77b3b578f}{
+\index{Particle@{Particle}!getCurrentPosition@{getCurrentPosition}}
+\index{getCurrentPosition@{getCurrentPosition}!Particle@{Particle}}
+\subsubsection[{getCurrentPosition}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector Particle::getCurrentPosition () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_a7bb9e571a782e273da7efcf77b3b578f}
+
+
+return the current position 
+
+
+
+Definition at line 63 of file Particle.h.
+
+
+
+References m\_\-currentPosition.
+
+
+
+
+\begin{DoxyCode}
+63 { return m_currentPosition; }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{class_particle_a7bb9e571a782e273da7efcf77b3b578f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_particle_af19d3d862218eda779fc03d5e1678abe}{
+\index{Particle@{Particle}!getCurrentVelocity@{getCurrentVelocity}}
+\index{getCurrentVelocity@{getCurrentVelocity}!Particle@{Particle}}
+\subsubsection[{getCurrentVelocity}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector Particle::getCurrentVelocity () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_af19d3d862218eda779fc03d5e1678abe}
+
+
+return the current velocity 
+
+
+
+Definition at line 77 of file Particle.h.
+
+
+
+References m\_\-currentVelocity.
+
+
+
+
+\begin{DoxyCode}
+77 { return m_currentVelocity; }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{class_particle_af19d3d862218eda779fc03d5e1678abe_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_particle_afeef52fff1d0ad2d8580c6245f5ef743}{
+\index{Particle@{Particle}!getDrawRadius@{getDrawRadius}}
+\index{getDrawRadius@{getDrawRadius}!Particle@{Particle}}
+\subsubsection[{getDrawRadius}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real Particle::getDrawRadius () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_afeef52fff1d0ad2d8580c6245f5ef743}
+
+
+return the radius 
+
+
+
+Definition at line 119 of file Particle.h.
+
+
+
+References m\_\-drawRadius.
+
+
+
+
+\begin{DoxyCode}
+119 { return m_drawRadius; }
+\end{DoxyCode}
+
+
+\hypertarget{class_particle_ad9688047786047c9fecf0c304b4f6294}{
+\index{Particle@{Particle}!getId@{getId}}
+\index{getId@{getId}!Particle@{Particle}}
+\subsubsection[{getId}]{\setlength{\rightskip}{0pt plus 5cm}int Particle::getId () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_ad9688047786047c9fecf0c304b4f6294}
+
+
+return the id 
+
+
+
+Definition at line 50 of file Particle.h.
+
+
+
+References m\_\-id.
+
+
+
+
+\begin{DoxyCode}
+50 { return m_id; }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{class_particle_ad9688047786047c9fecf0c304b4f6294_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_particle_ab3de889d46b3e95cf91b08674865d128}{
+\index{Particle@{Particle}!getLastAcceleration@{getLastAcceleration}}
+\index{getLastAcceleration@{getLastAcceleration}!Particle@{Particle}}
+\subsubsection[{getLastAcceleration}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector Particle::getLastAcceleration () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_ab3de889d46b3e95cf91b08674865d128}
+
+
+return the last acceleration 
+
+
+
+Definition at line 98 of file Particle.h.
+
+
+
+References m\_\-lastAcceleration.
+
+
+
+
+\begin{DoxyCode}
+98 { return m_lastAcceleration; }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=409pt]{class_particle_ab3de889d46b3e95cf91b08674865d128_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_particle_aaac2b15b45cd70fddfb6736290458e76}{
+\index{Particle@{Particle}!getLastPosition@{getLastPosition}}
+\index{getLastPosition@{getLastPosition}!Particle@{Particle}}
+\subsubsection[{getLastPosition}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector Particle::getLastPosition () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_aaac2b15b45cd70fddfb6736290458e76}
+
+
+return the last position 
+
+
+
+Definition at line 60 of file Particle.h.
+
+
+
+References m\_\-lastPosition.
+
+
+
+
+\begin{DoxyCode}
+60 { return m_lastPosition; }
+\end{DoxyCode}
+
+
+\hypertarget{class_particle_ab12a2455cfdb31df6dd9e67eaffee833}{
+\index{Particle@{Particle}!getLastVelocity@{getLastVelocity}}
+\index{getLastVelocity@{getLastVelocity}!Particle@{Particle}}
+\subsubsection[{getLastVelocity}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector Particle::getLastVelocity () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_ab12a2455cfdb31df6dd9e67eaffee833}
+
+
+return the last velocity 
+
+
+
+Definition at line 74 of file Particle.h.
+
+
+
+References m\_\-lastVelocity.
+
+
+
+
+\begin{DoxyCode}
+74 { return m_lastVelocity; }
+\end{DoxyCode}
+
+
+\hypertarget{class_particle_a51c37948e3b1e36f812be660c306c93b}{
+\index{Particle@{Particle}!getMass@{getMass}}
+\index{getMass@{getMass}!Particle@{Particle}}
+\subsubsection[{getMass}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real Particle::getMass () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_a51c37948e3b1e36f812be660c306c93b}
+
+
+return the mass 
+
+
+
+Definition at line 57 of file Particle.h.
+
+
+
+References m\_\-mass.
+
+
+
+
+\begin{DoxyCode}
+57 { return m_mass; }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{class_particle_a51c37948e3b1e36f812be660c306c93b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_particle_aa2d47cd6b196082fffc22b5f43e6d237}{
+\index{Particle@{Particle}!getNetForce@{getNetForce}}
+\index{getNetForce@{getNetForce}!Particle@{Particle}}
+\subsubsection[{getNetForce}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector Particle::getNetForce () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_aa2d47cd6b196082fffc22b5f43e6d237}
+
+
+return the Net Force 
+
+
+
+Definition at line 91 of file Particle.h.
+
+
+
+References m\_\-netForce.
+
+
+
+
+\begin{DoxyCode}
+91 { return m_netForce; }
+\end{DoxyCode}
+
+
+\hypertarget{class_particle_a5c4df471b87953ad02ed2674583a26e4}{
+\index{Particle@{Particle}!getParticleColour@{getParticleColour}}
+\index{getParticleColour@{getParticleColour}!Particle@{Particle}}
+\subsubsection[{getParticleColour}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Colour Particle::getParticleColour () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_a5c4df471b87953ad02ed2674583a26e4}
+
+
+return the current colour 
+
+
+
+Definition at line 126 of file Particle.h.
+
+
+
+References m\_\-particleColour.
+
+
+
+
+\begin{DoxyCode}
+126 { return m_particleColour; }
+\end{DoxyCode}
+
+
+\hypertarget{class_particle_ac8899fda0ce03b91b12421e4867b7158}{
+\index{Particle@{Particle}!resetNetForce@{resetNetForce}}
+\index{resetNetForce@{resetNetForce}!Particle@{Particle}}
+\subsubsection[{resetNetForce}]{\setlength{\rightskip}{0pt plus 5cm}void Particle::resetNetForce ()\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_ac8899fda0ce03b91b12421e4867b7158}
+
+
+reset all the forces 
+
+
+
+Definition at line 88 of file Particle.h.
+
+
+
+References m\_\-netForce.
+
+
+
+
+\begin{DoxyCode}
+88 { m_netForce = 0; }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=163pt]{class_particle_ac8899fda0ce03b91b12421e4867b7158_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_particle_a41bb1603300645f52e875e2b71bfb98c}{
+\index{Particle@{Particle}!setAcceleration@{setAcceleration}}
+\index{setAcceleration@{setAcceleration}!Particle@{Particle}}
+\subsubsection[{setAcceleration}]{\setlength{\rightskip}{0pt plus 5cm}void Particle::setAcceleration (const ngl::Vector {\em \_\-acceleration})}}
+\label{class_particle_a41bb1603300645f52e875e2b71bfb98c}
+
+
+set the acceleration 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-acceleration}]the new acceleration \end{DoxyParams}
+
+
+Definition at line 78 of file Particle.cpp.
+
+
+
+References m\_\-currentAcceleration, and m\_\-lastAcceleration.
+
+
+
+
+\begin{DoxyCode}
+79 {
+80     //set velocities to new value
+81     m_lastAcceleration = _acceleration;
+82     m_currentAcceleration = _acceleration;
+83 }
+\end{DoxyCode}
+
+
+\hypertarget{class_particle_ad2926117bb4f364e653f0db90df6569c}{
+\index{Particle@{Particle}!setCollisionRadius@{setCollisionRadius}}
+\index{setCollisionRadius@{setCollisionRadius}!Particle@{Particle}}
+\subsubsection[{setCollisionRadius}]{\setlength{\rightskip}{0pt plus 5cm}void Particle::setCollisionRadius (const ngl::Real {\em \_\-radius})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_ad2926117bb4f364e653f0db90df6569c}
+
+
+set the radius 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-radius}]the radius \end{DoxyParams}
+
+
+Definition at line 116 of file Particle.h.
+
+
+
+References m\_\-collisionRadius.
+
+
+
+
+\begin{DoxyCode}
+116 { m_collisionRadius = _radius; }
+\end{DoxyCode}
+
+
+\hypertarget{class_particle_a642d3b2a89568e2b697fabb248684c2d}{
+\index{Particle@{Particle}!setDrawRadius@{setDrawRadius}}
+\index{setDrawRadius@{setDrawRadius}!Particle@{Particle}}
+\subsubsection[{setDrawRadius}]{\setlength{\rightskip}{0pt plus 5cm}void Particle::setDrawRadius (const ngl::Real {\em \_\-radius})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_a642d3b2a89568e2b697fabb248684c2d}
+
+
+set the radius 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-radius}]the radius \end{DoxyParams}
+
+
+Definition at line 123 of file Particle.h.
+
+
+
+References m\_\-drawRadius.
+
+
+
+
+\begin{DoxyCode}
+123 { m_drawRadius = _radius; }
+\end{DoxyCode}
+
+
+\hypertarget{class_particle_a874b156fe77eec11b80075c5708c283c}{
+\index{Particle@{Particle}!setId@{setId}}
+\index{setId@{setId}!Particle@{Particle}}
+\subsubsection[{setId}]{\setlength{\rightskip}{0pt plus 5cm}void Particle::setId (const int {\em \_\-id})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_a874b156fe77eec11b80075c5708c283c}
+
+
+sets the id 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-id}]the id \end{DoxyParams}
+
+
+Definition at line 54 of file Particle.h.
+
+
+
+References m\_\-id.
+
+
+
+
+\begin{DoxyCode}
+54 { m_id = _id; }
+\end{DoxyCode}
+
+
+\hypertarget{class_particle_a1f67bd1a59758665c698c07c135e5b10}{
+\index{Particle@{Particle}!setNetForce@{setNetForce}}
+\index{setNetForce@{setNetForce}!Particle@{Particle}}
+\subsubsection[{setNetForce}]{\setlength{\rightskip}{0pt plus 5cm}void Particle::setNetForce (const ngl::Vector {\em \_\-netForce})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_a1f67bd1a59758665c698c07c135e5b10}
+
+
+set the Net Force 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-netForce}]the new Net Force \end{DoxyParams}
+
+
+Definition at line 95 of file Particle.h.
+
+
+
+References m\_\-netForce.
+
+
+
+
+\begin{DoxyCode}
+95 { m_netForce = _netForce; }
+\end{DoxyCode}
+
+
+\hypertarget{class_particle_afa5226e879eb60ca5902a733c7c365fb}{
+\index{Particle@{Particle}!setParticleColour@{setParticleColour}}
+\index{setParticleColour@{setParticleColour}!Particle@{Particle}}
+\subsubsection[{setParticleColour}]{\setlength{\rightskip}{0pt plus 5cm}void Particle::setParticleColour (const ngl::Colour {\em \_\-c})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_particle_afa5226e879eb60ca5902a733c7c365fb}
+
+
+set the colour 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-c}]the new colour \end{DoxyParams}
+
+
+Definition at line 130 of file Particle.h.
+
+
+
+References m\_\-particleColour.
+
+
+
+
+\begin{DoxyCode}
+130 { m_particleColour = _c; }
+\end{DoxyCode}
+
+
+\hypertarget{class_particle_a6e5693325b3f5b49458e66624576a0a7}{
+\index{Particle@{Particle}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!Particle@{Particle}}
+\subsubsection[{setPosition}]{\setlength{\rightskip}{0pt plus 5cm}void Particle::setPosition (const ngl::Vector {\em \_\-p})}}
+\label{class_particle_a6e5693325b3f5b49458e66624576a0a7}
+
+
+sets the position 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-p}]the new position \end{DoxyParams}
+
+
+Definition at line 46 of file Particle.cpp.
+
+
+
+References m\_\-currentPosition, and m\_\-lastPosition.
+
+
+
+
+\begin{DoxyCode}
+47 {
+48     //set positions to new value
+49     m_lastPosition = _position;
+50     m_currentPosition = _position;
+51 }
+\end{DoxyCode}
+
+
+\hypertarget{class_particle_ad823b77c5f15777b71f2756698c6ec23}{
+\index{Particle@{Particle}!setVelocity@{setVelocity}}
+\index{setVelocity@{setVelocity}!Particle@{Particle}}
+\subsubsection[{setVelocity}]{\setlength{\rightskip}{0pt plus 5cm}void Particle::setVelocity (const ngl::Vector {\em \_\-v})}}
+\label{class_particle_ad823b77c5f15777b71f2756698c6ec23}
+
+
+sets the velocity 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-v}]the new velocity \end{DoxyParams}
+
+
+Definition at line 62 of file Particle.cpp.
+
+
+
+References m\_\-currentVelocity, and m\_\-lastVelocity.
+
+
+
+
+\begin{DoxyCode}
+63 {
+64     //set velocities to new value
+65     m_lastVelocity = _velocity;
+66     m_currentVelocity = _velocity;
+67 }
+\end{DoxyCode}
+
+
+\hypertarget{class_particle_a3dc6c80a3666583b038e90d8baac21e0}{
+\index{Particle@{Particle}!updateAcceleration@{updateAcceleration}}
+\index{updateAcceleration@{updateAcceleration}!Particle@{Particle}}
+\subsubsection[{updateAcceleration}]{\setlength{\rightskip}{0pt plus 5cm}void Particle::updateAcceleration (const ngl::Vector {\em \_\-acceleration})}}
+\label{class_particle_a3dc6c80a3666583b038e90d8baac21e0}
+
+
+update the acceleration 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-acceleration}]the new acceleration \end{DoxyParams}
+
+
+Definition at line 85 of file Particle.cpp.
+
+
+
+References m\_\-currentAcceleration, and m\_\-lastAcceleration.
+
+
+
+
+\begin{DoxyCode}
+86 {
+87     //save current value
+88     m_lastAcceleration = m_currentAcceleration;
+89 
+90     //update to new value
+91     m_currentAcceleration = _acceleration;
+92 }
+\end{DoxyCode}
+
+
+\hypertarget{class_particle_a4ea44dad91df2b0374f2d40d44452b76}{
+\index{Particle@{Particle}!updatePosition@{updatePosition}}
+\index{updatePosition@{updatePosition}!Particle@{Particle}}
+\subsubsection[{updatePosition}]{\setlength{\rightskip}{0pt plus 5cm}void Particle::updatePosition (const ngl::Vector {\em \_\-p})}}
+\label{class_particle_a4ea44dad91df2b0374f2d40d44452b76}
+
+
+update the position to a new value 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-p}]the new position \end{DoxyParams}
+
+
+Definition at line 53 of file Particle.cpp.
+
+
+
+References m\_\-currentPosition, and m\_\-lastPosition.
+
+
+
+
+\begin{DoxyCode}
+54 {
+55     //save current value
+56     m_lastPosition = m_currentPosition;
+57 
+58     //update to new value
+59     m_currentPosition = _position;
+60 }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{class_particle_a4ea44dad91df2b0374f2d40d44452b76_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_particle_adacb41b0128b528cb8313337fa224672}{
+\index{Particle@{Particle}!updateVelocity@{updateVelocity}}
+\index{updateVelocity@{updateVelocity}!Particle@{Particle}}
+\subsubsection[{updateVelocity}]{\setlength{\rightskip}{0pt plus 5cm}void Particle::updateVelocity (const ngl::Vector {\em \_\-v})}}
+\label{class_particle_adacb41b0128b528cb8313337fa224672}
+
+
+update the velocity to a new value 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-v}]the new velocity \end{DoxyParams}
+
+
+Definition at line 69 of file Particle.cpp.
+
+
+
+References m\_\-currentVelocity, and m\_\-lastVelocity.
+
+
+
+
+\begin{DoxyCode}
+70 {
+71     //save current value
+72     m_lastVelocity = m_currentVelocity;
+73 
+74     //update to new value
+75     m_currentVelocity = _velocity;
+76 }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{class_particle_adacb41b0128b528cb8313337fa224672_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_particle_a8bbc5654eda48d6b06c8d768d52cd74b}{
+\index{Particle@{Particle}!m\_\-collisionRadius@{m\_\-collisionRadius}}
+\index{m\_\-collisionRadius@{m\_\-collisionRadius}!Particle@{Particle}}
+\subsubsection[{m\_\-collisionRadius}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf Particle::m\_\-collisionRadius}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_particle_a8bbc5654eda48d6b06c8d768d52cd74b}
+
+
+collision sphere radius 
+
+
+
+Definition at line 164 of file Particle.h.
+
+\hypertarget{class_particle_adc620b3f6a45d397f0a674eef75cee84}{
+\index{Particle@{Particle}!m\_\-currentAcceleration@{m\_\-currentAcceleration}}
+\index{m\_\-currentAcceleration@{m\_\-currentAcceleration}!Particle@{Particle}}
+\subsubsection[{m\_\-currentAcceleration}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf Particle::m\_\-currentAcceleration}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_particle_adc620b3f6a45d397f0a674eef75cee84}
+
+
+acceleration of the particle 
+
+
+
+Definition at line 155 of file Particle.h.
+
+\hypertarget{class_particle_aac033d4c7197975a3ed76dba63108475}{
+\index{Particle@{Particle}!m\_\-currentPosition@{m\_\-currentPosition}}
+\index{m\_\-currentPosition@{m\_\-currentPosition}!Particle@{Particle}}
+\subsubsection[{m\_\-currentPosition}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf Particle::m\_\-currentPosition}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_particle_aac033d4c7197975a3ed76dba63108475}
+
+
+position of the particle 
+
+
+
+Definition at line 143 of file Particle.h.
+
+\hypertarget{class_particle_a00a3cb9ed10bf70c3a4e20f631ef7b0a}{
+\index{Particle@{Particle}!m\_\-currentVelocity@{m\_\-currentVelocity}}
+\index{m\_\-currentVelocity@{m\_\-currentVelocity}!Particle@{Particle}}
+\subsubsection[{m\_\-currentVelocity}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf Particle::m\_\-currentVelocity}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_particle_a00a3cb9ed10bf70c3a4e20f631ef7b0a}
+
+
+velocity of the particle 
+
+
+
+Definition at line 149 of file Particle.h.
+
+\hypertarget{class_particle_a680993dfd34187f6fb392b54761b285d}{
+\index{Particle@{Particle}!m\_\-drawRadius@{m\_\-drawRadius}}
+\index{m\_\-drawRadius@{m\_\-drawRadius}!Particle@{Particle}}
+\subsubsection[{m\_\-drawRadius}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf Particle::m\_\-drawRadius}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_particle_a680993dfd34187f6fb392b54761b285d}
+
+
+draw sphere radius 
+
+
+
+Definition at line 161 of file Particle.h.
+
+\hypertarget{class_particle_a24c5edf015f4c3d067acf1a054f31f93}{
+\index{Particle@{Particle}!m\_\-id@{m\_\-id}}
+\index{m\_\-id@{m\_\-id}!Particle@{Particle}}
+\subsubsection[{m\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf Particle::m\_\-id}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_particle_a24c5edf015f4c3d067acf1a054f31f93}
+
+
+unique id of the particle 
+
+
+
+Definition at line 134 of file Particle.h.
+
+\hypertarget{class_particle_a352c3a71df0b2dc011808e8fc0ace062}{
+\index{Particle@{Particle}!m\_\-lastAcceleration@{m\_\-lastAcceleration}}
+\index{m\_\-lastAcceleration@{m\_\-lastAcceleration}!Particle@{Particle}}
+\subsubsection[{m\_\-lastAcceleration}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf Particle::m\_\-lastAcceleration}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_particle_a352c3a71df0b2dc011808e8fc0ace062}
+
+
+last acceleration of the particle 
+
+
+
+Definition at line 152 of file Particle.h.
+
+\hypertarget{class_particle_aeeb21b06bc3c2152e452226e2b25a6ea}{
+\index{Particle@{Particle}!m\_\-lastPosition@{m\_\-lastPosition}}
+\index{m\_\-lastPosition@{m\_\-lastPosition}!Particle@{Particle}}
+\subsubsection[{m\_\-lastPosition}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf Particle::m\_\-lastPosition}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_particle_aeeb21b06bc3c2152e452226e2b25a6ea}
+
+
+last position of the particle 
+
+
+
+Definition at line 140 of file Particle.h.
+
+\hypertarget{class_particle_ac5c460e66588981d09c3aa86b920d8bb}{
+\index{Particle@{Particle}!m\_\-lastVelocity@{m\_\-lastVelocity}}
+\index{m\_\-lastVelocity@{m\_\-lastVelocity}!Particle@{Particle}}
+\subsubsection[{m\_\-lastVelocity}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf Particle::m\_\-lastVelocity}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_particle_ac5c460e66588981d09c3aa86b920d8bb}
+
+
+last velocity of the particle 
+
+
+
+Definition at line 146 of file Particle.h.
+
+\hypertarget{class_particle_ab166ef7b23d6516e11f42adca0d6620e}{
+\index{Particle@{Particle}!m\_\-mass@{m\_\-mass}}
+\index{m\_\-mass@{m\_\-mass}!Particle@{Particle}}
+\subsubsection[{m\_\-mass}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf Particle::m\_\-mass}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_particle_ab166ef7b23d6516e11f42adca0d6620e}
+
+
+mass of the particle 
+
+
+
+Definition at line 137 of file Particle.h.
+
+\hypertarget{class_particle_ad328d5b0f44818766286c928e436d36c}{
+\index{Particle@{Particle}!m\_\-netForce@{m\_\-netForce}}
+\index{m\_\-netForce@{m\_\-netForce}!Particle@{Particle}}
+\subsubsection[{m\_\-netForce}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf Particle::m\_\-netForce}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_particle_ad328d5b0f44818766286c928e436d36c}
+
+
+net force on the particle 
+
+
+
+Definition at line 158 of file Particle.h.
+
+\hypertarget{class_particle_a8c2475846190984cc19c9b3b0b668870}{
+\index{Particle@{Particle}!m\_\-particleColour@{m\_\-particleColour}}
+\index{m\_\-particleColour@{m\_\-particleColour}!Particle@{Particle}}
+\subsubsection[{m\_\-particleColour}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Colour {\bf Particle::m\_\-particleColour}\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_particle_a8c2475846190984cc19c9b3b0b668870}
+
+
+colour of particle for rendering 
+
+
+
+Definition at line 167 of file Particle.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_particle_8h}{Particle.h}\item 
+src/\hyperlink{_particle_8cpp}{Particle.cpp}\end{DoxyCompactItemize}

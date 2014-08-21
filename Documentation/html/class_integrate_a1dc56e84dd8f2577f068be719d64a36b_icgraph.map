@@ -1,0 +1,4 @@
+<map id="G" name="G">
+<area shape="rect" href="$class_g_l_window.html#a9bd2503dd5f812c10a9481f22ecd3403" title="this is the main gl drawing routine which is called whenever the window needs to" alt="" coords="213,5,349,32"/>
+<area shape="rect" href="$class_g_l_window.html#a8901509418ab117e8613d624df9b5666" title="the timer event triggered from the timers" alt="" coords="205,56,357,83"/>
+</map>

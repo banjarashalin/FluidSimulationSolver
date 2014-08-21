@@ -1,0 +1,407 @@
+\hypertarget{class_integrate}{
+\section{Integrate Class Reference}
+\label{class_integrate}\index{Integrate@{Integrate}}
+}
+
+
+handles integration to find next position and velocity of particles  
+
+
+
+
+{\ttfamily \#include $<$Integrate.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_integrate_af0f7265f78a87be89d07983d0d4806ee}{Integrate} ()
+\begin{DoxyCompactList}\small\item\em ctor \item\end{DoxyCompactList}\item 
+void \hyperlink{class_integrate_ada967b8b2b909f7c827009dad33738ec}{integrateNext} (\hyperlink{class_particle}{Particle} \&io\_\-fluidParticle)
+\begin{DoxyCompactList}\small\item\em integrate next velocity and position of a particle \item\end{DoxyCompactList}\item 
+std::string \hyperlink{class_integrate_a3b44dc234ce6802e267ceaaff7379b32}{getIntegrateType} () const 
+\begin{DoxyCompactList}\small\item\em get the Integration method \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_integrate_a1dc56e84dd8f2577f068be719d64a36b}{getTimestep} () const 
+\begin{DoxyCompactList}\small\item\em get the timestep value \item\end{DoxyCompactList}\item 
+void \hyperlink{class_integrate_afc825f2a88811940160aec5243d2d51c}{setTimestep} (const ngl::Real \_\-timestep)
+\begin{DoxyCompactList}\small\item\em set the timestep for the simulation solver \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_integrate_ae9b7697b3cf896e6db63fc9653846591}{calculateSemiImplicitEuler} (\hyperlink{class_particle}{Particle} \&io\_\-fluidParticle)
+\begin{DoxyCompactList}\small\item\em integrate a particle using semi implicit euler \item\end{DoxyCompactList}\item 
+void \hyperlink{class_integrate_aec359fd96ecbce78f7fb042798402665}{calculateLeapfrog} (\hyperlink{class_particle}{Particle} \&io\_\-fluidParticle)
+\begin{DoxyCompactList}\small\item\em integrate a particle using leapfrog \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::string \hyperlink{class_integrate_a098af16c9cf3d1c59a771f3e39c6d534}{m\_\-IntegrateType}
+\begin{DoxyCompactList}\small\item\em Integration method. \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_integrate_a2d8b50d0e8ae35985925e0f636215aee}{m\_\-timestep}
+\begin{DoxyCompactList}\small\item\em timestep of simulation \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+handles integration to find next position and velocity of particles 
+
+Definition at line 17 of file Integrate.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_integrate_af0f7265f78a87be89d07983d0d4806ee}{
+\index{Integrate@{Integrate}!Integrate@{Integrate}}
+\index{Integrate@{Integrate}!Integrate@{Integrate}}
+\subsubsection[{Integrate}]{\setlength{\rightskip}{0pt plus 5cm}Integrate::Integrate ()}}
+\label{class_integrate_af0f7265f78a87be89d07983d0d4806ee}
+
+
+ctor 
+
+
+
+Definition at line 7 of file Integrate.cpp.
+
+
+
+References SimulationParameters::initialiseIntegrate(), m\_\-IntegrateType, and m\_\-timestep.
+
+
+
+
+\begin{DoxyCode}
+8 {
+9     SimulationParameters::initialiseIntegrate(m_IntegrateType,m_timestep);
+10 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{class_integrate_af0f7265f78a87be89d07983d0d4806ee_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_integrate_aec359fd96ecbce78f7fb042798402665}{
+\index{Integrate@{Integrate}!calculateLeapfrog@{calculateLeapfrog}}
+\index{calculateLeapfrog@{calculateLeapfrog}!Integrate@{Integrate}}
+\subsubsection[{calculateLeapfrog}]{\setlength{\rightskip}{0pt plus 5cm}void Integrate::calculateLeapfrog ({\bf Particle} \& {\em io\_\-fluidParticle})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_integrate_aec359fd96ecbce78f7fb042798402665}
+
+
+integrate a particle using leapfrog 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftrightarrow$} {\em io\_\-fluidParticle}]the particle that is being affected \end{DoxyParams}
+
+
+Definition at line 35 of file Integrate.cpp.
+
+
+
+References Particle::getCurrentAcceleration(), Particle::getCurrentPosition(), Particle::getCurrentVelocity(), Particle::getLastAcceleration(), m\_\-timestep, Particle::updatePosition(), and Particle::updateVelocity().
+
+
+
+
+\begin{DoxyCode}
+36 {
+37     /*-----modified leapfrog from http://en.wikipedia.org/wiki/Leapfrog_Integrate
+      -----------------------------------------------------------*/
+38 
+39     io_fluidParticle.updateVelocity(io_fluidParticle.getCurrentVelocity() + (((io
+      _fluidParticle.getLastAcceleration() + io_fluidParticle.getCurrentAcceleration())
+       / 2.0) * m_timestep));
+40 
+41     io_fluidParticle.updatePosition(io_fluidParticle.getCurrentPosition() + (io_f
+      luidParticle.getCurrentVelocity() * m_timestep) + ((io_fluidParticle.
+      getLastAcceleration() / 2.0) * m_timestep * m_timestep));
+42 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{class_integrate_aec359fd96ecbce78f7fb042798402665_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{class_integrate_aec359fd96ecbce78f7fb042798402665_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_integrate_ae9b7697b3cf896e6db63fc9653846591}{
+\index{Integrate@{Integrate}!calculateSemiImplicitEuler@{calculateSemiImplicitEuler}}
+\index{calculateSemiImplicitEuler@{calculateSemiImplicitEuler}!Integrate@{Integrate}}
+\subsubsection[{calculateSemiImplicitEuler}]{\setlength{\rightskip}{0pt plus 5cm}void Integrate::calculateSemiImplicitEuler ({\bf Particle} \& {\em io\_\-fluidParticle})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_integrate_ae9b7697b3cf896e6db63fc9653846591}
+
+
+integrate a particle using semi implicit euler 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftrightarrow$} {\em io\_\-fluidParticle}]the particle that is being affected \end{DoxyParams}
+
+
+Definition at line 26 of file Integrate.cpp.
+
+
+
+References Particle::getCurrentAcceleration(), Particle::getCurrentPosition(), Particle::getCurrentVelocity(), m\_\-timestep, Particle::updatePosition(), and Particle::updateVelocity().
+
+
+
+
+\begin{DoxyCode}
+27 {
+28     /*-----semi implicit euler from http://en.wikipedia.org/wiki/Semi-implicit_Eu
+      ler----------------------------------------------*/
+29 
+30     io_fluidParticle.updateVelocity(io_fluidParticle.getCurrentVelocity() + (io_f
+      luidParticle.getCurrentAcceleration() * m_timestep));
+31 
+32     io_fluidParticle.updatePosition(io_fluidParticle.getCurrentPosition() + (io_f
+      luidParticle.getCurrentVelocity() * m_timestep));
+33 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{class_integrate_ae9b7697b3cf896e6db63fc9653846591_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{class_integrate_ae9b7697b3cf896e6db63fc9653846591_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_integrate_a3b44dc234ce6802e267ceaaff7379b32}{
+\index{Integrate@{Integrate}!getIntegrateType@{getIntegrateType}}
+\index{getIntegrateType@{getIntegrateType}!Integrate@{Integrate}}
+\subsubsection[{getIntegrateType}]{\setlength{\rightskip}{0pt plus 5cm}std::string Integrate::getIntegrateType () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_integrate_a3b44dc234ce6802e267ceaaff7379b32}
+
+
+get the Integration method 
+
+
+
+Definition at line 28 of file Integrate.h.
+
+
+
+References m\_\-IntegrateType.
+
+
+
+
+\begin{DoxyCode}
+28 { return m_IntegrateType; }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{class_integrate_a3b44dc234ce6802e267ceaaff7379b32_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_integrate_a1dc56e84dd8f2577f068be719d64a36b}{
+\index{Integrate@{Integrate}!getTimestep@{getTimestep}}
+\index{getTimestep@{getTimestep}!Integrate@{Integrate}}
+\subsubsection[{getTimestep}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real Integrate::getTimestep () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_integrate_a1dc56e84dd8f2577f068be719d64a36b}
+
+
+get the timestep value 
+
+
+
+Definition at line 31 of file Integrate.h.
+
+
+
+References m\_\-timestep.
+
+
+
+
+\begin{DoxyCode}
+31 { return m_timestep; }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{class_integrate_a1dc56e84dd8f2577f068be719d64a36b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_integrate_ada967b8b2b909f7c827009dad33738ec}{
+\index{Integrate@{Integrate}!integrateNext@{integrateNext}}
+\index{integrateNext@{integrateNext}!Integrate@{Integrate}}
+\subsubsection[{integrateNext}]{\setlength{\rightskip}{0pt plus 5cm}void Integrate::integrateNext ({\bf Particle} \& {\em io\_\-fluidParticle})}}
+\label{class_integrate_ada967b8b2b909f7c827009dad33738ec}
+
+
+integrate next velocity and position of a particle 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftrightarrow$} {\em io\_\-fluidParticle}]the particle that is being affected \end{DoxyParams}
+
+
+Definition at line 12 of file Integrate.cpp.
+
+
+
+References calculateLeapfrog(), calculateSemiImplicitEuler(), and m\_\-IntegrateType.
+
+
+
+
+\begin{DoxyCode}
+13 {
+14     /*---Calling chosed integration of the following-----------------------------
+      --------*/
+15     if (m_IntegrateType == "SEMI_IMPLICIT_EULER")
+16     {
+17         calculateSemiImplicitEuler(io_fluidParticle);
+18     }
+19     if (m_IntegrateType == "LEAPFROG")
+20     {
+21         calculateLeapfrog(io_fluidParticle);
+22     }
+23 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=281pt]{class_integrate_ada967b8b2b909f7c827009dad33738ec_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{class_integrate_ada967b8b2b909f7c827009dad33738ec_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_integrate_afc825f2a88811940160aec5243d2d51c}{
+\index{Integrate@{Integrate}!setTimestep@{setTimestep}}
+\index{setTimestep@{setTimestep}!Integrate@{Integrate}}
+\subsubsection[{setTimestep}]{\setlength{\rightskip}{0pt plus 5cm}void Integrate::setTimestep (const ngl::Real {\em \_\-timestep})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_integrate_afc825f2a88811940160aec5243d2d51c}
+
+
+set the timestep for the simulation solver 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-timestep}]new timestep \end{DoxyParams}
+
+
+Definition at line 35 of file Integrate.h.
+
+
+
+References m\_\-timestep.
+
+
+
+
+\begin{DoxyCode}
+35 { m_timestep = _timestep; }
+\end{DoxyCode}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_integrate_a098af16c9cf3d1c59a771f3e39c6d534}{
+\index{Integrate@{Integrate}!m\_\-IntegrateType@{m\_\-IntegrateType}}
+\index{m\_\-IntegrateType@{m\_\-IntegrateType}!Integrate@{Integrate}}
+\subsubsection[{m\_\-IntegrateType}]{\setlength{\rightskip}{0pt plus 5cm}std::string {\bf Integrate::m\_\-IntegrateType}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_integrate_a098af16c9cf3d1c59a771f3e39c6d534}
+
+
+Integration method. 
+
+
+
+Definition at line 40 of file Integrate.h.
+
+\hypertarget{class_integrate_a2d8b50d0e8ae35985925e0f636215aee}{
+\index{Integrate@{Integrate}!m\_\-timestep@{m\_\-timestep}}
+\index{m\_\-timestep@{m\_\-timestep}!Integrate@{Integrate}}
+\subsubsection[{m\_\-timestep}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf Integrate::m\_\-timestep}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_integrate_a2d8b50d0e8ae35985925e0f636215aee}
+
+
+timestep of simulation 
+
+
+
+Definition at line 43 of file Integrate.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_integrate_8h}{Integrate.h}\item 
+src/\hyperlink{_integrate_8cpp}{Integrate.cpp}\end{DoxyCompactItemize}

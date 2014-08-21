@@ -1,0 +1,50 @@
+\hypertarget{main_8cpp}{
+\section{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+}
+{\ttfamily \#include $<$QApplication$>$}\par
+{\ttfamily \#include \char`\"{}MainWindow.h\char`\"{}}\par
+Include dependency graph for main.cpp:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, \/  char $\ast$$\ast$ {\em argv})}}
+\label{main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+Definition at line 3 of file main.cpp.
+
+
+
+
+\begin{DoxyCode}
+4 {
+5     //make an instance of the QApplication
+6     QApplication a(argc,argv);
+7 
+8     //Create a new Main Window
+9     MainWindow w;
+10 
+11     //Show it
+12     w.show();
+13 
+14     //Hand control over to QT Framework
+15     return a.exec();
+16 }
+\end{DoxyCode}
+
+

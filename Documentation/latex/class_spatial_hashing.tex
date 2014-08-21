@@ -1,0 +1,828 @@
+\hypertarget{class_spatial_hashing}{
+\section{SpatialHashing Class Reference}
+\label{class_spatial_hashing}\index{SpatialHashing@{SpatialHashing}}
+}
+
+
+implements spatial hashing for the search of fluid particle neighbours  
+
+
+
+
+{\ttfamily \#include $<$SpatialHashing.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_spatial_hashing_a98c165ee367f6fbd6a755bcdd46e0d98}{SpatialHashing} (const int \_\-numberOfFluidParticles, const float \_\-smoothingLength)
+\begin{DoxyCompactList}\small\item\em ctor \item\end{DoxyCompactList}\item 
+\hyperlink{class_spatial_hashing_a5799e4a0ffdbd11c5202aa13d15dc313}{$\sim$SpatialHashing} ()
+\begin{DoxyCompactList}\small\item\em dtor \item\end{DoxyCompactList}\item 
+void \hyperlink{class_spatial_hashing_aeb15873f735e15a7b3fa8d3cc211db93}{initialiseSpatialHashing} (const int \_\-numberOfFluidParticles, const float \_\-smoothingLength)
+\begin{DoxyCompactList}\small\item\em initialiseSpatialHashing the spatial structure \item\end{DoxyCompactList}\item 
+void \hyperlink{class_spatial_hashing_acd1b87ec8ea289a18d431b7a3fde50c0}{refreshHashmap} (std::vector$<$ \hyperlink{class_fluid_particle}{FluidParticle} $>$ \&\_\-particleList)
+\begin{DoxyCompactList}\small\item\em refresh the hash map at each iteration \item\end{DoxyCompactList}\item 
+void \hyperlink{class_spatial_hashing_a58638653aed1d4d304c6e2aa839ba9ba}{clearHashmap} ()
+\begin{DoxyCompactList}\small\item\em clear the hash map \item\end{DoxyCompactList}\item 
+std::vector$<$ \hyperlink{class_fluid_particle}{FluidParticle} $>$ \hyperlink{class_spatial_hashing_af5c8f67520bfd03e32800e87af56ffba}{searchFluidParticleNeighbours} (const ngl::Vector \_\-centerPosition)
+\begin{DoxyCompactList}\small\item\em return neighbours of a particle \item\end{DoxyCompactList}\item 
+void \hyperlink{class_spatial_hashing_a430ce0c699a8ef34a5f8f152d59f06a8}{setCellSize} (const ngl::Real \_\-size)
+\begin{DoxyCompactList}\small\item\em set the cell size of the spatial structure \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_spatial_hashing_a810e4bfd1e5ec0869dfa3bdefd3a1d42}{modulus} (const int \_\-a, const int \_\-b)
+\begin{DoxyCompactList}\small\item\em calculate the modulus of 2 numbers \item\end{DoxyCompactList}\item 
+int \hyperlink{class_spatial_hashing_ab9a10a48fe163699f3e35e36d310254d}{getNextPrimeNumber} (const int \_\-start)
+\begin{DoxyCompactList}\small\item\em return the next prime number \item\end{DoxyCompactList}\item 
+std::vector$<$ int $>$ \hyperlink{class_spatial_hashing_addbd2cd5fde1521533a54ade79787dde}{discretizingVector} (const ngl::Vector \_\-position)
+\begin{DoxyCompactList}\small\item\em discretise an array of vectors into an array of integers \item\end{DoxyCompactList}\item 
+int \hyperlink{class_spatial_hashing_a7bfce8fdfb8f8afe9a23fe1fe39875fe}{hashPosition} (const ngl::Vector \_\-position)
+\begin{DoxyCompactList}\small\item\em hash a position to a hash key \item\end{DoxyCompactList}\item 
+void \hyperlink{class_spatial_hashing_ad75a31f38142a1c2a03eda6afed94db3}{getNeighbouringCells} (const ngl::Vector \_\-centerPosition, const bool \_\-checkNeighboursAreInSmoothingLength, std::vector$<$ \hyperlink{class_fluid_particle}{FluidParticle} $>$ \&o\_\-neighbourList)
+\begin{DoxyCompactList}\small\item\em determine neighbours of a fluid particle, given its position \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_spatial_hashing_ac8700af92ae1d6729b29307926bd2a09}{inListCheck} (const int \_\-testId, std::vector$<$ \hyperlink{class_fluid_particle}{FluidParticle} $>$ \&\_\-neighbourList)
+\begin{DoxyCompactList}\small\item\em check if a neighbour is a duplicate \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_spatial_hashing_8h_a1b38b0ad37d6e1390643e8d735273c7f}{hashmap} \hyperlink{class_spatial_hashing_aa4c4c1eaf23e54dd42cc982a4e53ceaf}{m\_\-hashMap}
+\begin{DoxyCompactList}\small\item\em the spatial hash map \item\end{DoxyCompactList}\item 
+float \hyperlink{class_spatial_hashing_aed10321da282b758d14dd3112749197c}{m\_\-cellSize}
+\begin{DoxyCompactList}\small\item\em the cell size used for spatial calculations \item\end{DoxyCompactList}\item 
+int \hyperlink{class_spatial_hashing_a3062fc7637f6ba8aca2d4b74a3f96b9b}{m\_\-mapSize}
+\begin{DoxyCompactList}\small\item\em the map size \item\end{DoxyCompactList}\item 
+int \hyperlink{class_spatial_hashing_a99c2a49c03963d35b4961c51642582b3}{m\_\-firstLargePrimeNumber}
+\begin{DoxyCompactList}\small\item\em large prime number 1 \item\end{DoxyCompactList}\item 
+int \hyperlink{class_spatial_hashing_a80745b4791c3f19b1c2170c18b0832ac}{m\_\-secondLargePrimeNumber}
+\begin{DoxyCompactList}\small\item\em large prime number 2 \item\end{DoxyCompactList}\item 
+int \hyperlink{class_spatial_hashing_a705bb42422d5edd7d8605f95618760c1}{m\_\-thirdLargePrimeNumber}
+\begin{DoxyCompactList}\small\item\em large prime number 3 \item\end{DoxyCompactList}\item 
+int \hyperlink{class_spatial_hashing_a553569ddd4a57714697c57b70e850d9d}{m\_\-initialNeighbourListSize}
+\begin{DoxyCompactList}\small\item\em reserved space size for neighbours \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+implements spatial hashing for the search of fluid particle neighbours 
+
+Definition at line 21 of file SpatialHashing.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_spatial_hashing_a98c165ee367f6fbd6a755bcdd46e0d98}{
+\index{SpatialHashing@{SpatialHashing}!SpatialHashing@{SpatialHashing}}
+\index{SpatialHashing@{SpatialHashing}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{SpatialHashing}]{\setlength{\rightskip}{0pt plus 5cm}SpatialHashing::SpatialHashing (const int {\em \_\-numberOfFluidParticles}, \/  const float {\em \_\-smoothingLength})}}
+\label{class_spatial_hashing_a98c165ee367f6fbd6a755bcdd46e0d98}
+
+
+ctor 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-numberOfFluidParticles}]the fluid particle count \item[\mbox{$\leftarrow$} {\em \_\-smoothingLength}]the smoothing length \end{DoxyParams}
+
+
+Definition at line 10 of file SpatialHashing.cpp.
+
+
+
+
+\begin{DoxyCode}
+14 {
+15     //initialise large prime numbers
+16     m_firstLargePrimeNumber = 73856093;
+17     m_secondLargePrimeNumber = 19349663;
+18     m_thirdLargePrimeNumber = 83492791;
+19 
+20     //initialise neighbour list
+21     m_initialNeighbourListSize = 50;
+22 
+23     //initialise hash params
+24     initialiseSpatialHashing(_numberOfFluidParticles, _smoothingLength);
+25 }
+\end{DoxyCode}
+
+
+\hypertarget{class_spatial_hashing_a5799e4a0ffdbd11c5202aa13d15dc313}{
+\index{SpatialHashing@{SpatialHashing}!$\sim$SpatialHashing@{$\sim$SpatialHashing}}
+\index{$\sim$SpatialHashing@{$\sim$SpatialHashing}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{$\sim$SpatialHashing}]{\setlength{\rightskip}{0pt plus 5cm}SpatialHashing::$\sim$SpatialHashing ()}}
+\label{class_spatial_hashing_a5799e4a0ffdbd11c5202aa13d15dc313}
+
+
+dtor 
+
+
+
+Definition at line 27 of file SpatialHashing.cpp.
+
+
+
+
+\begin{DoxyCode}
+28 {
+29     //clean up
+30     std::cout << "Neighbour Cleanup" << std::endl;
+31 }
+\end{DoxyCode}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_spatial_hashing_a58638653aed1d4d304c6e2aa839ba9ba}{
+\index{SpatialHashing@{SpatialHashing}!clearHashmap@{clearHashmap}}
+\index{clearHashmap@{clearHashmap}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{clearHashmap}]{\setlength{\rightskip}{0pt plus 5cm}void SpatialHashing::clearHashmap ()}}
+\label{class_spatial_hashing_a58638653aed1d4d304c6e2aa839ba9ba}
+
+
+clear the hash map 
+
+
+
+Definition at line 162 of file SpatialHashing.cpp.
+
+
+
+References m\_\-hashMap.
+
+
+
+
+\begin{DoxyCode}
+163 {
+164     //clears hashmap
+165     m_hashMap.clear();
+166 }
+\end{DoxyCode}
+
+
+\hypertarget{class_spatial_hashing_addbd2cd5fde1521533a54ade79787dde}{
+\index{SpatialHashing@{SpatialHashing}!discretizingVector@{discretizingVector}}
+\index{discretizingVector@{discretizingVector}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{discretizingVector}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$ int $>$ SpatialHashing::discretizingVector (const ngl::Vector {\em \_\-position})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_spatial_hashing_addbd2cd5fde1521533a54ade79787dde}
+
+
+discretise an array of vectors into an array of integers 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-position}]the vector position to discretize \end{DoxyParams}
+
+
+Definition at line 124 of file SpatialHashing.cpp.
+
+
+
+References m\_\-cellSize.
+
+
+
+
+\begin{DoxyCode}
+125 {
+126     std::vector<int> pos;
+127     pos.reserve(3);
+128 
+129     pos.push_back(floor(_position.m_x / m_cellSize));
+130     pos.push_back(floor(_position.m_y / m_cellSize));
+131     pos.push_back(floor(_position.m_z / m_cellSize));
+132 
+133     return pos;
+134 }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{class_spatial_hashing_addbd2cd5fde1521533a54ade79787dde_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_spatial_hashing_ad75a31f38142a1c2a03eda6afed94db3}{
+\index{SpatialHashing@{SpatialHashing}!getNeighbouringCells@{getNeighbouringCells}}
+\index{getNeighbouringCells@{getNeighbouringCells}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{getNeighbouringCells}]{\setlength{\rightskip}{0pt plus 5cm}void SpatialHashing::getNeighbouringCells (const ngl::Vector {\em \_\-centerPosition}, \/  const bool {\em \_\-checkNeighboursAreInSmoothingLength}, \/  std::vector$<$ {\bf FluidParticle} $>$ \& {\em o\_\-neighbourList})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_spatial_hashing_ad75a31f38142a1c2a03eda6afed94db3}
+
+
+determine neighbours of a fluid particle, given its position 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-centerPosition}]the position of the fluid particle \item[\mbox{$\leftarrow$} {\em \_\-checkNeighboursAreInSmoothingLength}]flag to determine whether only neighbours within the smoothing length are added \item[\mbox{$\rightarrow$} {\em o\_\-neighbourList}]stores the list neighbours \end{DoxyParams}
+
+
+Definition at line 191 of file SpatialHashing.cpp.
+
+
+
+References Particle::getCurrentPosition(), and Particle::getId().
+
+
+
+
+\begin{DoxyCode}
+196 {
+197     //hash position
+198     int hashKey = hashPosition(_centerPosition);
+199 
+200     //get particles of cell[hashkey] from hash map
+201     std::pair<hashmap::iterator, hashmap::iterator> neighbourCandidateList = 
+      m_hashMap.equal_range(hashKey);
+202 
+203     //loop over neighbour list
+204     for (hashmap::iterator candidate = neighbourCandidateList.first; candidate !=
+       neighbourCandidateList.second; candidate++)
+205     {
+206         //get neighbour particle
+207         FluidParticle neighbourCandidate = (*candidate).second;
+208 
+209         //consider only non-duplicate candidates
+210         if (!inListCheck(neighbourCandidate.getId(), o_neighbourList))
+211         {
+212             //assume neighbour is valid
+213             bool isValidToAdd = true;
+214 
+215             //filter only neighbours within smoothing length if check is enabled
+216             if (_checkNeighboursAreInSmoothingLength)
+217             {
+218                 //get separation distance between centerposition and neighbour po
+      sition
+219                 ngl::Real distance = (_centerPosition - neighbourCandidate.
+      getCurrentPosition()).length();
+220 
+221                 //check if distance is within smoothing length (cell size)
+222                 if (distance > m_cellSize) isValidToAdd = false;
+223             }
+224 
+225             //add neighbour particle to neighbour list if valid
+226             if (isValidToAdd) o_neighbourList.push_back(neighbourCandidate);
+227         }
+228     }
+229 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{class_spatial_hashing_ad75a31f38142a1c2a03eda6afed94db3_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{class_spatial_hashing_ad75a31f38142a1c2a03eda6afed94db3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_spatial_hashing_ab9a10a48fe163699f3e35e36d310254d}{
+\index{SpatialHashing@{SpatialHashing}!getNextPrimeNumber@{getNextPrimeNumber}}
+\index{getNextPrimeNumber@{getNextPrimeNumber}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{getNextPrimeNumber}]{\setlength{\rightskip}{0pt plus 5cm}int SpatialHashing::getNextPrimeNumber (const int {\em \_\-start})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_spatial_hashing_ab9a10a48fe163699f3e35e36d310254d}
+
+
+return the next prime number 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-start}]the start number from which to find the next prime number \end{DoxyParams}
+
+
+Definition at line 59 of file SpatialHashing.cpp.
+
+
+
+
+\begin{DoxyCode}
+60 {
+61     int i = _start;
+62 
+63     bool isPrimeNumberFound = true;
+64     bool isNextPrimeNumberFound = false;
+65 
+66     //Get Square root of number and iterate, start from 2
+67     int check = (int)sqrt((double)i);
+68     for (int j = 2; j <= check; j++)
+69     {
+70         if (i % j == 0)
+71         {
+72             isPrimeNumberFound = false;
+73             break;
+74         }
+75     }
+76     if (isPrimeNumberFound)
+77     {
+78         //i itself is the next prime number
+79         return i;
+80     }
+81     else
+82     {
+83         //i is not a prime number -> must search next one
+84 
+85         i++;
+86         isPrimeNumberFound = true;
+87 
+88         // Increment current number to find next prime number
+89         while (isNextPrimeNumberFound == false)
+90         {
+91             check = (int)sqrt((double)(i));
+92 
+93             for (int j = 2; j <= check; j++)
+94             {
+95                 if (i % j == 0)
+96                 {
+97                     isPrimeNumberFound = false;
+98                     break;
+99                 }
+100             }
+101 
+102             if (isPrimeNumberFound)
+103                 isNextPrimeNumberFound = true;
+104             else
+105             {
+106                 i++;
+107                 isPrimeNumberFound = true;
+108             }
+109         }
+110 
+111         if (isNextPrimeNumberFound)
+112         {
+113             //i is the next prime number
+114 
+115             return i;
+116         }
+117     }
+118 
+119     //eventually, nothing found?
+120     return _start;
+121 }
+\end{DoxyCode}
+
+
+\hypertarget{class_spatial_hashing_a7bfce8fdfb8f8afe9a23fe1fe39875fe}{
+\index{SpatialHashing@{SpatialHashing}!hashPosition@{hashPosition}}
+\index{hashPosition@{hashPosition}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{hashPosition}]{\setlength{\rightskip}{0pt plus 5cm}int SpatialHashing::hashPosition (const ngl::Vector {\em \_\-position})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_spatial_hashing_a7bfce8fdfb8f8afe9a23fe1fe39875fe}
+
+
+hash a position to a hash key 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-position}]the position to hash \end{DoxyParams}
+
+
+Definition at line 136 of file SpatialHashing.cpp.
+
+
+
+References discretizingVector(), m\_\-firstLargePrimeNumber, m\_\-mapSize, m\_\-secondLargePrimeNumber, m\_\-thirdLargePrimeNumber, and modulus().
+
+
+
+
+\begin{DoxyCode}
+137 {
+138     //discretizingVector position to array of int
+139     std::vector<int> discretePosition = discretizingVector(_position);
+140 
+141     //calculate hash key
+142     int key = modulus((discretePosition[0] * m_firstLargePrimeNumber) ^ (discrete
+      Position[1] * m_secondLargePrimeNumber) ^ (discretePosition[2] * 
+      m_thirdLargePrimeNumber), m_mapSize);
+143 
+144     return key;
+145 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{class_spatial_hashing_a7bfce8fdfb8f8afe9a23fe1fe39875fe_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{class_spatial_hashing_a7bfce8fdfb8f8afe9a23fe1fe39875fe_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_spatial_hashing_aeb15873f735e15a7b3fa8d3cc211db93}{
+\index{SpatialHashing@{SpatialHashing}!initialiseSpatialHashing@{initialiseSpatialHashing}}
+\index{initialiseSpatialHashing@{initialiseSpatialHashing}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{initialiseSpatialHashing}]{\setlength{\rightskip}{0pt plus 5cm}void SpatialHashing::initialiseSpatialHashing (const int {\em \_\-numberOfFluidParticles}, \/  const float {\em \_\-smoothingLength})}}
+\label{class_spatial_hashing_aeb15873f735e15a7b3fa8d3cc211db93}
+
+
+initialiseSpatialHashing the spatial structure 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-numberOfFluidParticles}]the fluid particle count \item[\mbox{$\leftarrow$} {\em \_\-smoothingLength}]the smoothing length \end{DoxyParams}
+
+
+Definition at line 34 of file SpatialHashing.cpp.
+
+
+
+
+\begin{DoxyCode}
+38 {
+39     //initialise cell size
+40     m_cellSize = _smoothingLength;
+41 
+42     //initialise hash map size
+43     m_mapSize = getNextPrimeNumber(2 * _numberOfFluidParticles);
+44 }
+\end{DoxyCode}
+
+
+\hypertarget{class_spatial_hashing_ac8700af92ae1d6729b29307926bd2a09}{
+\index{SpatialHashing@{SpatialHashing}!inListCheck@{inListCheck}}
+\index{inListCheck@{inListCheck}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{inListCheck}]{\setlength{\rightskip}{0pt plus 5cm}bool SpatialHashing::inListCheck (const int {\em \_\-testId}, \/  std::vector$<$ {\bf FluidParticle} $>$ \& {\em \_\-neighbourList})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_spatial_hashing_ac8700af92ae1d6729b29307926bd2a09}
+
+
+check if a neighbour is a duplicate 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-testId}]the id of the neighbour to check in the list \item[\mbox{$\leftarrow$} {\em \_\-neighbourList}]the list of neighbour that will be used for the duplicate check \end{DoxyParams}
+
+
+Definition at line 169 of file SpatialHashing.cpp.
+
+
+
+
+\begin{DoxyCode}
+173 {
+174     //assume not found
+175     bool found = false;
+176 
+177     //loop through the temporary neighbour list
+178     for (int i = 0; i < _neighbourList.size(); i++)
+179     {
+180         if (_neighbourList[i].getId() == _testId)
+181         {
+182             found = true;
+183             break;
+184         }
+185     }
+186 
+187     return found;
+188 }
+\end{DoxyCode}
+
+
+\hypertarget{class_spatial_hashing_a810e4bfd1e5ec0869dfa3bdefd3a1d42}{
+\index{SpatialHashing@{SpatialHashing}!modulus@{modulus}}
+\index{modulus@{modulus}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{modulus}]{\setlength{\rightskip}{0pt plus 5cm}int SpatialHashing::modulus (const int {\em \_\-a}, \/  const int {\em \_\-b})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_spatial_hashing_a810e4bfd1e5ec0869dfa3bdefd3a1d42}
+
+
+calculate the modulus of 2 numbers 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-a}]the first number \item[\mbox{$\leftarrow$} {\em \_\-b}]the second number \end{DoxyParams}
+
+
+Definition at line 46 of file SpatialHashing.cpp.
+
+
+
+
+\begin{DoxyCode}
+47 {
+48     //perform huge integer modulus
+49 
+50     //issue of negative modulus : http://mathforum.org/library/drmath/view/52343.
+      html
+51     //solved at stackoverflow : http://stackoverflow.com/questions/1082917/mod-of
+      -negative-number-is-melting-my-brain
+52 
+53     //adapted from StackOverflow
+54     int modulus = _a % _b;
+55     return modulus < 0 ? modulus + _b : modulus;
+56 }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=271pt]{class_spatial_hashing_a810e4bfd1e5ec0869dfa3bdefd3a1d42_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_spatial_hashing_acd1b87ec8ea289a18d431b7a3fde50c0}{
+\index{SpatialHashing@{SpatialHashing}!refreshHashmap@{refreshHashmap}}
+\index{refreshHashmap@{refreshHashmap}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{refreshHashmap}]{\setlength{\rightskip}{0pt plus 5cm}void SpatialHashing::refreshHashmap (std::vector$<$ {\bf FluidParticle} $>$ \& {\em \_\-particleList})}}
+\label{class_spatial_hashing_acd1b87ec8ea289a18d431b7a3fde50c0}
+
+
+refresh the hash map at each iteration 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-particleList}]the fluid particles \end{DoxyParams}
+
+
+Definition at line 147 of file SpatialHashing.cpp.
+
+
+
+References hashPosition(), and m\_\-hashMap.
+
+
+
+
+\begin{DoxyCode}
+148 {
+149 #pragma omp for schedule(dynamic, 50)
+150     //loop through each particle in the fluid
+151     for (int i = 0; i < _particleList.size(); ++i)
+152     {
+153         //hash position
+154         int hashKey = hashPosition(_particleList[i].getCurrentPosition());
+155 
+156 #pragma omp critical
+157         //add (hashkey, particle) pair to hashmap
+158         m_hashMap.insert(std::pair<int, FluidParticle>(hashKey, _particleList[i])
+      );
+159     }
+160 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{class_spatial_hashing_acd1b87ec8ea289a18d431b7a3fde50c0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_spatial_hashing_af5c8f67520bfd03e32800e87af56ffba}{
+\index{SpatialHashing@{SpatialHashing}!searchFluidParticleNeighbours@{searchFluidParticleNeighbours}}
+\index{searchFluidParticleNeighbours@{searchFluidParticleNeighbours}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{searchFluidParticleNeighbours}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$ {\bf FluidParticle} $>$ SpatialHashing::searchFluidParticleNeighbours (const ngl::Vector {\em \_\-centerPosition})}}
+\label{class_spatial_hashing_af5c8f67520bfd03e32800e87af56ffba}
+
+
+return neighbours of a particle 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-centerPosition}]the particle's position \end{DoxyParams}
+
+
+Definition at line 231 of file SpatialHashing.cpp.
+
+
+
+References discretizingVector(), getNeighbouringCells(), and m\_\-cellSize.
+
+
+
+
+\begin{DoxyCode}
+232 {
+233     //initialise temp neighbour lists
+234     std::vector<FluidParticle> neighbourList;
+235     //neighbourList.reserve(m_initialNeighbourListSize);
+236 
+237     std::vector<FluidParticle> neighbourTempList;
+238     //neighbourTempList.reserve(m_initialNeighbourListSize);
+239 
+240     //first, get neighbours @ centerposition
+241     getNeighbouringCells(_centerPosition, false, neighbourTempList);
+242 
+243     //then, get neighbours from bounding box [centerPos - cellSize, centerPos + c
+      ellSize]
+244     ngl::Vector limit(m_cellSize, m_cellSize, m_cellSize);
+245     std::vector<int> discreteMinBounds = discretizingVector(_centerPosition - lim
+      it);
+246     std::vector<int> discreteMaxBounds = discretizingVector(_centerPosition + lim
+      it);
+247 
+248     //loop from minBound to maxBound and find neighbours in hashmap
+249     ngl::Real sampleStep = 0.85;
+250     for (ngl::Real x = discreteMinBounds[0]; x < discreteMaxBounds[0]; x += sampl
+      eStep)
+251     {
+252         for (ngl::Real y = discreteMinBounds[1]; y < discreteMaxBounds[1]; y += s
+      ampleStep)
+253         {
+254             for (ngl::Real z = discreteMinBounds[2]; z < discreteMaxBounds[2]; z 
+      += sampleStep)
+255             {
+256                 //fill in neighbour list with neighbours @ test position(x,y,z)
+257                 getNeighbouringCells(ngl::Vector(x, y, z), true, neighbourTempLis
+      t);
+258             }
+259         }
+260     }
+261 
+262     //do a final distance check to ensure neighbours are within smoothing length
+263     for (int i = 0; i < neighbourTempList.size(); ++i)
+264     {
+265         //get separation distance between centerposition and neighbour position
+266         ngl::Real distance = (_centerPosition - neighbourTempList[i].getCurrentPo
+      sition()).length();
+267 
+268         //add to final list only if distance is within smoothing length (cell siz
+      e)
+269         if (distance < m_cellSize) neighbourList.push_back(neighbourTempList[i]);
+      
+270     }
+271 
+272     //return final list
+273     return neighbourList;
+274 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{class_spatial_hashing_af5c8f67520bfd03e32800e87af56ffba_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_spatial_hashing_a430ce0c699a8ef34a5f8f152d59f06a8}{
+\index{SpatialHashing@{SpatialHashing}!setCellSize@{setCellSize}}
+\index{setCellSize@{setCellSize}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{setCellSize}]{\setlength{\rightskip}{0pt plus 5cm}void SpatialHashing::setCellSize (const ngl::Real {\em \_\-size})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_spatial_hashing_a430ce0c699a8ef34a5f8f152d59f06a8}
+
+
+set the cell size of the spatial structure 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-size}]the new cell size \end{DoxyParams}
+
+
+Definition at line 58 of file SpatialHashing.h.
+
+
+
+References m\_\-cellSize.
+
+
+
+
+\begin{DoxyCode}
+58 { m_cellSize = _size; }
+\end{DoxyCode}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_spatial_hashing_aed10321da282b758d14dd3112749197c}{
+\index{SpatialHashing@{SpatialHashing}!m\_\-cellSize@{m\_\-cellSize}}
+\index{m\_\-cellSize@{m\_\-cellSize}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{m\_\-cellSize}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf SpatialHashing::m\_\-cellSize}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_spatial_hashing_aed10321da282b758d14dd3112749197c}
+
+
+the cell size used for spatial calculations 
+
+
+
+Definition at line 66 of file SpatialHashing.h.
+
+\hypertarget{class_spatial_hashing_a99c2a49c03963d35b4961c51642582b3}{
+\index{SpatialHashing@{SpatialHashing}!m\_\-firstLargePrimeNumber@{m\_\-firstLargePrimeNumber}}
+\index{m\_\-firstLargePrimeNumber@{m\_\-firstLargePrimeNumber}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{m\_\-firstLargePrimeNumber}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf SpatialHashing::m\_\-firstLargePrimeNumber}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_spatial_hashing_a99c2a49c03963d35b4961c51642582b3}
+
+
+large prime number 1 
+
+
+
+Definition at line 72 of file SpatialHashing.h.
+
+\hypertarget{class_spatial_hashing_aa4c4c1eaf23e54dd42cc982a4e53ceaf}{
+\index{SpatialHashing@{SpatialHashing}!m\_\-hashMap@{m\_\-hashMap}}
+\index{m\_\-hashMap@{m\_\-hashMap}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{m\_\-hashMap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf hashmap} {\bf SpatialHashing::m\_\-hashMap}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_spatial_hashing_aa4c4c1eaf23e54dd42cc982a4e53ceaf}
+
+
+the spatial hash map 
+
+
+
+Definition at line 63 of file SpatialHashing.h.
+
+\hypertarget{class_spatial_hashing_a553569ddd4a57714697c57b70e850d9d}{
+\index{SpatialHashing@{SpatialHashing}!m\_\-initialNeighbourListSize@{m\_\-initialNeighbourListSize}}
+\index{m\_\-initialNeighbourListSize@{m\_\-initialNeighbourListSize}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{m\_\-initialNeighbourListSize}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf SpatialHashing::m\_\-initialNeighbourListSize}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_spatial_hashing_a553569ddd4a57714697c57b70e850d9d}
+
+
+reserved space size for neighbours 
+
+
+
+Definition at line 81 of file SpatialHashing.h.
+
+\hypertarget{class_spatial_hashing_a3062fc7637f6ba8aca2d4b74a3f96b9b}{
+\index{SpatialHashing@{SpatialHashing}!m\_\-mapSize@{m\_\-mapSize}}
+\index{m\_\-mapSize@{m\_\-mapSize}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{m\_\-mapSize}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf SpatialHashing::m\_\-mapSize}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_spatial_hashing_a3062fc7637f6ba8aca2d4b74a3f96b9b}
+
+
+the map size 
+
+
+
+Definition at line 69 of file SpatialHashing.h.
+
+\hypertarget{class_spatial_hashing_a80745b4791c3f19b1c2170c18b0832ac}{
+\index{SpatialHashing@{SpatialHashing}!m\_\-secondLargePrimeNumber@{m\_\-secondLargePrimeNumber}}
+\index{m\_\-secondLargePrimeNumber@{m\_\-secondLargePrimeNumber}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{m\_\-secondLargePrimeNumber}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf SpatialHashing::m\_\-secondLargePrimeNumber}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_spatial_hashing_a80745b4791c3f19b1c2170c18b0832ac}
+
+
+large prime number 2 
+
+
+
+Definition at line 75 of file SpatialHashing.h.
+
+\hypertarget{class_spatial_hashing_a705bb42422d5edd7d8605f95618760c1}{
+\index{SpatialHashing@{SpatialHashing}!m\_\-thirdLargePrimeNumber@{m\_\-thirdLargePrimeNumber}}
+\index{m\_\-thirdLargePrimeNumber@{m\_\-thirdLargePrimeNumber}!SpatialHashing@{SpatialHashing}}
+\subsubsection[{m\_\-thirdLargePrimeNumber}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf SpatialHashing::m\_\-thirdLargePrimeNumber}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_spatial_hashing_a705bb42422d5edd7d8605f95618760c1}
+
+
+large prime number 3 
+
+
+
+Definition at line 78 of file SpatialHashing.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_spatial_hashing_8h}{SpatialHashing.h}\item 
+src/\hyperlink{_spatial_hashing_8cpp}{SpatialHashing.cpp}\end{DoxyCompactItemize}

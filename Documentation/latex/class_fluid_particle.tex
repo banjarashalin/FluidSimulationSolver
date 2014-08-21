@@ -1,0 +1,1385 @@
+\hypertarget{class_fluid_particle}{
+\section{FluidParticle Class Reference}
+\label{class_fluid_particle}\index{FluidParticle@{FluidParticle}}
+}
+
+
+stores all attributes for a fluid for use with SPH  
+
+
+
+
+{\ttfamily \#include $<$FluidParticle.h$>$}
+
+
+
+Inheritance diagram for FluidParticle:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=400pt]{class_fluid_particle__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for FluidParticle:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=400pt]{class_fluid_particle__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_fluid_particle_a78948d812fd65d8e536ad7f10a20e695}{FluidParticle} (const int \_\-id, const ngl::Real \_\-mass=0, const ngl::Real \_\-density=0, const ngl::Vector \_\-position=0, const ngl::Vector \_\-velocity=0, const ngl::Real \_\-viscosityConstant=0, const ngl::Real \_\-gasConstant=0, const ngl::Real \_\-surfaceTensionCoefficient=0, const ngl::Real \_\-surfaceTensionThreshold=0, const ngl::Real \_\-surfaceColorCoefficient=0, const ngl::Real \_\-interfaceTensionCoefficient=0, const ngl::Real \_\-interfaceTensionThreshold=0, const ngl::Real \_\-interfaceColorCoefficient=0, const ngl::Colour \_\-colour=0, const ngl::Real \_\-collisionRadius=0, const ngl::Real \_\-drawRadius=0, const std::string \_\-name=\char`\"{}na\char`\"{})
+\begin{DoxyCompactList}\small\item\em ctor \item\end{DoxyCompactList}\item 
+\hyperlink{class_fluid_particle_a5b00e708cb5123c8883b67168488da09}{$\sim$FluidParticle} ()
+\begin{DoxyCompactList}\small\item\em dtor \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_acc7205ff8364fd974adbb5bc6d890520}{resetForces} ()
+\begin{DoxyCompactList}\small\item\em reset the accumulated force \item\end{DoxyCompactList}\item 
+std::string \hyperlink{class_fluid_particle_a0c75715af37734d00ab61b57fbc0e591}{getName} () const 
+\begin{DoxyCompactList}\small\item\em get the name of the fluid to which this particle belongs to \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_abfd00e4a0fb0adcad1b320c3ddcdf257}{setScalerPressure} (const ngl::Real \_\-scalerPressure)
+\item 
+ngl::Vector \hyperlink{class_fluid_particle_af1320742baea9749e69f29b6ab8c3ccd}{getPressureForce} () const 
+\begin{DoxyCompactList}\small\item\em get the pressure force \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_a5d08a37988851625883aeae32fca6a53}{setPressureForce} (const ngl::Vector \_\-pressureForce)
+\begin{DoxyCompactList}\small\item\em set the pressure force \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_fluid_particle_a7c5bec4da4095e8ea26bd2de436b2cc2}{getViscosityForce} () const 
+\begin{DoxyCompactList}\small\item\em get the viscosity force \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_ac4e550043305501a7157dd1489ae4a1a}{setViscosityForce} (const ngl::Vector \_\-viscosityForce)
+\begin{DoxyCompactList}\small\item\em set the viscosity force \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_fluid_particle_a8c8125b381ee8f354bb38e199a865dfe}{getSurfaceTensionForce} () const 
+\begin{DoxyCompactList}\small\item\em get the surface tension force \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_ac7854dc82e9b28d515021a5616973d8b}{setSurfaceTensionForce} (const ngl::Vector \_\-surfaceTensionForce)
+\begin{DoxyCompactList}\small\item\em set the surface tension force \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_fluid_particle_a87969914565f0dfe9885f2788ced39b7}{getInterfaceTensionForce} () const 
+\begin{DoxyCompactList}\small\item\em get the interface tension force \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_a33e789925811ce4517440460e5423531}{setInterfaceTensionForce} (const ngl::Vector \_\-interfaceTensionForce)
+\begin{DoxyCompactList}\small\item\em set the interface tension force \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_fluid_particle_aaf55f4024213da74d1e2ba1043b8bf5d}{getGravityForce} () const 
+\begin{DoxyCompactList}\small\item\em get the gravitational force \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_aa50bfbb2492827bbe49e52159b98e28e}{setGravityForce} (const ngl::Vector \_\-gravityForce)
+\begin{DoxyCompactList}\small\item\em set the gravitational force \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_ae0122ebaedcbf00aed6ab9b4f8559bf2}{getScalerPressure} () const 
+\begin{DoxyCompactList}\small\item\em get the pressure \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_ae46a808efdc6e4132ee84564fb644fab}{getDensity} () const 
+\begin{DoxyCompactList}\small\item\em get the density \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_acdb806b3044bed4ca7cad4a65bfc6aea}{setDensity} (const ngl::Real \_\-d)
+\begin{DoxyCompactList}\small\item\em set the density \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_a80daf1a3c8c36559e4f28a5240ecca50}{getRestDensity} () const 
+\begin{DoxyCompactList}\small\item\em get the rest density \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_a85333cc69cb0731330186c6a88c2ac37}{setRestDensity} (const ngl::Real \_\-v)
+\begin{DoxyCompactList}\small\item\em set the rest density \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_ac9c1822921c77438883a033200243530}{getGasConstant} () const 
+\begin{DoxyCompactList}\small\item\em get the gas constant \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_a814b73436943fccc64939d1dc1c1945d}{setGasConstant} (const ngl::Real \_\-c)
+\begin{DoxyCompactList}\small\item\em set the gas constant force \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_abff9703a289af1a52f478462bb92a4c3}{getViscosityConstant} () const 
+\begin{DoxyCompactList}\small\item\em get the viscosity constant \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_aedde7e367011a2e11849442462085b6c}{setViscosityConstant} (const ngl::Real \_\-viscosityConstant)
+\begin{DoxyCompactList}\small\item\em set the viscosity constant \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_a5a4b8fee5183ee621b23f83644bfe434}{getSurfaceTensionCoefficient} () const 
+\begin{DoxyCompactList}\small\item\em get the surface tension coefficient \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_ab7fc0bcc4a6100ef5110df0c4b0b7486}{setSurfaceTensionCoefficient} (const ngl::Real \_\-surfaceTensionCoefficient)
+\begin{DoxyCompactList}\small\item\em set the surface interface coefficient \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_a76ca06b896d9e30ac34ec6ba9c326835}{getSurfaceTensionThreshold} () const 
+\begin{DoxyCompactList}\small\item\em get the surface tension threshold \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_abfcb80bf86d94aa6db5add367f388bcf}{setSurfaceTensionThreshold} (const ngl::Real \_\-surfaceTensionThreshold)
+\begin{DoxyCompactList}\small\item\em set the surface tension threshold \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_a367341528345883963d37185513a6983}{getSurfaceColorCoefficient} () const 
+\begin{DoxyCompactList}\small\item\em get the surface tension color \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_aefabd64a31db41499e71c57baf54bfe5}{setSurfaceColorCoefficient} (const ngl::Real \_\-surfaceColorCoefficient)
+\begin{DoxyCompactList}\small\item\em set the surface color \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_a2487accd86633f52afa8652a9d7b838e}{getInterfaceTensionCoefficient} () const 
+\begin{DoxyCompactList}\small\item\em get the interface tension coefficient \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_a00b8eca62e076dcd2d8dff6ad6619ead}{setInterfaceTensionCoefficient} (const ngl::Real \_\-interfaceTensionCoefficient)
+\begin{DoxyCompactList}\small\item\em set the surface tension coefficient \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_a95997fec4d4cc300fc327e4688ba3e40}{getInterfaceTensionThreshold} () const 
+\begin{DoxyCompactList}\small\item\em get the interface tension threshold \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_a9cf3c861484e2487e56e68b509d67dd5}{setInterfaceTensionThreshold} (const ngl::Real \_\-interfaceTensionThreshold)
+\begin{DoxyCompactList}\small\item\em set the interface tension threshold \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_ab5fe54946c3926616b694fc8aee28fc8}{getInterfaceColorCoefficient} () const 
+\begin{DoxyCompactList}\small\item\em get the interface tension color \item\end{DoxyCompactList}\item 
+void \hyperlink{class_fluid_particle_a24edd2572ede213fba7dad12a9710ad0}{setInterfaceColorCoefficient} (const ngl::Real \_\-interfaceColorCoefficient)
+\begin{DoxyCompactList}\small\item\em set the interface color \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::string \hyperlink{class_fluid_particle_a58aafd3376c4f7504b4b6a045d3b693e}{m\_\-name}
+\begin{DoxyCompactList}\small\item\em name of fluid for identification by user later on \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_ad2c0d1dae5fc90f4bbdce3ea51c6fb71}{m\_\-density}
+\begin{DoxyCompactList}\small\item\em density at particle \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_aa8e7cedce80b89676c3c4ddba1e163f3}{m\_\-restDensity}
+\begin{DoxyCompactList}\small\item\em rest density at particle \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_a3b5d86db4ec613904adcac9e55c15e38}{m\_\-scalerPressure}
+\begin{DoxyCompactList}\small\item\em pressure at particle \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_fluid_particle_a0fc3f13aa67912329489ec7f3550af13}{m\_\-pressureForce}
+\begin{DoxyCompactList}\small\item\em pressure force \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_fluid_particle_a2118d5719ce2331efb1f3bc7c0650cfa}{m\_\-viscosityForce}
+\begin{DoxyCompactList}\small\item\em viscosity force \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_fluid_particle_ac2bbf04b2f814d332ed7dc5113472471}{m\_\-surfaceTensionForce}
+\begin{DoxyCompactList}\small\item\em surface tension force \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_fluid_particle_a1eed81ac818dc7d027490e912aa880c8}{m\_\-interfaceTensionForce}
+\begin{DoxyCompactList}\small\item\em interface tension force \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_fluid_particle_a4759c4e1e0729283a71dec834b753ae1}{m\_\-gravityForce}
+\begin{DoxyCompactList}\small\item\em gravity force \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_a19ddab3f4dfe30378c11d3afa11a4708}{m\_\-gasConstant}
+\begin{DoxyCompactList}\small\item\em gas constant \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_a3788ca2bcafe18bf8bbf59faa0146385}{m\_\-viscosityConstant}
+\begin{DoxyCompactList}\small\item\em viscosity constant \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_a9b07a93d8ec041692c3ad99319c08939}{m\_\-surfaceTensionCoefficient}
+\begin{DoxyCompactList}\small\item\em surface tension coefficient \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_aaa03e2d5786c38929e8e0546c08e950c}{m\_\-surfaceTensionThreshold}
+\begin{DoxyCompactList}\small\item\em surface tension threshold \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_a1bafc97f79f73eed857df1bbba79a3b8}{m\_\-surfaceColorCoefficient}
+\begin{DoxyCompactList}\small\item\em surface color coefficient \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_ae649e3f7dcf63da1d3fb15c5c00c968d}{m\_\-interfaceTensionCoefficient}
+\begin{DoxyCompactList}\small\item\em interface tension coefficient \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_a654e0edda2cb46780451fd98e0613211}{m\_\-interfaceTensionThreshold}
+\begin{DoxyCompactList}\small\item\em interface tension threshold \item\end{DoxyCompactList}\item 
+ngl::Real \hyperlink{class_fluid_particle_ab50ddf6727d5869c5732efe8a59b549d}{m\_\-interfaceColorCoefficient}
+\begin{DoxyCompactList}\small\item\em interface color coefficient \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+stores all attributes for a fluid for use with SPH 
+
+Definition at line 16 of file FluidParticle.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_fluid_particle_a78948d812fd65d8e536ad7f10a20e695}{
+\index{FluidParticle@{FluidParticle}!FluidParticle@{FluidParticle}}
+\index{FluidParticle@{FluidParticle}!FluidParticle@{FluidParticle}}
+\subsubsection[{FluidParticle}]{\setlength{\rightskip}{0pt plus 5cm}FluidParticle::FluidParticle (const int {\em \_\-id}, \/  const ngl::Real {\em \_\-mass} = {\ttfamily 0}, \/  const ngl::Real {\em \_\-density} = {\ttfamily 0}, \/  const ngl::Vector {\em \_\-position} = {\ttfamily 0}, \/  const ngl::Vector {\em \_\-velocity} = {\ttfamily 0}, \/  const ngl::Real {\em \_\-viscosityConstant} = {\ttfamily 0}, \/  const ngl::Real {\em \_\-gasConstant} = {\ttfamily 0}, \/  const ngl::Real {\em \_\-surfaceTensionCoefficient} = {\ttfamily 0}, \/  const ngl::Real {\em \_\-surfaceTensionThreshold} = {\ttfamily 0}, \/  const ngl::Real {\em \_\-surfaceColorCoefficient} = {\ttfamily 0}, \/  const ngl::Real {\em \_\-interfaceTensionCoefficient} = {\ttfamily 0}, \/  const ngl::Real {\em \_\-interfaceTensionThreshold} = {\ttfamily 0}, \/  const ngl::Real {\em \_\-interfaceColorCoefficient} = {\ttfamily 0}, \/  const ngl::Colour {\em \_\-colour} = {\ttfamily 0}, \/  const ngl::Real {\em \_\-collisionRadius} = {\ttfamily 0}, \/  const ngl::Real {\em \_\-drawRadius} = {\ttfamily 0}, \/  const std::string {\em \_\-name} = {\ttfamily \char`\"{}na\char`\"{}})}}
+\label{class_fluid_particle_a78948d812fd65d8e536ad7f10a20e695}
+
+
+ctor 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-id}]the id \item[\mbox{$\leftarrow$} {\em \_\-mass}]the mass \item[\mbox{$\leftarrow$} {\em \_\-density}]the density \item[\mbox{$\leftarrow$} {\em \_\-position}]the position \item[\mbox{$\leftarrow$} {\em \_\-velocity}]the velocity \item[\mbox{$\leftarrow$} {\em \_\-viscosityConstant}]the viscosity constant \item[\mbox{$\leftarrow$} {\em \_\-gasConstant}]the gas constant \item[\mbox{$\leftarrow$} {\em \_\-surfaceTensionCoefficient}]the surface tension coefficient \item[\mbox{$\leftarrow$} {\em \_\-surfaceTensionThreshold}]the surface tension threshold \item[\mbox{$\leftarrow$} {\em \_\-surfaceColorCoefficient}]the surface tension color \item[\mbox{$\leftarrow$} {\em \_\-interfaceTensionCoefficient}]the interface tension coefficient \item[\mbox{$\leftarrow$} {\em \_\-interfaceTensionThreshold}]the interface tension threshold \item[\mbox{$\leftarrow$} {\em \_\-interfaceColorCoefficient}]the interface tension color \item[\mbox{$\leftarrow$} {\em \_\-colour}]the visual colour of the particle \item[\mbox{$\leftarrow$} {\em \_\-collisionRadius}]the radius for collision detection \item[\mbox{$\leftarrow$} {\em \_\-drawRadius}]the radius to represent it \item[\mbox{$\leftarrow$} {\em \_\-name}]the name of the fluid to which this particle belongs \end{DoxyParams}
+
+
+Definition at line 7 of file FluidParticle.cpp.
+
+
+
+
+\begin{DoxyCode}
+25               :
+26             Particle(_id, _mass, _position, _colour, _collisionRadius, _drawRadiu
+      s, _velocity)
+27 {
+28     //init params
+29     m_name = _name;
+30 
+31     m_density = _density;
+32     m_restDensity = _density;
+33 
+34     m_scalerPressure = 0;
+35 
+36     m_viscosityConstant = _viscosityConstant;
+37     m_gasConstant = _gasConstant;
+38 
+39     m_surfaceTensionCoefficient = _surfaceTensionCoefficient;
+40     m_surfaceTensionThreshold = _surfaceTensionThreshold;
+41     m_surfaceColorCoefficient = _surfaceColorCoefficient;
+42 
+43     m_interfaceTensionCoefficient = _interfaceTensionCoefficient;
+44     m_interfaceTensionThreshold = _interfaceTensionThreshold;
+45     m_interfaceColorCoefficient = _interfaceColorCoefficient;
+46 }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a5b00e708cb5123c8883b67168488da09}{
+\index{FluidParticle@{FluidParticle}!$\sim$FluidParticle@{$\sim$FluidParticle}}
+\index{$\sim$FluidParticle@{$\sim$FluidParticle}!FluidParticle@{FluidParticle}}
+\subsubsection[{$\sim$FluidParticle}]{\setlength{\rightskip}{0pt plus 5cm}FluidParticle::$\sim$FluidParticle ()}}
+\label{class_fluid_particle_a5b00e708cb5123c8883b67168488da09}
+
+
+dtor 
+
+
+
+Definition at line 48 of file FluidParticle.cpp.
+
+
+
+
+\begin{DoxyCode}
+49 {
+50 }
+\end{DoxyCode}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_fluid_particle_ae46a808efdc6e4132ee84564fb644fab}{
+\index{FluidParticle@{FluidParticle}!getDensity@{getDensity}}
+\index{getDensity@{getDensity}!FluidParticle@{FluidParticle}}
+\subsubsection[{getDensity}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real FluidParticle::getDensity () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_ae46a808efdc6e4132ee84564fb644fab}
+
+
+get the density 
+
+
+
+Definition at line 108 of file FluidParticle.h.
+
+
+
+References m\_\-density.
+
+
+
+
+\begin{DoxyCode}
+108 { return m_density; }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{class_fluid_particle_ae46a808efdc6e4132ee84564fb644fab_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_fluid_particle_ac9c1822921c77438883a033200243530}{
+\index{FluidParticle@{FluidParticle}!getGasConstant@{getGasConstant}}
+\index{getGasConstant@{getGasConstant}!FluidParticle@{FluidParticle}}
+\subsubsection[{getGasConstant}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real FluidParticle::getGasConstant () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_ac9c1822921c77438883a033200243530}
+
+
+get the gas constant 
+
+
+
+Definition at line 122 of file FluidParticle.h.
+
+
+
+References m\_\-gasConstant.
+
+
+
+
+\begin{DoxyCode}
+122 { return m_gasConstant; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_aaf55f4024213da74d1e2ba1043b8bf5d}{
+\index{FluidParticle@{FluidParticle}!getGravityForce@{getGravityForce}}
+\index{getGravityForce@{getGravityForce}!FluidParticle@{FluidParticle}}
+\subsubsection[{getGravityForce}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector FluidParticle::getGravityForce () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_aaf55f4024213da74d1e2ba1043b8bf5d}
+
+
+get the gravitational force 
+
+
+
+Definition at line 98 of file FluidParticle.h.
+
+
+
+References m\_\-gravityForce.
+
+
+
+
+\begin{DoxyCode}
+98 { return m_gravityForce; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_ab5fe54946c3926616b694fc8aee28fc8}{
+\index{FluidParticle@{FluidParticle}!getInterfaceColorCoefficient@{getInterfaceColorCoefficient}}
+\index{getInterfaceColorCoefficient@{getInterfaceColorCoefficient}!FluidParticle@{FluidParticle}}
+\subsubsection[{getInterfaceColorCoefficient}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real FluidParticle::getInterfaceColorCoefficient () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_ab5fe54946c3926616b694fc8aee28fc8}
+
+
+get the interface tension color 
+
+
+
+Definition at line 171 of file FluidParticle.h.
+
+
+
+References m\_\-interfaceColorCoefficient.
+
+
+
+
+\begin{DoxyCode}
+171 { return m_interfaceColorCoefficient; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a2487accd86633f52afa8652a9d7b838e}{
+\index{FluidParticle@{FluidParticle}!getInterfaceTensionCoefficient@{getInterfaceTensionCoefficient}}
+\index{getInterfaceTensionCoefficient@{getInterfaceTensionCoefficient}!FluidParticle@{FluidParticle}}
+\subsubsection[{getInterfaceTensionCoefficient}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real FluidParticle::getInterfaceTensionCoefficient () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a2487accd86633f52afa8652a9d7b838e}
+
+
+get the interface tension coefficient 
+
+
+
+Definition at line 157 of file FluidParticle.h.
+
+
+
+References m\_\-interfaceTensionCoefficient.
+
+
+
+
+\begin{DoxyCode}
+157 { return m_interfaceTensionCoefficient; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a87969914565f0dfe9885f2788ced39b7}{
+\index{FluidParticle@{FluidParticle}!getInterfaceTensionForce@{getInterfaceTensionForce}}
+\index{getInterfaceTensionForce@{getInterfaceTensionForce}!FluidParticle@{FluidParticle}}
+\subsubsection[{getInterfaceTensionForce}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector FluidParticle::getInterfaceTensionForce () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a87969914565f0dfe9885f2788ced39b7}
+
+
+get the interface tension force 
+
+
+
+Definition at line 91 of file FluidParticle.h.
+
+
+
+References m\_\-interfaceTensionForce.
+
+
+
+
+\begin{DoxyCode}
+91 { return m_interfaceTensionForce; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a95997fec4d4cc300fc327e4688ba3e40}{
+\index{FluidParticle@{FluidParticle}!getInterfaceTensionThreshold@{getInterfaceTensionThreshold}}
+\index{getInterfaceTensionThreshold@{getInterfaceTensionThreshold}!FluidParticle@{FluidParticle}}
+\subsubsection[{getInterfaceTensionThreshold}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real FluidParticle::getInterfaceTensionThreshold () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a95997fec4d4cc300fc327e4688ba3e40}
+
+
+get the interface tension threshold 
+
+
+
+Definition at line 164 of file FluidParticle.h.
+
+
+
+References m\_\-interfaceTensionThreshold.
+
+
+
+
+\begin{DoxyCode}
+164 { return m_interfaceTensionThreshold; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a0c75715af37734d00ab61b57fbc0e591}{
+\index{FluidParticle@{FluidParticle}!getName@{getName}}
+\index{getName@{getName}!FluidParticle@{FluidParticle}}
+\subsubsection[{getName}]{\setlength{\rightskip}{0pt plus 5cm}std::string FluidParticle::getName () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a0c75715af37734d00ab61b57fbc0e591}
+
+
+get the name of the fluid to which this particle belongs to 
+
+
+
+Definition at line 65 of file FluidParticle.h.
+
+
+
+References m\_\-name.
+
+
+
+
+\begin{DoxyCode}
+65 { return m_name; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_af1320742baea9749e69f29b6ab8c3ccd}{
+\index{FluidParticle@{FluidParticle}!getPressureForce@{getPressureForce}}
+\index{getPressureForce@{getPressureForce}!FluidParticle@{FluidParticle}}
+\subsubsection[{getPressureForce}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector FluidParticle::getPressureForce () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_af1320742baea9749e69f29b6ab8c3ccd}
+
+
+get the pressure force 
+
+
+
+Definition at line 70 of file FluidParticle.h.
+
+
+
+References m\_\-pressureForce.
+
+
+
+
+\begin{DoxyCode}
+70 { return m_pressureForce; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a80daf1a3c8c36559e4f28a5240ecca50}{
+\index{FluidParticle@{FluidParticle}!getRestDensity@{getRestDensity}}
+\index{getRestDensity@{getRestDensity}!FluidParticle@{FluidParticle}}
+\subsubsection[{getRestDensity}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real FluidParticle::getRestDensity () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a80daf1a3c8c36559e4f28a5240ecca50}
+
+
+get the rest density 
+
+
+
+Definition at line 115 of file FluidParticle.h.
+
+
+
+References m\_\-restDensity.
+
+
+
+
+\begin{DoxyCode}
+115 { return m_restDensity; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_ae0122ebaedcbf00aed6ab9b4f8559bf2}{
+\index{FluidParticle@{FluidParticle}!getScalerPressure@{getScalerPressure}}
+\index{getScalerPressure@{getScalerPressure}!FluidParticle@{FluidParticle}}
+\subsubsection[{getScalerPressure}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real FluidParticle::getScalerPressure () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_ae0122ebaedcbf00aed6ab9b4f8559bf2}
+
+
+get the pressure 
+
+
+
+Definition at line 105 of file FluidParticle.h.
+
+
+
+References m\_\-scalerPressure.
+
+
+
+
+\begin{DoxyCode}
+105 { return m_scalerPressure; }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{class_fluid_particle_ae0122ebaedcbf00aed6ab9b4f8559bf2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_fluid_particle_a367341528345883963d37185513a6983}{
+\index{FluidParticle@{FluidParticle}!getSurfaceColorCoefficient@{getSurfaceColorCoefficient}}
+\index{getSurfaceColorCoefficient@{getSurfaceColorCoefficient}!FluidParticle@{FluidParticle}}
+\subsubsection[{getSurfaceColorCoefficient}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real FluidParticle::getSurfaceColorCoefficient () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a367341528345883963d37185513a6983}
+
+
+get the surface tension color 
+
+
+
+Definition at line 150 of file FluidParticle.h.
+
+
+
+References m\_\-surfaceColorCoefficient.
+
+
+
+
+\begin{DoxyCode}
+150 { return m_surfaceColorCoefficient; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a5a4b8fee5183ee621b23f83644bfe434}{
+\index{FluidParticle@{FluidParticle}!getSurfaceTensionCoefficient@{getSurfaceTensionCoefficient}}
+\index{getSurfaceTensionCoefficient@{getSurfaceTensionCoefficient}!FluidParticle@{FluidParticle}}
+\subsubsection[{getSurfaceTensionCoefficient}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real FluidParticle::getSurfaceTensionCoefficient () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a5a4b8fee5183ee621b23f83644bfe434}
+
+
+get the surface tension coefficient 
+
+
+
+Definition at line 136 of file FluidParticle.h.
+
+
+
+References m\_\-surfaceTensionCoefficient.
+
+
+
+
+\begin{DoxyCode}
+136 { return m_surfaceTensionCoefficient; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a8c8125b381ee8f354bb38e199a865dfe}{
+\index{FluidParticle@{FluidParticle}!getSurfaceTensionForce@{getSurfaceTensionForce}}
+\index{getSurfaceTensionForce@{getSurfaceTensionForce}!FluidParticle@{FluidParticle}}
+\subsubsection[{getSurfaceTensionForce}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector FluidParticle::getSurfaceTensionForce () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a8c8125b381ee8f354bb38e199a865dfe}
+
+
+get the surface tension force 
+
+
+
+Definition at line 84 of file FluidParticle.h.
+
+
+
+References m\_\-surfaceTensionForce.
+
+
+
+
+\begin{DoxyCode}
+84 { return m_surfaceTensionForce; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a76ca06b896d9e30ac34ec6ba9c326835}{
+\index{FluidParticle@{FluidParticle}!getSurfaceTensionThreshold@{getSurfaceTensionThreshold}}
+\index{getSurfaceTensionThreshold@{getSurfaceTensionThreshold}!FluidParticle@{FluidParticle}}
+\subsubsection[{getSurfaceTensionThreshold}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real FluidParticle::getSurfaceTensionThreshold () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a76ca06b896d9e30ac34ec6ba9c326835}
+
+
+get the surface tension threshold 
+
+
+
+Definition at line 143 of file FluidParticle.h.
+
+
+
+References m\_\-surfaceTensionThreshold.
+
+
+
+
+\begin{DoxyCode}
+143 { return m_surfaceTensionThreshold; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_abff9703a289af1a52f478462bb92a4c3}{
+\index{FluidParticle@{FluidParticle}!getViscosityConstant@{getViscosityConstant}}
+\index{getViscosityConstant@{getViscosityConstant}!FluidParticle@{FluidParticle}}
+\subsubsection[{getViscosityConstant}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real FluidParticle::getViscosityConstant () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_abff9703a289af1a52f478462bb92a4c3}
+
+
+get the viscosity constant 
+
+
+
+Definition at line 129 of file FluidParticle.h.
+
+
+
+References m\_\-viscosityConstant.
+
+
+
+
+\begin{DoxyCode}
+129 { return m_viscosityConstant; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a7c5bec4da4095e8ea26bd2de436b2cc2}{
+\index{FluidParticle@{FluidParticle}!getViscosityForce@{getViscosityForce}}
+\index{getViscosityForce@{getViscosityForce}!FluidParticle@{FluidParticle}}
+\subsubsection[{getViscosityForce}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector FluidParticle::getViscosityForce () const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a7c5bec4da4095e8ea26bd2de436b2cc2}
+
+
+get the viscosity force 
+
+
+
+Definition at line 77 of file FluidParticle.h.
+
+
+
+References m\_\-viscosityForce.
+
+
+
+
+\begin{DoxyCode}
+77 { return m_viscosityForce; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_acc7205ff8364fd974adbb5bc6d890520}{
+\index{FluidParticle@{FluidParticle}!resetForces@{resetForces}}
+\index{resetForces@{resetForces}!FluidParticle@{FluidParticle}}
+\subsubsection[{resetForces}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::resetForces ()}}
+\label{class_fluid_particle_acc7205ff8364fd974adbb5bc6d890520}
+
+
+reset the accumulated force 
+
+
+
+Definition at line 52 of file FluidParticle.cpp.
+
+
+
+References m\_\-gravityForce, m\_\-pressureForce, m\_\-surfaceTensionForce, m\_\-viscosityForce, and Particle::resetNetForce().
+
+
+
+
+\begin{DoxyCode}
+53 {
+54     Particle::resetNetForce();
+55 
+56     m_pressureForce = 0;
+57     m_viscosityForce = 0;
+58     m_surfaceTensionForce = 0;
+59     m_gravityForce = 0;
+60 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=163pt]{class_fluid_particle_acc7205ff8364fd974adbb5bc6d890520_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_fluid_particle_acdb806b3044bed4ca7cad4a65bfc6aea}{
+\index{FluidParticle@{FluidParticle}!setDensity@{setDensity}}
+\index{setDensity@{setDensity}!FluidParticle@{FluidParticle}}
+\subsubsection[{setDensity}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setDensity (const ngl::Real {\em \_\-d})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_acdb806b3044bed4ca7cad4a65bfc6aea}
+
+
+set the density 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-d}]density value \end{DoxyParams}
+
+
+Definition at line 112 of file FluidParticle.h.
+
+
+
+References m\_\-density.
+
+
+
+
+\begin{DoxyCode}
+112 { m_density = _d; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a814b73436943fccc64939d1dc1c1945d}{
+\index{FluidParticle@{FluidParticle}!setGasConstant@{setGasConstant}}
+\index{setGasConstant@{setGasConstant}!FluidParticle@{FluidParticle}}
+\subsubsection[{setGasConstant}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setGasConstant (const ngl::Real {\em \_\-c})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a814b73436943fccc64939d1dc1c1945d}
+
+
+set the gas constant force 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-c}]value \end{DoxyParams}
+
+
+Definition at line 126 of file FluidParticle.h.
+
+
+
+References m\_\-gasConstant.
+
+
+
+
+\begin{DoxyCode}
+126 { m_gasConstant = _c; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_aa50bfbb2492827bbe49e52159b98e28e}{
+\index{FluidParticle@{FluidParticle}!setGravityForce@{setGravityForce}}
+\index{setGravityForce@{setGravityForce}!FluidParticle@{FluidParticle}}
+\subsubsection[{setGravityForce}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setGravityForce (const ngl::Vector {\em \_\-gravityForce})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_aa50bfbb2492827bbe49e52159b98e28e}
+
+
+set the gravitational force 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-gravityForce}]force value \end{DoxyParams}
+
+
+Definition at line 102 of file FluidParticle.h.
+
+
+
+References m\_\-gravityForce.
+
+
+
+
+\begin{DoxyCode}
+102 { m_gravityForce = _gravityForce; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a24edd2572ede213fba7dad12a9710ad0}{
+\index{FluidParticle@{FluidParticle}!setInterfaceColorCoefficient@{setInterfaceColorCoefficient}}
+\index{setInterfaceColorCoefficient@{setInterfaceColorCoefficient}!FluidParticle@{FluidParticle}}
+\subsubsection[{setInterfaceColorCoefficient}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setInterfaceColorCoefficient (const ngl::Real {\em \_\-interfaceColorCoefficient})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a24edd2572ede213fba7dad12a9710ad0}
+
+
+set the interface color 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-interfaceColorCoefficient}]color value \end{DoxyParams}
+
+
+Definition at line 175 of file FluidParticle.h.
+
+
+
+References m\_\-interfaceColorCoefficient.
+
+
+
+
+\begin{DoxyCode}
+175 { m_interfaceColorCoefficient = _interfaceColorCoefficient; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a00b8eca62e076dcd2d8dff6ad6619ead}{
+\index{FluidParticle@{FluidParticle}!setInterfaceTensionCoefficient@{setInterfaceTensionCoefficient}}
+\index{setInterfaceTensionCoefficient@{setInterfaceTensionCoefficient}!FluidParticle@{FluidParticle}}
+\subsubsection[{setInterfaceTensionCoefficient}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setInterfaceTensionCoefficient (const ngl::Real {\em \_\-interfaceTensionCoefficient})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a00b8eca62e076dcd2d8dff6ad6619ead}
+
+
+set the surface tension coefficient 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-interfaceTensionCoefficient}]coefficient value \end{DoxyParams}
+
+
+Definition at line 161 of file FluidParticle.h.
+
+
+
+References m\_\-interfaceTensionCoefficient.
+
+
+
+
+\begin{DoxyCode}
+161 { m_interfaceTensionCoefficient = _interfaceTensionCoefficient; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a33e789925811ce4517440460e5423531}{
+\index{FluidParticle@{FluidParticle}!setInterfaceTensionForce@{setInterfaceTensionForce}}
+\index{setInterfaceTensionForce@{setInterfaceTensionForce}!FluidParticle@{FluidParticle}}
+\subsubsection[{setInterfaceTensionForce}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setInterfaceTensionForce (const ngl::Vector {\em \_\-interfaceTensionForce})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a33e789925811ce4517440460e5423531}
+
+
+set the interface tension force 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-interfaceTensionForce}]force value \end{DoxyParams}
+
+
+Definition at line 95 of file FluidParticle.h.
+
+
+
+References m\_\-interfaceTensionForce.
+
+
+
+
+\begin{DoxyCode}
+95 { m_interfaceTensionForce = _interfaceTensionForce; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a9cf3c861484e2487e56e68b509d67dd5}{
+\index{FluidParticle@{FluidParticle}!setInterfaceTensionThreshold@{setInterfaceTensionThreshold}}
+\index{setInterfaceTensionThreshold@{setInterfaceTensionThreshold}!FluidParticle@{FluidParticle}}
+\subsubsection[{setInterfaceTensionThreshold}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setInterfaceTensionThreshold (const ngl::Real {\em \_\-interfaceTensionThreshold})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a9cf3c861484e2487e56e68b509d67dd5}
+
+
+set the interface tension threshold 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-interfaceTensionThreshold}]threshold value \end{DoxyParams}
+
+
+Definition at line 168 of file FluidParticle.h.
+
+
+
+References m\_\-interfaceTensionThreshold.
+
+
+
+
+\begin{DoxyCode}
+168 { m_interfaceTensionThreshold = _interfaceTensionThreshold; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a5d08a37988851625883aeae32fca6a53}{
+\index{FluidParticle@{FluidParticle}!setPressureForce@{setPressureForce}}
+\index{setPressureForce@{setPressureForce}!FluidParticle@{FluidParticle}}
+\subsubsection[{setPressureForce}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setPressureForce (const ngl::Vector {\em \_\-pressureForce})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a5d08a37988851625883aeae32fca6a53}
+
+
+set the pressure force 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-pressureForce}]force value \end{DoxyParams}
+
+
+Definition at line 74 of file FluidParticle.h.
+
+
+
+References m\_\-pressureForce.
+
+
+
+
+\begin{DoxyCode}
+74 { m_pressureForce = _pressureForce; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_a85333cc69cb0731330186c6a88c2ac37}{
+\index{FluidParticle@{FluidParticle}!setRestDensity@{setRestDensity}}
+\index{setRestDensity@{setRestDensity}!FluidParticle@{FluidParticle}}
+\subsubsection[{setRestDensity}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setRestDensity (const ngl::Real {\em \_\-v})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_a85333cc69cb0731330186c6a88c2ac37}
+
+
+set the rest density 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-v}]density value \end{DoxyParams}
+
+
+Definition at line 119 of file FluidParticle.h.
+
+
+
+References m\_\-restDensity.
+
+
+
+
+\begin{DoxyCode}
+119 { m_restDensity = _v; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_abfd00e4a0fb0adcad1b320c3ddcdf257}{
+\index{FluidParticle@{FluidParticle}!setScalerPressure@{setScalerPressure}}
+\index{setScalerPressure@{setScalerPressure}!FluidParticle@{FluidParticle}}
+\subsubsection[{setScalerPressure}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setScalerPressure (const ngl::Real {\em \_\-scalerPressure})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_abfd00e4a0fb0adcad1b320c3ddcdf257}
+
+
+Definition at line 67 of file FluidParticle.h.
+
+
+
+References m\_\-scalerPressure.
+
+
+
+
+\begin{DoxyCode}
+67 {m_scalerPressure = _scalerPressure;}
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_aefabd64a31db41499e71c57baf54bfe5}{
+\index{FluidParticle@{FluidParticle}!setSurfaceColorCoefficient@{setSurfaceColorCoefficient}}
+\index{setSurfaceColorCoefficient@{setSurfaceColorCoefficient}!FluidParticle@{FluidParticle}}
+\subsubsection[{setSurfaceColorCoefficient}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setSurfaceColorCoefficient (const ngl::Real {\em \_\-surfaceColorCoefficient})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_aefabd64a31db41499e71c57baf54bfe5}
+
+
+set the surface color 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-surfaceColorCoefficient}]color value \end{DoxyParams}
+
+
+Definition at line 154 of file FluidParticle.h.
+
+
+
+References m\_\-surfaceColorCoefficient.
+
+
+
+
+\begin{DoxyCode}
+154 { m_surfaceColorCoefficient = _surfaceColorCoefficient; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_ab7fc0bcc4a6100ef5110df0c4b0b7486}{
+\index{FluidParticle@{FluidParticle}!setSurfaceTensionCoefficient@{setSurfaceTensionCoefficient}}
+\index{setSurfaceTensionCoefficient@{setSurfaceTensionCoefficient}!FluidParticle@{FluidParticle}}
+\subsubsection[{setSurfaceTensionCoefficient}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setSurfaceTensionCoefficient (const ngl::Real {\em \_\-surfaceTensionCoefficient})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_ab7fc0bcc4a6100ef5110df0c4b0b7486}
+
+
+set the surface interface coefficient 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-surfaceTensionCoefficient}]coefficient value \end{DoxyParams}
+
+
+Definition at line 140 of file FluidParticle.h.
+
+
+
+References m\_\-surfaceTensionCoefficient.
+
+
+
+
+\begin{DoxyCode}
+140 { m_surfaceTensionCoefficient = _surfaceTensionCoefficient; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_ac7854dc82e9b28d515021a5616973d8b}{
+\index{FluidParticle@{FluidParticle}!setSurfaceTensionForce@{setSurfaceTensionForce}}
+\index{setSurfaceTensionForce@{setSurfaceTensionForce}!FluidParticle@{FluidParticle}}
+\subsubsection[{setSurfaceTensionForce}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setSurfaceTensionForce (const ngl::Vector {\em \_\-surfaceTensionForce})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_ac7854dc82e9b28d515021a5616973d8b}
+
+
+set the surface tension force 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-surfaceTensionForce}]force value \end{DoxyParams}
+
+
+Definition at line 88 of file FluidParticle.h.
+
+
+
+References m\_\-surfaceTensionForce.
+
+
+
+
+\begin{DoxyCode}
+88 { m_surfaceTensionForce = _surfaceTensionForce; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_abfcb80bf86d94aa6db5add367f388bcf}{
+\index{FluidParticle@{FluidParticle}!setSurfaceTensionThreshold@{setSurfaceTensionThreshold}}
+\index{setSurfaceTensionThreshold@{setSurfaceTensionThreshold}!FluidParticle@{FluidParticle}}
+\subsubsection[{setSurfaceTensionThreshold}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setSurfaceTensionThreshold (const ngl::Real {\em \_\-surfaceTensionThreshold})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_abfcb80bf86d94aa6db5add367f388bcf}
+
+
+set the surface tension threshold 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-surfaceTensionThreshold}]threshold value \end{DoxyParams}
+
+
+Definition at line 147 of file FluidParticle.h.
+
+
+
+References m\_\-surfaceTensionThreshold.
+
+
+
+
+\begin{DoxyCode}
+147 { m_surfaceTensionThreshold = _surfaceTensionThreshold; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_aedde7e367011a2e11849442462085b6c}{
+\index{FluidParticle@{FluidParticle}!setViscosityConstant@{setViscosityConstant}}
+\index{setViscosityConstant@{setViscosityConstant}!FluidParticle@{FluidParticle}}
+\subsubsection[{setViscosityConstant}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setViscosityConstant (const ngl::Real {\em \_\-viscosityConstant})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_aedde7e367011a2e11849442462085b6c}
+
+
+set the viscosity constant 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-viscosityConstant}]value \end{DoxyParams}
+
+
+Definition at line 133 of file FluidParticle.h.
+
+
+
+References m\_\-viscosityConstant.
+
+
+
+
+\begin{DoxyCode}
+133 { m_viscosityConstant = _viscosityConstant; }
+\end{DoxyCode}
+
+
+\hypertarget{class_fluid_particle_ac4e550043305501a7157dd1489ae4a1a}{
+\index{FluidParticle@{FluidParticle}!setViscosityForce@{setViscosityForce}}
+\index{setViscosityForce@{setViscosityForce}!FluidParticle@{FluidParticle}}
+\subsubsection[{setViscosityForce}]{\setlength{\rightskip}{0pt plus 5cm}void FluidParticle::setViscosityForce (const ngl::Vector {\em \_\-viscosityForce})\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_fluid_particle_ac4e550043305501a7157dd1489ae4a1a}
+
+
+set the viscosity force 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-viscosityForce}]force value \end{DoxyParams}
+
+
+Definition at line 81 of file FluidParticle.h.
+
+
+
+References m\_\-viscosityForce.
+
+
+
+
+\begin{DoxyCode}
+81 { m_viscosityForce = _viscosityForce; }
+\end{DoxyCode}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_fluid_particle_ad2c0d1dae5fc90f4bbdce3ea51c6fb71}{
+\index{FluidParticle@{FluidParticle}!m\_\-density@{m\_\-density}}
+\index{m\_\-density@{m\_\-density}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-density}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf FluidParticle::m\_\-density}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_ad2c0d1dae5fc90f4bbdce3ea51c6fb71}
+
+
+density at particle 
+
+
+
+Definition at line 182 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_a19ddab3f4dfe30378c11d3afa11a4708}{
+\index{FluidParticle@{FluidParticle}!m\_\-gasConstant@{m\_\-gasConstant}}
+\index{m\_\-gasConstant@{m\_\-gasConstant}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-gasConstant}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf FluidParticle::m\_\-gasConstant}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_a19ddab3f4dfe30378c11d3afa11a4708}
+
+
+gas constant 
+
+
+
+Definition at line 206 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_a4759c4e1e0729283a71dec834b753ae1}{
+\index{FluidParticle@{FluidParticle}!m\_\-gravityForce@{m\_\-gravityForce}}
+\index{m\_\-gravityForce@{m\_\-gravityForce}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-gravityForce}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf FluidParticle::m\_\-gravityForce}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_a4759c4e1e0729283a71dec834b753ae1}
+
+
+gravity force 
+
+
+
+Definition at line 203 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_ab50ddf6727d5869c5732efe8a59b549d}{
+\index{FluidParticle@{FluidParticle}!m\_\-interfaceColorCoefficient@{m\_\-interfaceColorCoefficient}}
+\index{m\_\-interfaceColorCoefficient@{m\_\-interfaceColorCoefficient}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-interfaceColorCoefficient}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf FluidParticle::m\_\-interfaceColorCoefficient}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_ab50ddf6727d5869c5732efe8a59b549d}
+
+
+interface color coefficient 
+
+
+
+Definition at line 227 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_ae649e3f7dcf63da1d3fb15c5c00c968d}{
+\index{FluidParticle@{FluidParticle}!m\_\-interfaceTensionCoefficient@{m\_\-interfaceTensionCoefficient}}
+\index{m\_\-interfaceTensionCoefficient@{m\_\-interfaceTensionCoefficient}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-interfaceTensionCoefficient}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf FluidParticle::m\_\-interfaceTensionCoefficient}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_ae649e3f7dcf63da1d3fb15c5c00c968d}
+
+
+interface tension coefficient 
+
+
+
+Definition at line 221 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_a1eed81ac818dc7d027490e912aa880c8}{
+\index{FluidParticle@{FluidParticle}!m\_\-interfaceTensionForce@{m\_\-interfaceTensionForce}}
+\index{m\_\-interfaceTensionForce@{m\_\-interfaceTensionForce}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-interfaceTensionForce}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf FluidParticle::m\_\-interfaceTensionForce}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_a1eed81ac818dc7d027490e912aa880c8}
+
+
+interface tension force 
+
+
+
+Definition at line 200 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_a654e0edda2cb46780451fd98e0613211}{
+\index{FluidParticle@{FluidParticle}!m\_\-interfaceTensionThreshold@{m\_\-interfaceTensionThreshold}}
+\index{m\_\-interfaceTensionThreshold@{m\_\-interfaceTensionThreshold}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-interfaceTensionThreshold}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf FluidParticle::m\_\-interfaceTensionThreshold}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_a654e0edda2cb46780451fd98e0613211}
+
+
+interface tension threshold 
+
+
+
+Definition at line 224 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_a58aafd3376c4f7504b4b6a045d3b693e}{
+\index{FluidParticle@{FluidParticle}!m\_\-name@{m\_\-name}}
+\index{m\_\-name@{m\_\-name}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}std::string {\bf FluidParticle::m\_\-name}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_a58aafd3376c4f7504b4b6a045d3b693e}
+
+
+name of fluid for identification by user later on 
+
+
+
+Definition at line 179 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_a0fc3f13aa67912329489ec7f3550af13}{
+\index{FluidParticle@{FluidParticle}!m\_\-pressureForce@{m\_\-pressureForce}}
+\index{m\_\-pressureForce@{m\_\-pressureForce}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-pressureForce}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf FluidParticle::m\_\-pressureForce}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_a0fc3f13aa67912329489ec7f3550af13}
+
+
+pressure force 
+
+
+
+Definition at line 191 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_aa8e7cedce80b89676c3c4ddba1e163f3}{
+\index{FluidParticle@{FluidParticle}!m\_\-restDensity@{m\_\-restDensity}}
+\index{m\_\-restDensity@{m\_\-restDensity}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-restDensity}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf FluidParticle::m\_\-restDensity}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_aa8e7cedce80b89676c3c4ddba1e163f3}
+
+
+rest density at particle 
+
+
+
+Definition at line 185 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_a3b5d86db4ec613904adcac9e55c15e38}{
+\index{FluidParticle@{FluidParticle}!m\_\-scalerPressure@{m\_\-scalerPressure}}
+\index{m\_\-scalerPressure@{m\_\-scalerPressure}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-scalerPressure}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf FluidParticle::m\_\-scalerPressure}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_a3b5d86db4ec613904adcac9e55c15e38}
+
+
+pressure at particle 
+
+
+
+Definition at line 188 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_a1bafc97f79f73eed857df1bbba79a3b8}{
+\index{FluidParticle@{FluidParticle}!m\_\-surfaceColorCoefficient@{m\_\-surfaceColorCoefficient}}
+\index{m\_\-surfaceColorCoefficient@{m\_\-surfaceColorCoefficient}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-surfaceColorCoefficient}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf FluidParticle::m\_\-surfaceColorCoefficient}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_a1bafc97f79f73eed857df1bbba79a3b8}
+
+
+surface color coefficient 
+
+
+
+Definition at line 218 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_a9b07a93d8ec041692c3ad99319c08939}{
+\index{FluidParticle@{FluidParticle}!m\_\-surfaceTensionCoefficient@{m\_\-surfaceTensionCoefficient}}
+\index{m\_\-surfaceTensionCoefficient@{m\_\-surfaceTensionCoefficient}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-surfaceTensionCoefficient}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf FluidParticle::m\_\-surfaceTensionCoefficient}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_a9b07a93d8ec041692c3ad99319c08939}
+
+
+surface tension coefficient 
+
+
+
+Definition at line 212 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_ac2bbf04b2f814d332ed7dc5113472471}{
+\index{FluidParticle@{FluidParticle}!m\_\-surfaceTensionForce@{m\_\-surfaceTensionForce}}
+\index{m\_\-surfaceTensionForce@{m\_\-surfaceTensionForce}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-surfaceTensionForce}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf FluidParticle::m\_\-surfaceTensionForce}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_ac2bbf04b2f814d332ed7dc5113472471}
+
+
+surface tension force 
+
+
+
+Definition at line 197 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_aaa03e2d5786c38929e8e0546c08e950c}{
+\index{FluidParticle@{FluidParticle}!m\_\-surfaceTensionThreshold@{m\_\-surfaceTensionThreshold}}
+\index{m\_\-surfaceTensionThreshold@{m\_\-surfaceTensionThreshold}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-surfaceTensionThreshold}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf FluidParticle::m\_\-surfaceTensionThreshold}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_aaa03e2d5786c38929e8e0546c08e950c}
+
+
+surface tension threshold 
+
+
+
+Definition at line 215 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_a3788ca2bcafe18bf8bbf59faa0146385}{
+\index{FluidParticle@{FluidParticle}!m\_\-viscosityConstant@{m\_\-viscosityConstant}}
+\index{m\_\-viscosityConstant@{m\_\-viscosityConstant}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-viscosityConstant}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf FluidParticle::m\_\-viscosityConstant}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_a3788ca2bcafe18bf8bbf59faa0146385}
+
+
+viscosity constant 
+
+
+
+Definition at line 209 of file FluidParticle.h.
+
+\hypertarget{class_fluid_particle_a2118d5719ce2331efb1f3bc7c0650cfa}{
+\index{FluidParticle@{FluidParticle}!m\_\-viscosityForce@{m\_\-viscosityForce}}
+\index{m\_\-viscosityForce@{m\_\-viscosityForce}!FluidParticle@{FluidParticle}}
+\subsubsection[{m\_\-viscosityForce}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf FluidParticle::m\_\-viscosityForce}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_fluid_particle_a2118d5719ce2331efb1f3bc7c0650cfa}
+
+
+viscosity force 
+
+
+
+Definition at line 194 of file FluidParticle.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_fluid_particle_8h}{FluidParticle.h}\item 
+src/\hyperlink{_fluid_particle_8cpp}{FluidParticle.cpp}\end{DoxyCompactItemize}

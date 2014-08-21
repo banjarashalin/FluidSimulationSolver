@@ -1,0 +1,263 @@
+\hypertarget{class_export}{
+\section{Export Class Reference}
+\label{class_export}\index{Export@{Export}}
+}
+
+
+writes the simulation data on a specified path as geo files  
+
+
+
+
+{\ttfamily \#include $<$Export.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_export_a4d7d6897c99839d1bc1571c51018bec8}{Export} (std::string \_\-exportPath)
+\begin{DoxyCompactList}\small\item\em ctor \item\end{DoxyCompactList}\item 
+void \hyperlink{class_export_ae3981dfddf020b1da5b91e344247977b}{exportDataOut} (std::vector$<$ std::string $>$ \_\-fluidNameList, std::vector$<$ std::vector$<$ ngl::Vector $>$ $>$ \_\-fluidParticlesPositionsList, \hyperlink{class_environment_and_rigid_body}{EnvironmentAndRigidBody} $\ast$\_\-environment)
+\begin{DoxyCompactList}\small\item\em write point positions (fluid and sphere) to file \item\end{DoxyCompactList}\item 
+void \hyperlink{class_export_ade2f12dbd5ab27d8268aef4233b92964}{writePointData} (std::vector$<$ ngl::Vector $>$ \&\_\-fluidParticlePositionsList, const std::string \&\_\-filename)
+\begin{DoxyCompactList}\small\item\em write point positions (fluid) to a file \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std::string \hyperlink{class_export_a118e0991b8d0a147dabb306f2baa7d42}{m\_\-exportPath}
+\begin{DoxyCompactList}\small\item\em stores the path to which the files are to be written out \item\end{DoxyCompactList}\item 
+int \hyperlink{class_export_aba7efe1cc8dc348c756d65868a9bc929}{m\_\-frameNumber}
+\begin{DoxyCompactList}\small\item\em stores the frame number \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+writes the simulation data on a specified path as geo files 
+
+Definition at line 19 of file Export.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_export_a4d7d6897c99839d1bc1571c51018bec8}{
+\index{Export@{Export}!Export@{Export}}
+\index{Export@{Export}!Export@{Export}}
+\subsubsection[{Export}]{\setlength{\rightskip}{0pt plus 5cm}Export::Export (std::string {\em \_\-exportPath})}}
+\label{class_export_a4d7d6897c99839d1bc1571c51018bec8}
+
+
+ctor 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-exportPath}]path to save the geo files \end{DoxyParams}
+
+
+Definition at line 5 of file Export.cpp.
+
+
+
+References m\_\-exportPath, and m\_\-frameNumber.
+
+
+
+
+\begin{DoxyCode}
+6 {
+7     m_exportPath = _exportPath;
+8     m_frameNumber = 0;
+9 }
+\end{DoxyCode}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_export_ae3981dfddf020b1da5b91e344247977b}{
+\index{Export@{Export}!exportDataOut@{exportDataOut}}
+\index{exportDataOut@{exportDataOut}!Export@{Export}}
+\subsubsection[{exportDataOut}]{\setlength{\rightskip}{0pt plus 5cm}void Export::exportDataOut (std::vector$<$ std::string $>$ {\em \_\-fluidNameList}, \/  std::vector$<$ std::vector$<$ ngl::Vector $>$ $>$ {\em \_\-fluidParticlesPositionsList}, \/  {\bf EnvironmentAndRigidBody} $\ast$ {\em \_\-environment})}}
+\label{class_export_ae3981dfddf020b1da5b91e344247977b}
+
+
+write point positions (fluid and sphere) to file 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-fluidNameList}]the name of the file to be written on disk \item[\mbox{$\leftarrow$} {\em \_\-fluidParticlesPositionsList}]the position list to write out \item[\mbox{$\leftarrow$} {\em \_\-environment}]pointer to enviornment class \end{DoxyParams}
+
+
+Definition at line 11 of file Export.cpp.
+
+
+
+References EnvironmentAndRigidBody::getRBDSphereList(), m\_\-exportPath, m\_\-frameNumber, and writePointData().
+
+
+
+
+\begin{DoxyCode}
+12 {
+13     m_frameNumber++;
+14 
+15 /*---------------------------Writing the Position of the fluid particles --------
+      -------------------------------- */
+16 
+17     for (int j = 0; j < _fluidNameList.size(); ++j)
+18     {
+19         //construct filename of the item for the current frame number
+20         QString text = QString("%1%2_Frame_%3.geo")
+21                         .arg(m_exportPath.c_str())
+22                         .arg(std::string(_fluidNameList[j]).c_str())
+23                         .arg(m_frameNumber);
+24 
+25 
+26         writePointData(_fluidParticlesPositionsList[j], text.toStdString());
+27 
+28     }
+29 
+30 /*-------------------Writing the Position of the obstacle -----------------------
+      ----------------- */
+31 
+32     if (m_frameNumber == 1)
+33     {
+34         std::vector <ngl::Vector> _position;
+35         _position.clear();
+36 
+37         for (int i=0; i<_environment->getRBDSphereList().size(); i++)
+38         {
+39             _position.push_back(_environment->getRBDSphereList()[i].getCurrentPos
+      ition());
+40         }
+41 
+42         //construct filename of the item for the current frame number
+43 
+44         QString text = QString("%1%2_Frame_%3.geo")
+45                         .arg(m_exportPath.c_str())
+46                         .arg(std::string("ObstacleSphere").c_str())
+47                         .arg(m_frameNumber);
+48 
+49 
+50         writePointData(_position, text.toStdString());
+51     }
+52 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{class_export_ae3981dfddf020b1da5b91e344247977b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{class_export_ae3981dfddf020b1da5b91e344247977b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_export_ade2f12dbd5ab27d8268aef4233b92964}{
+\index{Export@{Export}!writePointData@{writePointData}}
+\index{writePointData@{writePointData}!Export@{Export}}
+\subsubsection[{writePointData}]{\setlength{\rightskip}{0pt plus 5cm}void Export::writePointData (std::vector$<$ ngl::Vector $>$ \& {\em \_\-fluidParticlePositionsList}, \/  const std::string \& {\em \_\-filename})}}
+\label{class_export_ade2f12dbd5ab27d8268aef4233b92964}
+
+
+write point positions (fluid) to a file 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-fluidParticlePositionsList}]the position list to write out \item[\mbox{$\leftarrow$} {\em \_\-filename}]the name of the file on disk \end{DoxyParams}
+
+
+Definition at line 54 of file Export.cpp.
+
+
+
+
+\begin{DoxyCode}
+55 {
+56     //open file for writing
+57     std::ofstream outFile(_filename.c_str(), std::ios::out);
+58 
+59     //write header
+60     outFile << "PGEOMETRY V5\n";
+61     outFile << "NPoints " << _fluidParticlePositionsList.size() << " NPrims 0\n";
+      
+62     outFile << "NPointGroups 0 NPrimGroups 0\n";
+63     outFile << "NPointAttrib 0 NVertexAttrib 0 NPrimAttrib 0 NAttrib 0\n";
+64 
+65     //loop through position list
+66     for (int i = 0; i < _fluidParticlePositionsList.size(); ++i)
+67     {
+68         outFile
+69                 << _fluidParticlePositionsList[i].m_x << " "
+70                 << _fluidParticlePositionsList[i].m_y << " "
+71                 << _fluidParticlePositionsList[i].m_z << " "
+72                 << _fluidParticlePositionsList[i].m_w << "\n";
+73     }
+74 
+75     //write the outro
+76     outFile << "beginExtra\n";
+77     outFile << "endExtra";
+78 
+79     //close file
+80     outFile.close();
+81 }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{class_export_ade2f12dbd5ab27d8268aef4233b92964_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_export_a118e0991b8d0a147dabb306f2baa7d42}{
+\index{Export@{Export}!m\_\-exportPath@{m\_\-exportPath}}
+\index{m\_\-exportPath@{m\_\-exportPath}!Export@{Export}}
+\subsubsection[{m\_\-exportPath}]{\setlength{\rightskip}{0pt plus 5cm}std::string {\bf Export::m\_\-exportPath}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_export_a118e0991b8d0a147dabb306f2baa7d42}
+
+
+stores the path to which the files are to be written out 
+
+
+
+Definition at line 47 of file Export.h.
+
+\hypertarget{class_export_aba7efe1cc8dc348c756d65868a9bc929}{
+\index{Export@{Export}!m\_\-frameNumber@{m\_\-frameNumber}}
+\index{m\_\-frameNumber@{m\_\-frameNumber}!Export@{Export}}
+\subsubsection[{m\_\-frameNumber}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf Export::m\_\-frameNumber}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_export_aba7efe1cc8dc348c756d65868a9bc929}
+
+
+stores the frame number 
+
+
+
+Definition at line 50 of file Export.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_export_8h}{Export.h}\item 
+src/\hyperlink{_export_8cpp}{Export.cpp}\end{DoxyCompactItemize}

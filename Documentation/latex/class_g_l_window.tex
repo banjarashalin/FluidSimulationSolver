@@ -1,0 +1,1003 @@
+\hypertarget{class_g_l_window}{
+\section{GLWindow Class Reference}
+\label{class_g_l_window}\index{GLWindow@{GLWindow}}
+}
+
+
+management of entities required of simulation and visualization of fluids  
+
+
+
+
+{\ttfamily \#include $<$GLWindow.h$>$}
+
+
+
+Collaboration diagram for GLWindow:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{class_g_l_window__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_g_l_window_a8dfc33113be0a86a53ddbea054f75292}{GLWindow} (QWidget $\ast$\_\-parent)
+\begin{DoxyCompactList}\small\item\em ctor \item\end{DoxyCompactList}\item 
+\hyperlink{class_g_l_window_a2eeaea2148f4f72344edd6d1bac9759b}{$\sim$GLWindow} ()
+\begin{DoxyCompactList}\small\item\em dtor \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_g_l_window_a39e39761cd7323806917a217cc7caea5}{initializeGL} ()
+\begin{DoxyCompactList}\small\item\em The following methods must be implimented in the sub class this is called when the window is created. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_g_l_window_abe57c0f40e59cba4c98759121e22eb47}{resizeGL} (const int \_\-w, const int \_\-h)
+\begin{DoxyCompactList}\small\item\em this is called whenever the window is re-\/sized \item\end{DoxyCompactList}\item 
+void \hyperlink{class_g_l_window_a9bd2503dd5f812c10a9481f22ecd3403}{paintGL} ()
+\begin{DoxyCompactList}\small\item\em this is the main gl drawing routine which is called whenever the window needs to \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_g_l_window_a7a04e2a3400fa69d1bcb6b650425c01e}{mouseMoveEvent} (QMouseEvent $\ast$\_\-event)
+\begin{DoxyCompactList}\small\item\em this method is called every time a mouse is moved \item\end{DoxyCompactList}\item 
+void \hyperlink{class_g_l_window_a2c4d9af80c2a7a33a46bce46276b8409}{mousePressEvent} (QMouseEvent $\ast$\_\-event)
+\begin{DoxyCompactList}\small\item\em this method is called everytime the mouse button is pressed inherited from QObject and overridden here. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_g_l_window_ab9e5741b8c69d2f6447a5fc6d9d704c8}{mouseReleaseEvent} (QMouseEvent $\ast$\_\-event)
+\begin{DoxyCompactList}\small\item\em this method is called everytime the mouse button is released inherited from QObject and overridden here. \item\end{DoxyCompactList}\item 
+void \hyperlink{class_g_l_window_a8901509418ab117e8613d624df9b5666}{timerEvent} (QTimerEvent $\ast$\_\-event)
+\begin{DoxyCompactList}\small\item\em the timer event triggered from the timers \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_g_l_window_af8ea09020a5ad4c20a16ea835ed1f2af}{m\_\-spinXFace}
+\begin{DoxyCompactList}\small\item\em used to store the x rotation mouse value \item\end{DoxyCompactList}\item 
+int \hyperlink{class_g_l_window_aa4c39badfa80d8eac6a773449b6db5a2}{m\_\-spinYFace}
+\begin{DoxyCompactList}\small\item\em used to store the y rotation mouse value \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_g_l_window_a1b5d8b223995bc9740074c5342fe8e38}{m\_\-rotate}
+\begin{DoxyCompactList}\small\item\em flag to indicate if the mouse button is pressed when dragging \item\end{DoxyCompactList}\item 
+int \hyperlink{class_g_l_window_ab6aec410f5ce5868cabe5fe2f0768bc9}{m\_\-origX}
+\begin{DoxyCompactList}\small\item\em the previous x mouse value \item\end{DoxyCompactList}\item 
+int \hyperlink{class_g_l_window_ab7a1ee2202588e005b90c99ea1323af4}{m\_\-origY}
+\begin{DoxyCompactList}\small\item\em the previous y mouse value \item\end{DoxyCompactList}\item 
+int \hyperlink{class_g_l_window_a1a000254ac61defca21846dbd780bbd3}{m\_\-FluidTimer}
+\begin{DoxyCompactList}\small\item\em timer check if the iteration process is over \item\end{DoxyCompactList}\item 
+int \hyperlink{class_g_l_window_a4f6b732547e0cfd593c1933d5e497ee6}{m\_\-fpsTimer}
+\begin{DoxyCompactList}\small\item\em timer to to calculate frames per second \item\end{DoxyCompactList}\item 
+int \hyperlink{class_g_l_window_a83e019efd2becc005d6bf4493fc3adb2}{m\_\-fps}
+\begin{DoxyCompactList}\small\item\em number iterations performed per second \item\end{DoxyCompactList}\item 
+int \hyperlink{class_g_l_window_a86818489d82e1e6a19d35ded614af48c}{m\_\-frames}
+\begin{DoxyCompactList}\small\item\em number iterations performed within one second \item\end{DoxyCompactList}\item 
+float \hyperlink{class_g_l_window_aa3dfb7b4e6a13e25ebc5c9db22216b2c}{m\_\-elapsedTime}
+\begin{DoxyCompactList}\small\item\em elapsed time after the last simulation data was written \item\end{DoxyCompactList}\item 
+float \hyperlink{class_g_l_window_a808ad95aba9f47b8eca08eeb98ca61f2}{m\_\-elapsedSimulationTime}
+\begin{DoxyCompactList}\small\item\em elapsed time inside the simulation model \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_g_l_window_a1d74b588450b6719a4b1446ad47927dc}{m\_\-animate}
+\begin{DoxyCompactList}\small\item\em flag to indicate if animation is active or not \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_g_l_window_a79f6f10959fa411711c21f937ff96a72}{m\_\-iterationProcessed}
+\begin{DoxyCompactList}\small\item\em flag to check if a iteration is completed \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_g_l_window_a629e95979f0bbb5306562358ca507eb8}{m\_\-eye}
+\begin{DoxyCompactList}\small\item\em eye of the camera \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_g_l_window_acb8385bfb1f1fcbaafe890aabf51055b}{m\_\-look}
+\begin{DoxyCompactList}\small\item\em look/traget of the camera \item\end{DoxyCompactList}\item 
+ngl::Vector \hyperlink{class_g_l_window_af2d28904bf4682c2f0cc2ab552f6ae8c}{m\_\-upVector}
+\begin{DoxyCompactList}\small\item\em up vector for the camera \item\end{DoxyCompactList}\item 
+QTime \hyperlink{class_g_l_window_abc5b1376741572d8c02860eafbfd008c}{m\_\-timer}
+\begin{DoxyCompactList}\small\item\em timer to check the iterations performed per second \item\end{DoxyCompactList}\item 
+QTime \hyperlink{class_g_l_window_aba81e4d4f6b0cece757626a9a23f3415}{m\_\-iterationTimer}
+\begin{DoxyCompactList}\small\item\em timer to check the iterations performed per second \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_g_l_window_a0919598c4a7cd0726423a0751ef9b193}{m\_\-exportEnabled}
+\begin{DoxyCompactList}\small\item\em flag to check exporting of simulation data \item\end{DoxyCompactList}\item 
+std::string \hyperlink{class_g_l_window_a9beaa5fbadec281cd162d6ad0e792e94}{m\_\-exportPath}
+\begin{DoxyCompactList}\small\item\em path at which the simulation data is to be written on to the disk \item\end{DoxyCompactList}\item 
+float \hyperlink{class_g_l_window_a0d249b475e8b0bc7e7daaf070d1f473c}{m\_\-exportFrameInterval}
+\begin{DoxyCompactList}\small\item\em time interval between two frames for writting simulation data \item\end{DoxyCompactList}\item 
+bool \hyperlink{class_g_l_window_ae4897ca15316a71abfd7cbd3c44e7536}{m\_\-mouseMove}
+\begin{DoxyCompactList}\small\item\em flag to check if a mouse move event in OpenGL Window has occured \item\end{DoxyCompactList}\item 
+ngl::TransformStack \hyperlink{class_g_l_window_aaa941adbe7772d03588f312326100e5f}{m\_\-transformStack}
+\begin{DoxyCompactList}\small\item\em our transform stack for drawing the teapots \item\end{DoxyCompactList}\item 
+ngl::Camera $\ast$ \hyperlink{class_g_l_window_a55556dafb4fc86c35b270ca0d68f456e}{m\_\-cam}
+\begin{DoxyCompactList}\small\item\em pointer to ngl/Camera class \item\end{DoxyCompactList}\item 
+\hyperlink{class_s_p_h_solver}{SPHSolver} $\ast$ \hyperlink{class_g_l_window_a0176eab25515853a18867ca37578ee3b}{m\_\-sphSolver}
+\begin{DoxyCompactList}\small\item\em pointer to \hyperlink{class_s_p_h_solver}{SPHSolver} class \item\end{DoxyCompactList}\item 
+\hyperlink{class_environment_and_rigid_body}{EnvironmentAndRigidBody} $\ast$ \hyperlink{class_g_l_window_a717436a026021c137c6b0963c0d8fc49}{m\_\-environmentAndRigidBody}
+\begin{DoxyCompactList}\small\item\em pointer to EnviornmentAndRigidBody class \item\end{DoxyCompactList}\item 
+\hyperlink{class_integrate}{Integrate} $\ast$ \hyperlink{class_g_l_window_ad6c4fad61e643038bdf0d6bdb0fc1978}{m\_\-integrate}
+\begin{DoxyCompactList}\small\item\em pointer to \hyperlink{class_integrate}{Integrate} class \item\end{DoxyCompactList}\item 
+\hyperlink{class_render}{Render} $\ast$ \hyperlink{class_g_l_window_a165764f9295fafbca46560937898c839}{m\_\-render}
+\begin{DoxyCompactList}\small\item\em pointer to \hyperlink{class_render}{Render} class \item\end{DoxyCompactList}\item 
+\hyperlink{class_export}{Export} $\ast$ \hyperlink{class_g_l_window_aa8a9e9361c985761d51de5af16b24981}{m\_\-export}
+\begin{DoxyCompactList}\small\item\em pointer to \hyperlink{class_export}{Export} class \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+management of entities required of simulation and visualization of fluids 
+
+Definition at line 29 of file GLWindow.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_g_l_window_a8dfc33113be0a86a53ddbea054f75292}{
+\index{GLWindow@{GLWindow}!GLWindow@{GLWindow}}
+\index{GLWindow@{GLWindow}!GLWindow@{GLWindow}}
+\subsubsection[{GLWindow}]{\setlength{\rightskip}{0pt plus 5cm}GLWindow::GLWindow (QWidget $\ast$ {\em \_\-parent})}}
+\label{class_g_l_window_a8dfc33113be0a86a53ddbea054f75292}
+
+
+ctor 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-parent}]the parent window to create the GL context in \end{DoxyParams}
+
+
+Definition at line 20 of file GLWindow.cpp.
+
+
+
+References SimulationParameters::initialiseCameraParameters(), SimulationParameters::initialiseExportParameters(), m\_\-animate, m\_\-elapsedSimulationTime, m\_\-elapsedTime, m\_\-environmentAndRigidBody, m\_\-export, m\_\-exportEnabled, m\_\-exportFrameInterval, m\_\-exportPath, m\_\-eye, m\_\-FluidTimer, m\_\-fps, m\_\-fpsTimer, m\_\-frames, m\_\-integrate, m\_\-iterationProcessed, m\_\-iterationTimer, m\_\-look, m\_\-mouseMove, m\_\-render, m\_\-rotate, m\_\-sphSolver, m\_\-timer, and m\_\-upVector.
+
+
+
+
+\begin{DoxyCode}
+23                     :
+24                     QGLWidget(_parent)
+25 {
+26 
+27     SimulationParameters::initialiseCameraParameters(m_eye,m_look,m_upVector);
+28     SimulationParameters::initialiseExportParameters(m_exportEnabled,
+      m_exportPath,m_exportFrameInterval);
+29     // set this widget to have the initial keyboard focus
+30     setFocus();
+31     // re-size the widget to that of the parent (in this case the GLFrame passed 
+      in on construction)
+32     this->resize(_parent->size());
+33     m_rotate=true;
+34     m_FluidTimer = startTimer(0);
+35     m_fpsTimer =startTimer(0);
+36     m_fps=0;
+37     m_frames=0;
+38     m_elapsedSimulationTime = 0.0;
+39 
+40     m_elapsedTime = 0.0;
+41 
+42     m_timer.start();
+43     m_iterationTimer.start();
+44 
+45     m_animate = true;
+46     m_iterationProcessed = false;
+47 
+48     m_mouseMove = false;
+49 
+50     //create the integration
+51     m_integrate = new Integrate();
+52 
+53     //create the environment
+54     m_environmentAndRigidBody = new EnvironmentAndRigidBody();
+55 
+56     //create the fluid solver
+57     m_sphSolver = new SPHSolver();
+58 
+59     m_render = new Render();
+60 
+61     if (m_exportEnabled)
+62     {
+63         m_export = new Export(m_exportPath);
+64     }
+}
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_g_l_window_a8dfc33113be0a86a53ddbea054f75292_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_g_l_window_a2eeaea2148f4f72344edd6d1bac9759b}{
+\index{GLWindow@{GLWindow}!$\sim$GLWindow@{$\sim$GLWindow}}
+\index{$\sim$GLWindow@{$\sim$GLWindow}!GLWindow@{GLWindow}}
+\subsubsection[{$\sim$GLWindow}]{\setlength{\rightskip}{0pt plus 5cm}GLWindow::$\sim$GLWindow ()}}
+\label{class_g_l_window_a2eeaea2148f4f72344edd6d1bac9759b}
+
+
+dtor 
+
+
+
+Definition at line 252 of file GLWindow.cpp.
+
+
+
+References m\_\-environmentAndRigidBody, m\_\-integrate, and m\_\-sphSolver.
+
+
+
+
+\begin{DoxyCode}
+253 {
+254     delete m_sphSolver;
+255     delete m_environmentAndRigidBody;
+256     delete m_integrate;
+257 }
+\end{DoxyCode}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_g_l_window_a39e39761cd7323806917a217cc7caea5}{
+\index{GLWindow@{GLWindow}!initializeGL@{initializeGL}}
+\index{initializeGL@{initializeGL}!GLWindow@{GLWindow}}
+\subsubsection[{initializeGL}]{\setlength{\rightskip}{0pt plus 5cm}void GLWindow::initializeGL ()\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_g_l_window_a39e39761cd7323806917a217cc7caea5}
+
+
+The following methods must be implimented in the sub class this is called when the window is created. 
+
+
+
+Definition at line 71 of file GLWindow.cpp.
+
+
+
+References Render::initialiseRender(), m\_\-cam, m\_\-environmentAndRigidBody, m\_\-eye, m\_\-look, m\_\-render, and m\_\-upVector.
+
+
+
+
+\begin{DoxyCode}
+72 {
+73 
+74   glClearColor(0.4f, 0.4f, 0.4f, 1.0f);                    // Grey Background
+75   // enable depth testing for drawing
+76   glEnable(GL_DEPTH_TEST);
+77 
+78    // Now we will create a basic Camera from the graphics library
+79    // This is a static camera so it only needs to be set once
+80    // First create Values for the camera position
+81 
+82    ngl::NGLInit *Init = ngl::NGLInit::instance();
+83    Init->initGlew();
+84    m_cam= new ngl::Camera(m_eye,m_look,m_upVector,ngl::PERSPECTIVE);
+85    // set the shape using FOV 45 Aspect Ratio based on Width and Height
+86    // The final two are near and far clipping planes of 0.5 and 10
+87    m_cam->setShape(50,1.0,0.5,150,ngl::PERSPECTIVE);
+88    m_render->initialiseRender(m_environmentAndRigidBody);
+89 
+90 
+91    glEnable(GL_DEPTH_TEST); // for removal of hidden surfaces
+92 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{class_g_l_window_a39e39761cd7323806917a217cc7caea5_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_g_l_window_a7a04e2a3400fa69d1bcb6b650425c01e}{
+\index{GLWindow@{GLWindow}!mouseMoveEvent@{mouseMoveEvent}}
+\index{mouseMoveEvent@{mouseMoveEvent}!GLWindow@{GLWindow}}
+\subsubsection[{mouseMoveEvent}]{\setlength{\rightskip}{0pt plus 5cm}void GLWindow::mouseMoveEvent (QMouseEvent $\ast$ {\em \_\-event})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a7a04e2a3400fa69d1bcb6b650425c01e}
+
+
+this method is called every time a mouse is moved 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \_\-event}]the Qt Event structure \end{DoxyParams}
+
+
+Definition at line 162 of file GLWindow.cpp.
+
+
+
+References m\_\-mouseMove, m\_\-origX, m\_\-origY, m\_\-rotate, m\_\-spinXFace, and m\_\-spinYFace.
+
+
+
+
+\begin{DoxyCode}
+165 {
+166   // note the method buttons() is the button state when event was called
+167   // this is different from button() which is used to check which button was
+168   // pressed when the mousePress/Release event is generated
+169   if(m_rotate && _event->buttons() == Qt::LeftButton)
+170   {
+171     m_spinYFace = ( m_spinYFace + (_event->x() - m_origX) ) % 360 ;
+172     m_spinXFace = ( m_spinXFace + (_event->y() - m_origY) ) % 360 ;
+173     m_origX = _event->x();
+174     m_origY = _event->y();
+175   }
+176   // re-draw GL
+177   m_mouseMove = true;
+178   updateGL();
+179   m_mouseMove = false;
+180 }
+\end{DoxyCode}
+
+
+\hypertarget{class_g_l_window_a2c4d9af80c2a7a33a46bce46276b8409}{
+\index{GLWindow@{GLWindow}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!GLWindow@{GLWindow}}
+\subsubsection[{mousePressEvent}]{\setlength{\rightskip}{0pt plus 5cm}void GLWindow::mousePressEvent (QMouseEvent $\ast$ {\em \_\-event})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a2c4d9af80c2a7a33a46bce46276b8409}
+
+
+this method is called everytime the mouse button is pressed inherited from QObject and overridden here. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \_\-event}]the Qt Event structure \end{DoxyParams}
+
+
+Definition at line 182 of file GLWindow.cpp.
+
+
+
+References m\_\-origX, m\_\-origY, and m\_\-rotate.
+
+
+
+
+\begin{DoxyCode}
+185 {
+186   // this method is called when the mouse button is pressed in this case we
+187   // store the value where the maouse was clicked (x,y) and set the Rotate flag t
+      o true
+188   if(_event->button() == Qt::LeftButton)
+189   {
+190     m_origX = _event->x();
+191     m_origY = _event->y();
+192     m_rotate =true;
+193   }
+194 }
+\end{DoxyCode}
+
+
+\hypertarget{class_g_l_window_ab9e5741b8c69d2f6447a5fc6d9d704c8}{
+\index{GLWindow@{GLWindow}!mouseReleaseEvent@{mouseReleaseEvent}}
+\index{mouseReleaseEvent@{mouseReleaseEvent}!GLWindow@{GLWindow}}
+\subsubsection[{mouseReleaseEvent}]{\setlength{\rightskip}{0pt plus 5cm}void GLWindow::mouseReleaseEvent (QMouseEvent $\ast$ {\em \_\-event})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_ab9e5741b8c69d2f6447a5fc6d9d704c8}
+
+
+this method is called everytime the mouse button is released inherited from QObject and overridden here. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \_\-event}]the Qt Event structure \end{DoxyParams}
+
+
+Definition at line 197 of file GLWindow.cpp.
+
+
+
+References m\_\-rotate.
+
+
+
+
+\begin{DoxyCode}
+200 {
+201   // this event is called when the mouse button is released
+202   // we then set Rotate to false
+203   if (_event->button() == Qt::LeftButton)
+204   {
+205     m_rotate=false;
+206   }
+207 }
+\end{DoxyCode}
+
+
+\hypertarget{class_g_l_window_a9bd2503dd5f812c10a9481f22ecd3403}{
+\index{GLWindow@{GLWindow}!paintGL@{paintGL}}
+\index{paintGL@{paintGL}!GLWindow@{GLWindow}}
+\subsubsection[{paintGL}]{\setlength{\rightskip}{0pt plus 5cm}void GLWindow::paintGL ()\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_g_l_window_a9bd2503dd5f812c10a9481f22ecd3403}
+
+
+this is the main gl drawing routine which is called whenever the window needs to 
+
+
+
+Definition at line 110 of file GLWindow.cpp.
+
+
+
+References Render::draw(), SPHSolver::getFluidParticleList(), Integrate::getIntegrateType(), Integrate::getTimestep(), m\_\-cam, m\_\-elapsedSimulationTime, m\_\-environmentAndRigidBody, m\_\-fps, m\_\-integrate, m\_\-iterationProcessed, m\_\-iterationTimer, m\_\-mouseMove, m\_\-render, m\_\-sphSolver, m\_\-spinXFace, m\_\-spinYFace, and m\_\-transformStack.
+
+
+
+
+\begin{DoxyCode}
+111 {
+112     // clear the screen and depth buffer
+113     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+114    // build our transform stack
+115     ngl::Transformation trans;
+116     // set the mouse rotation
+117     trans.setRotation(m_spinXFace,m_spinYFace,0);
+118     // set this in the TX stack
+119     m_transformStack.setGlobal(trans);
+120 
+121     m_render->draw(m_environmentAndRigidBody,m_sphSolver,m_transformStack,m_cam);
+      
+122 
+123     if (m_mouseMove == false)
+124     {
+125         m_iterationProcessed = true;
+126     }
+127 
+128     glUseProgramObjectARB(0);
+129     QFont font;
+130     font.setBold(true);
+131     font.setPointSize(10);
+132     glColor3f(0.7,0.7,0.7);
+133 
+134     QString text =QString("Total number of fluid particles : %1").arg(
+      m_sphSolver->getFluidParticleList().size());
+135     renderText(500,20,text,font);
+136 
+137     text =QString("Integration Method used : %1").arg(m_integrate->
+      getIntegrateType().c_str());
+138     renderText(500,40,text,font);
+139 
+140     text =QString("Timestep value : %1").arg(m_integrate->getTimestep());
+141     renderText(500,60,text,font);
+142 
+143     text =QString("Iterations performed per second : %1").arg(m_fps);
+144     renderText(15,20,text,font);
+145 
+146     text =QString("Elapsed time inside the simulation model : %1  seconds").arg(f
+      loor(m_elapsedSimulationTime));
+147     renderText(15,40,text,font);
+148 
+149     float tmp = m_iterationTimer.elapsed();
+150     tmp = tmp /  1000;
+151     tmp = tmp * 100;
+152     tmp = floor(tmp);
+153     tmp = tmp / 100;
+154 
+155     text =QString("Time taken to process a single Iteration : %1  seconds").arg(t
+      mp);
+156     renderText(15,60,text,font);
+157     m_iterationTimer.restart();
+158 
+159 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{class_g_l_window_a9bd2503dd5f812c10a9481f22ecd3403_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_g_l_window_abe57c0f40e59cba4c98759121e22eb47}{
+\index{GLWindow@{GLWindow}!resizeGL@{resizeGL}}
+\index{resizeGL@{resizeGL}!GLWindow@{GLWindow}}
+\subsubsection[{resizeGL}]{\setlength{\rightskip}{0pt plus 5cm}void GLWindow::resizeGL (const int {\em \_\-w}, \/  const int {\em \_\-h})\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_g_l_window_abe57c0f40e59cba4c98759121e22eb47}
+
+
+this is called whenever the window is re-\/sized 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-w}]the width of the resized window \item[\mbox{$\leftarrow$} {\em \_\-h}]the height of the resized window \end{DoxyParams}
+
+
+Definition at line 97 of file GLWindow.cpp.
+
+
+
+References m\_\-cam, m\_\-render, and Render::updateProjection().
+
+
+
+
+\begin{DoxyCode}
+101 {
+102   glViewport(0,0,_w,_h);
+103   m_cam->setShape(45,(float)_w/_h,0.001,500,ngl::PERSPECTIVE);
+104   m_render->updateProjection(m_cam);
+105 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{class_g_l_window_abe57c0f40e59cba4c98759121e22eb47_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_g_l_window_a8901509418ab117e8613d624df9b5666}{
+\index{GLWindow@{GLWindow}!timerEvent@{timerEvent}}
+\index{timerEvent@{timerEvent}!GLWindow@{GLWindow}}
+\subsubsection[{timerEvent}]{\setlength{\rightskip}{0pt plus 5cm}void GLWindow::timerEvent (QTimerEvent $\ast$ {\em \_\-event})\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a8901509418ab117e8613d624df9b5666}
+
+
+the timer event triggered from the timers 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em \_\-event}]the event of the timer triggered by Qt \end{DoxyParams}
+
+
+Definition at line 209 of file GLWindow.cpp.
+
+
+
+References Export::exportDataOut(), SPHSolver::getFluidNameList(), SPHSolver::getFluidParticlePositionList(), Integrate::getTimestep(), m\_\-animate, m\_\-elapsedSimulationTime, m\_\-elapsedTime, m\_\-environmentAndRigidBody, m\_\-export, m\_\-exportEnabled, m\_\-exportFrameInterval, m\_\-FluidTimer, m\_\-fps, m\_\-fpsTimer, m\_\-frames, m\_\-integrate, m\_\-iterationProcessed, m\_\-sphSolver, m\_\-timer, and SPHSolver::updateFluid().
+
+
+
+
+\begin{DoxyCode}
+212 {
+213         if(_event->timerId() == m_FluidTimer)
+214         {
+215                 if (m_animate ==true)
+216                 {                                        
+217                     if(m_iterationProcessed)
+218                     {
+219                         m_iterationProcessed = false;
+220                         m_elapsedTime = m_elapsedTime + m_integrate->getTimestep(
+      );
+221                         m_elapsedSimulationTime += m_integrate->getTimestep();
+222                         ++m_frames;
+223                         m_sphSolver->updateFluid(m_environmentAndRigidBody,
+      m_integrate);
+224                         if (m_exportEnabled)
+225                         {
+226                             if (m_elapsedTime >= m_exportFrameInterval)
+227                             {
+228                             m_export->exportDataOut(m_sphSolver->
+      getFluidNameList(),m_sphSolver->getFluidParticlePositionList(),
+      m_environmentAndRigidBody);
+229                             m_elapsedTime = 0;
+230                             }
+231                         }
+232                         updateGL();
+233                         return;
+234                     }
+235                 }
+236 
+237         }
+238         if(_event->timerId() == m_fpsTimer)
+239           {
+240             if( m_timer.elapsed() > 1000.0)
+241             {
+242               m_fps=m_frames;
+243               m_frames=0;
+244               m_timer.restart();
+245             }
+246            }
+247 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=420pt]{class_g_l_window_a8901509418ab117e8613d624df9b5666_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_g_l_window_a1d74b588450b6719a4b1446ad47927dc}{
+\index{GLWindow@{GLWindow}!m\_\-animate@{m\_\-animate}}
+\index{m\_\-animate@{m\_\-animate}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-animate}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf GLWindow::m\_\-animate}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a1d74b588450b6719a4b1446ad47927dc}
+
+
+flag to indicate if animation is active or not 
+
+
+
+Definition at line 125 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_a55556dafb4fc86c35b270ca0d68f456e}{
+\index{GLWindow@{GLWindow}!m\_\-cam@{m\_\-cam}}
+\index{m\_\-cam@{m\_\-cam}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-cam}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Camera$\ast$ {\bf GLWindow::m\_\-cam}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a55556dafb4fc86c35b270ca0d68f456e}
+
+
+pointer to ngl/Camera class 
+
+
+
+Definition at line 161 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_a808ad95aba9f47b8eca08eeb98ca61f2}{
+\index{GLWindow@{GLWindow}!m\_\-elapsedSimulationTime@{m\_\-elapsedSimulationTime}}
+\index{m\_\-elapsedSimulationTime@{m\_\-elapsedSimulationTime}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-elapsedSimulationTime}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf GLWindow::m\_\-elapsedSimulationTime}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a808ad95aba9f47b8eca08eeb98ca61f2}
+
+
+elapsed time inside the simulation model 
+
+
+
+Definition at line 122 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_aa3dfb7b4e6a13e25ebc5c9db22216b2c}{
+\index{GLWindow@{GLWindow}!m\_\-elapsedTime@{m\_\-elapsedTime}}
+\index{m\_\-elapsedTime@{m\_\-elapsedTime}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-elapsedTime}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf GLWindow::m\_\-elapsedTime}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_aa3dfb7b4e6a13e25ebc5c9db22216b2c}
+
+
+elapsed time after the last simulation data was written 
+
+
+
+Definition at line 119 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_a717436a026021c137c6b0963c0d8fc49}{
+\index{GLWindow@{GLWindow}!m\_\-environmentAndRigidBody@{m\_\-environmentAndRigidBody}}
+\index{m\_\-environmentAndRigidBody@{m\_\-environmentAndRigidBody}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-environmentAndRigidBody}]{\setlength{\rightskip}{0pt plus 5cm}{\bf EnvironmentAndRigidBody}$\ast$ {\bf GLWindow::m\_\-environmentAndRigidBody}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a717436a026021c137c6b0963c0d8fc49}
+
+
+pointer to EnviornmentAndRigidBody class 
+
+
+
+Definition at line 167 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_aa8a9e9361c985761d51de5af16b24981}{
+\index{GLWindow@{GLWindow}!m\_\-export@{m\_\-export}}
+\index{m\_\-export@{m\_\-export}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-export}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Export}$\ast$ {\bf GLWindow::m\_\-export}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_aa8a9e9361c985761d51de5af16b24981}
+
+
+pointer to \hyperlink{class_export}{Export} class 
+
+
+
+Definition at line 176 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_a0919598c4a7cd0726423a0751ef9b193}{
+\index{GLWindow@{GLWindow}!m\_\-exportEnabled@{m\_\-exportEnabled}}
+\index{m\_\-exportEnabled@{m\_\-exportEnabled}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-exportEnabled}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf GLWindow::m\_\-exportEnabled}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a0919598c4a7cd0726423a0751ef9b193}
+
+
+flag to check exporting of simulation data 
+
+
+
+Definition at line 146 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_a0d249b475e8b0bc7e7daaf070d1f473c}{
+\index{GLWindow@{GLWindow}!m\_\-exportFrameInterval@{m\_\-exportFrameInterval}}
+\index{m\_\-exportFrameInterval@{m\_\-exportFrameInterval}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-exportFrameInterval}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf GLWindow::m\_\-exportFrameInterval}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a0d249b475e8b0bc7e7daaf070d1f473c}
+
+
+time interval between two frames for writting simulation data 
+
+
+
+Definition at line 152 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_a9beaa5fbadec281cd162d6ad0e792e94}{
+\index{GLWindow@{GLWindow}!m\_\-exportPath@{m\_\-exportPath}}
+\index{m\_\-exportPath@{m\_\-exportPath}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-exportPath}]{\setlength{\rightskip}{0pt plus 5cm}std::string {\bf GLWindow::m\_\-exportPath}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a9beaa5fbadec281cd162d6ad0e792e94}
+
+
+path at which the simulation data is to be written on to the disk 
+
+
+
+Definition at line 149 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_a629e95979f0bbb5306562358ca507eb8}{
+\index{GLWindow@{GLWindow}!m\_\-eye@{m\_\-eye}}
+\index{m\_\-eye@{m\_\-eye}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-eye}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf GLWindow::m\_\-eye}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a629e95979f0bbb5306562358ca507eb8}
+
+
+eye of the camera 
+
+
+
+Definition at line 131 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_a1a000254ac61defca21846dbd780bbd3}{
+\index{GLWindow@{GLWindow}!m\_\-FluidTimer@{m\_\-FluidTimer}}
+\index{m\_\-FluidTimer@{m\_\-FluidTimer}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-FluidTimer}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf GLWindow::m\_\-FluidTimer}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a1a000254ac61defca21846dbd780bbd3}
+
+
+timer check if the iteration process is over 
+
+
+
+Definition at line 107 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_a83e019efd2becc005d6bf4493fc3adb2}{
+\index{GLWindow@{GLWindow}!m\_\-fps@{m\_\-fps}}
+\index{m\_\-fps@{m\_\-fps}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-fps}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf GLWindow::m\_\-fps}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a83e019efd2becc005d6bf4493fc3adb2}
+
+
+number iterations performed per second 
+
+
+
+Definition at line 113 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_a4f6b732547e0cfd593c1933d5e497ee6}{
+\index{GLWindow@{GLWindow}!m\_\-fpsTimer@{m\_\-fpsTimer}}
+\index{m\_\-fpsTimer@{m\_\-fpsTimer}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-fpsTimer}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf GLWindow::m\_\-fpsTimer}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a4f6b732547e0cfd593c1933d5e497ee6}
+
+
+timer to to calculate frames per second 
+
+
+
+Definition at line 110 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_a86818489d82e1e6a19d35ded614af48c}{
+\index{GLWindow@{GLWindow}!m\_\-frames@{m\_\-frames}}
+\index{m\_\-frames@{m\_\-frames}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-frames}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf GLWindow::m\_\-frames}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a86818489d82e1e6a19d35ded614af48c}
+
+
+number iterations performed within one second 
+
+
+
+Definition at line 116 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_ad6c4fad61e643038bdf0d6bdb0fc1978}{
+\index{GLWindow@{GLWindow}!m\_\-integrate@{m\_\-integrate}}
+\index{m\_\-integrate@{m\_\-integrate}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-integrate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Integrate}$\ast$ {\bf GLWindow::m\_\-integrate}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_ad6c4fad61e643038bdf0d6bdb0fc1978}
+
+
+pointer to \hyperlink{class_integrate}{Integrate} class 
+
+
+
+Definition at line 170 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_a79f6f10959fa411711c21f937ff96a72}{
+\index{GLWindow@{GLWindow}!m\_\-iterationProcessed@{m\_\-iterationProcessed}}
+\index{m\_\-iterationProcessed@{m\_\-iterationProcessed}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-iterationProcessed}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf GLWindow::m\_\-iterationProcessed}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a79f6f10959fa411711c21f937ff96a72}
+
+
+flag to check if a iteration is completed 
+
+
+
+Definition at line 128 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_aba81e4d4f6b0cece757626a9a23f3415}{
+\index{GLWindow@{GLWindow}!m\_\-iterationTimer@{m\_\-iterationTimer}}
+\index{m\_\-iterationTimer@{m\_\-iterationTimer}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-iterationTimer}]{\setlength{\rightskip}{0pt plus 5cm}QTime {\bf GLWindow::m\_\-iterationTimer}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_aba81e4d4f6b0cece757626a9a23f3415}
+
+
+timer to check the iterations performed per second 
+
+
+
+Definition at line 143 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_acb8385bfb1f1fcbaafe890aabf51055b}{
+\index{GLWindow@{GLWindow}!m\_\-look@{m\_\-look}}
+\index{m\_\-look@{m\_\-look}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-look}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf GLWindow::m\_\-look}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_acb8385bfb1f1fcbaafe890aabf51055b}
+
+
+look/traget of the camera 
+
+
+
+Definition at line 134 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_ae4897ca15316a71abfd7cbd3c44e7536}{
+\index{GLWindow@{GLWindow}!m\_\-mouseMove@{m\_\-mouseMove}}
+\index{m\_\-mouseMove@{m\_\-mouseMove}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-mouseMove}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf GLWindow::m\_\-mouseMove}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_ae4897ca15316a71abfd7cbd3c44e7536}
+
+
+flag to check if a mouse move event in OpenGL Window has occured 
+
+
+
+Definition at line 155 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_ab6aec410f5ce5868cabe5fe2f0768bc9}{
+\index{GLWindow@{GLWindow}!m\_\-origX@{m\_\-origX}}
+\index{m\_\-origX@{m\_\-origX}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-origX}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf GLWindow::m\_\-origX}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_ab6aec410f5ce5868cabe5fe2f0768bc9}
+
+
+the previous x mouse value 
+
+
+
+Definition at line 101 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_ab7a1ee2202588e005b90c99ea1323af4}{
+\index{GLWindow@{GLWindow}!m\_\-origY@{m\_\-origY}}
+\index{m\_\-origY@{m\_\-origY}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-origY}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf GLWindow::m\_\-origY}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_ab7a1ee2202588e005b90c99ea1323af4}
+
+
+the previous y mouse value 
+
+
+
+Definition at line 104 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_a165764f9295fafbca46560937898c839}{
+\index{GLWindow@{GLWindow}!m\_\-render@{m\_\-render}}
+\index{m\_\-render@{m\_\-render}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-render}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Render}$\ast$ {\bf GLWindow::m\_\-render}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a165764f9295fafbca46560937898c839}
+
+
+pointer to \hyperlink{class_render}{Render} class 
+
+
+
+Definition at line 173 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_a1b5d8b223995bc9740074c5342fe8e38}{
+\index{GLWindow@{GLWindow}!m\_\-rotate@{m\_\-rotate}}
+\index{m\_\-rotate@{m\_\-rotate}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-rotate}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf GLWindow::m\_\-rotate}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a1b5d8b223995bc9740074c5342fe8e38}
+
+
+flag to indicate if the mouse button is pressed when dragging 
+
+
+
+Definition at line 98 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_a0176eab25515853a18867ca37578ee3b}{
+\index{GLWindow@{GLWindow}!m\_\-sphSolver@{m\_\-sphSolver}}
+\index{m\_\-sphSolver@{m\_\-sphSolver}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-sphSolver}]{\setlength{\rightskip}{0pt plus 5cm}{\bf SPHSolver}$\ast$ {\bf GLWindow::m\_\-sphSolver}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_a0176eab25515853a18867ca37578ee3b}
+
+
+pointer to \hyperlink{class_s_p_h_solver}{SPHSolver} class 
+
+
+
+Definition at line 164 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_af8ea09020a5ad4c20a16ea835ed1f2af}{
+\index{GLWindow@{GLWindow}!m\_\-spinXFace@{m\_\-spinXFace}}
+\index{m\_\-spinXFace@{m\_\-spinXFace}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-spinXFace}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf GLWindow::m\_\-spinXFace}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_af8ea09020a5ad4c20a16ea835ed1f2af}
+
+
+used to store the x rotation mouse value 
+
+
+
+Definition at line 92 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_aa4c39badfa80d8eac6a773449b6db5a2}{
+\index{GLWindow@{GLWindow}!m\_\-spinYFace@{m\_\-spinYFace}}
+\index{m\_\-spinYFace@{m\_\-spinYFace}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-spinYFace}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf GLWindow::m\_\-spinYFace}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_aa4c39badfa80d8eac6a773449b6db5a2}
+
+
+used to store the y rotation mouse value 
+
+
+
+Definition at line 95 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_abc5b1376741572d8c02860eafbfd008c}{
+\index{GLWindow@{GLWindow}!m\_\-timer@{m\_\-timer}}
+\index{m\_\-timer@{m\_\-timer}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-timer}]{\setlength{\rightskip}{0pt plus 5cm}QTime {\bf GLWindow::m\_\-timer}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_abc5b1376741572d8c02860eafbfd008c}
+
+
+timer to check the iterations performed per second 
+
+
+
+Definition at line 140 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_aaa941adbe7772d03588f312326100e5f}{
+\index{GLWindow@{GLWindow}!m\_\-transformStack@{m\_\-transformStack}}
+\index{m\_\-transformStack@{m\_\-transformStack}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-transformStack}]{\setlength{\rightskip}{0pt plus 5cm}ngl::TransformStack {\bf GLWindow::m\_\-transformStack}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_aaa941adbe7772d03588f312326100e5f}
+
+
+our transform stack for drawing the teapots 
+
+
+
+Definition at line 158 of file GLWindow.h.
+
+\hypertarget{class_g_l_window_af2d28904bf4682c2f0cc2ab552f6ae8c}{
+\index{GLWindow@{GLWindow}!m\_\-upVector@{m\_\-upVector}}
+\index{m\_\-upVector@{m\_\-upVector}!GLWindow@{GLWindow}}
+\subsubsection[{m\_\-upVector}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Vector {\bf GLWindow::m\_\-upVector}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{class_g_l_window_af2d28904bf4682c2f0cc2ab552f6ae8c}
+
+
+up vector for the camera 
+
+
+
+Definition at line 137 of file GLWindow.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_g_l_window_8h}{GLWindow.h}\item 
+src/\hyperlink{_g_l_window_8cpp}{GLWindow.cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,710 @@
+\hypertarget{class_simulation_parameters}{
+\section{SimulationParameters Class Reference}
+\label{class_simulation_parameters}\index{SimulationParameters@{SimulationParameters}}
+}
+
+
+reads the values from the XML file and intialises the fluid solver  
+
+
+
+
+{\ttfamily \#include $<$SimulationParameters.h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_simulation_parameters_aa9389962f767734ad8f0ffc63cb0ed46}{initialiseSPHFluidSolver} (ngl::Real \&o\_\-smoothingLength, std::vector$<$ \hyperlink{class_fluid_particle}{FluidParticle} $>$ \&o\_\-fluidParticleList, std::string \&o\_\-visualizationType, bool \&o\_\-drawFluidParticles, std::vector$<$ std::string $>$ \&o\_\-fluidNameList)
+\begin{DoxyCompactList}\small\item\em initialise solver \item\end{DoxyCompactList}\item 
+static void \hyperlink{class_simulation_parameters_abdf9f384bef40423ebb38515f206b08d}{initialiseEnvironment} (bool \&o\_\-rbdCollsionEnabled, ngl::Vector \&o\_\-boundaryPosition, ngl::Vector \&o\_\-boundaryDimension, ngl::Real \&o\_\-boundaryRestitutionCoefficientForFluid, std::vector$<$ \hyperlink{class_particle}{Particle} $>$ \&o\_\-rbdSphereList, ngl::Real \&o\_\-rbdSphereRestitutionCoefficient, ngl::Colour \&o\_\-boundaryColour)
+\begin{DoxyCompactList}\small\item\em initialise environment \item\end{DoxyCompactList}\item 
+static void \hyperlink{class_simulation_parameters_a3ed48742e248d138da5cbe4d5068b576}{initialiseIntegrate} (std::string \&o\_\-IntegrateType, ngl::Real \&o\_\-timeStep)
+\begin{DoxyCompactList}\small\item\em initialise \hyperlink{class_integrate}{Integrate} \item\end{DoxyCompactList}\item 
+static void \hyperlink{class_simulation_parameters_a95fed9bc4d0fec10543b5550f06e80ff}{initialiseCameraParameters} (ngl::Vector \&o\_\-eye, ngl::Vector \&o\_\-look, ngl::Vector \&o\_\-up)
+\begin{DoxyCompactList}\small\item\em initialise Camera \item\end{DoxyCompactList}\item 
+static void \hyperlink{class_simulation_parameters_a216667d44e3d5498187a54ea1aa05116}{initialiseExportParameters} (bool \&o\_\-exportEnabled, std::string \&o\_\-exportPath, float \&o\_\-exportFrameInterval)
+\begin{DoxyCompactList}\small\item\em initialise the parameter required to export simulation data out to disk \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static bool \hyperlink{class_simulation_parameters_a39c16940451c8d0ad3039112cf27f35c}{s\_\-debug} = true
+\begin{DoxyCompactList}\small\item\em debug parameter used in all the files to enable debugging and console output \item\end{DoxyCompactList}\item 
+static ngl::Real \hyperlink{class_simulation_parameters_a7e0162b56c6960d1aceb3a88ee3326e3}{s\_\-accelerationOfFreeFall} = -\/9.28
+\begin{DoxyCompactList}\small\item\em acceleration due to gravity(free fall) value \item\end{DoxyCompactList}\item 
+static ngl::Real \hyperlink{class_simulation_parameters_aa1a876c641060bd6d04306cf5aaf37d1}{s\_\-gravityAcceleration}
+\begin{DoxyCompactList}\small\item\em acceleration due to gravity(free fall) value \item\end{DoxyCompactList}\item 
+static ngl::Colour \hyperlink{class_simulation_parameters_a8dcb13bd6eaf80cbc5cc06de425d4024}{s\_\-boundaryColour}
+\begin{DoxyCompactList}\small\item\em colour of the boundry box \item\end{DoxyCompactList}\item 
+static int \hyperlink{class_simulation_parameters_a5d179885ab04a975dbc4f054b8ee22a1}{s\_\-nextFluidParticleId} = 0
+\begin{DoxyCompactList}\small\item\em global unique id available for creation of next particle in a fluid \item\end{DoxyCompactList}\item 
+static int \hyperlink{class_simulation_parameters_ab66f45e106c43304340f7a5341b380b4}{s\_\-nextRBDSphereId} = -\/1
+\begin{DoxyCompactList}\small\item\em global unique id available for creation of next passive sphere rigid body \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std::vector$<$ ngl::Real $>$ \hyperlink{class_simulation_parameters_ab6ed6ff4568848297f4a50603093d3d5}{getFloatVectorFromString} (const std::string \_\-str, const int \_\-d)
+\begin{DoxyCompactList}\small\item\em utility function to split a string into a vector of floats \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std::string \hyperlink{class_simulation_parameters_a31c9b138fd6c5519bdd51ac56c59a303}{s\_\-settingsDocumentPath} = \char`\"{}SolverParameters/Settings.xml\char`\"{}
+\begin{DoxyCompactList}\small\item\em the path of the configuration xml file \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+reads the values from the XML file and intialises the fluid solver 
+
+Definition at line 20 of file SimulationParameters.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_simulation_parameters_ab6ed6ff4568848297f4a50603093d3d5}{
+\index{SimulationParameters@{SimulationParameters}!getFloatVectorFromString@{getFloatVectorFromString}}
+\index{getFloatVectorFromString@{getFloatVectorFromString}!SimulationParameters@{SimulationParameters}}
+\subsubsection[{getFloatVectorFromString}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<$ ngl::Real $>$ SimulationParameters::getFloatVectorFromString (const std::string {\em \_\-str}, \/  const int {\em \_\-d})\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{class_simulation_parameters_ab6ed6ff4568848297f4a50603093d3d5}
+
+
+utility function to split a string into a vector of floats 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\leftarrow$} {\em \_\-str}]the input string to be split \item[\mbox{$\leftarrow$} {\em \_\-d}]the count of split parts to be used as the size of the vector \end{DoxyParams}
+
+
+Definition at line 21 of file SimulationParameters.cpp.
+
+
+
+
+\begin{DoxyCode}
+25 {
+26     //split string into array of strings by ","
+27     std::vector<std::string> strArray;
+28     boost::split(strArray, _str, boost::is_any_of(","));
+29 
+30     //loop through strings and convert to float array
+31     std::vector<ngl::Real> floatArray;
+32     for (int i = 0; i < _d; i++) floatArray.push_back(boost::lexical_cast<ngl::Re
+      al>(strArray[i]));
+33 
+34     //return array of float
+35     return floatArray;
+36 }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=418pt]{class_simulation_parameters_ab6ed6ff4568848297f4a50603093d3d5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_simulation_parameters_a95fed9bc4d0fec10543b5550f06e80ff}{
+\index{SimulationParameters@{SimulationParameters}!initialiseCameraParameters@{initialiseCameraParameters}}
+\index{initialiseCameraParameters@{initialiseCameraParameters}!SimulationParameters@{SimulationParameters}}
+\subsubsection[{initialiseCameraParameters}]{\setlength{\rightskip}{0pt plus 5cm}void SimulationParameters::initialiseCameraParameters (ngl::Vector \& {\em o\_\-eye}, \/  ngl::Vector \& {\em o\_\-look}, \/  ngl::Vector \& {\em o\_\-up})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_simulation_parameters_a95fed9bc4d0fec10543b5550f06e80ff}
+
+
+initialise Camera 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\rightarrow$} {\em o\_\-eye}]eye for the Camera \item[\mbox{$\rightarrow$} {\em o\_\-look}]look/target for the Camera \item[\mbox{$\rightarrow$} {\em o\_\-up}]up vector for the Camera \end{DoxyParams}
+
+
+Definition at line 245 of file SimulationParameters.cpp.
+
+
+
+References getFloatVectorFromString(), and s\_\-settingsDocumentPath.
+
+
+
+
+\begin{DoxyCode}
+250 {
+251     //load settings xml file
+252     pugi::xml_document doc;
+253     doc.load_file(s_settingsDocumentPath.c_str());
+254     //load global settings here
+255     pugi::xpath_node_set node = doc.select_nodes("/Settings/Camera");
+256     std::vector<ngl::Real> tmp;
+257 
+258     tmp = getFloatVectorFromString(node.first().node().attribute("eye").value(), 
+      3);
+259 
+260     o_eye.set(tmp[0],tmp[1],tmp[2]);
+261 
+262     tmp = getFloatVectorFromString(node.first().node().attribute("look").value(),
+       3);
+263 
+264     o_look.set(tmp[0],tmp[1],tmp[2]);
+265 
+266     tmp = getFloatVectorFromString(node.first().node().attribute("up").value(), 3
+      );
+267 
+268     o_up.set(tmp[0],tmp[1],tmp[2]);
+269 
+270     std::cout << "\n Camera Values ---------" << "\tEye :: " << o_eye << "\tLook 
+      :: " << o_look << "\tUp Vector :: " << o_up << std::endl;
+271 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{class_simulation_parameters_a95fed9bc4d0fec10543b5550f06e80ff_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{class_simulation_parameters_a95fed9bc4d0fec10543b5550f06e80ff_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_simulation_parameters_abdf9f384bef40423ebb38515f206b08d}{
+\index{SimulationParameters@{SimulationParameters}!initialiseEnvironment@{initialiseEnvironment}}
+\index{initialiseEnvironment@{initialiseEnvironment}!SimulationParameters@{SimulationParameters}}
+\subsubsection[{initialiseEnvironment}]{\setlength{\rightskip}{0pt plus 5cm}void SimulationParameters::initialiseEnvironment (bool \& {\em o\_\-rbdCollsionEnabled}, \/  ngl::Vector \& {\em o\_\-boundaryPosition}, \/  ngl::Vector \& {\em o\_\-boundaryDimension}, \/  ngl::Real \& {\em o\_\-boundaryRestitutionCoefficientForFluid}, \/  std::vector$<$ {\bf Particle} $>$ \& {\em o\_\-rbdSphereList}, \/  ngl::Real \& {\em o\_\-rbdSphereRestitutionCoefficient}, \/  ngl::Colour \& {\em o\_\-boundaryColour})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_simulation_parameters_abdf9f384bef40423ebb38515f206b08d}
+
+
+initialise environment 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\rightarrow$} {\em o\_\-rbdCollsionEnabled}]flag to toggle rbd \item[\mbox{$\rightarrow$} {\em o\_\-boundaryPosition}]boundary position \item[\mbox{$\rightarrow$} {\em o\_\-boundaryDimension}]boundary size \item[\mbox{$\rightarrow$} {\em o\_\-boundaryRestitutionCoefficientForFluid}]boundary-\/fluid restitution \item[\mbox{$\rightarrow$} {\em o\_\-rbdSphereList}]list of sphere rbd \item[\mbox{$\rightarrow$} {\em o\_\-rbdSphereRestitutionCoefficient}]rbd-\/fluid restitution \item[\mbox{$\rightarrow$} {\em o\_\-boundaryColour}]colour of the boundry to be displayed \end{DoxyParams}
+
+
+Definition at line 38 of file SimulationParameters.cpp.
+
+
+
+References getFloatVectorFromString(), s\_\-nextRBDSphereId, and s\_\-settingsDocumentPath.
+
+
+
+
+\begin{DoxyCode}
+47 {
+48 
+49     /*----Load Settings from XML File--------------------------------------------
+      --*/
+50 
+51     pugi::xml_document doc;
+52     doc.load_file(s_settingsDocumentPath.c_str());
+53 
+54     //temporary variable
+55     std::vector<ngl::Real> tmp;
+56 
+57     pugi::xpath_node_set node = doc.select_nodes("/Settings/Environment");
+58 
+59     /*--- Reading Boundry Parameters-------------------------------------------*/
+      
+60 
+61     tmp = getFloatVectorFromString(node.first().node().select_single_node("Bounda
+      ry").node().attribute("position").value(), 3);
+62     o_boundaryPosition.set(tmp[0], tmp[1], tmp[2]);
+63 
+64     tmp = getFloatVectorFromString(node.first().node().select_single_node("Bounda
+      ry").node().attribute("dimension").value(), 3);
+65     o_boundaryDimension.set(tmp[0], tmp[1], tmp[2]);
+66 
+67     o_boundaryRestitutionCoefficientForFluid = node.first().node().select_single_
+      node("Boundary").node().attribute("restitutionForFluid").as_float();
+68 
+69     tmp = getFloatVectorFromString(node.first().node().select_single_node("Bounda
+      ry").node().attribute("colour").value(), 3);
+70     o_boundaryColour.set(tmp[0],tmp[1],tmp[2],1.0);
+71 
+72     /*--- Read CollisionParameters-----------------------------------------------
+      --------------------*/
+73 
+74     node = doc.select_nodes("/Settings/Environment/Obstacles");
+75     o_rbdCollsionEnabled =  node.first().node().attribute("enabled").as_bool();
+76 
+77     o_rbdSphereRestitutionCoefficient = node.first().node().attribute("restitutio
+      n").as_float();
+78 
+79     /*---- Creating and Storing Rigid Body Sphere -------------------------------
+      ----------*/
+80 
+81     node = node.first().node().select_nodes("Sphere");
+82     for (pugi::xpath_node_set::const_iterator it = node.begin(); it != node.end()
+      ; ++it)
+83     {
+84         //get details for an obstacle
+85         pugi::xpath_node node1 = *it;
+86 
+87         //get parameters active parameter
+88         tmp = getFloatVectorFromString(node1.node().attribute("position").value()
+      , 3);
+89         ngl::Vector position(tmp[0], tmp[1], tmp[2]);
+90 
+91         ngl::Vector velocity(0,0,0);
+92 
+93         ngl::Real collisionRadius = node1.node().attribute("collisionRadius").as_
+      float();
+94 
+95         ngl::Real drawRadius = node1.node().attribute("drawRadius").as_float();
+96 
+97         tmp = getFloatVectorFromString(node1.node().attribute("colour").value(), 
+      3);
+98         ngl::Colour colour(tmp[0], tmp[1], tmp[2]);
+99 
+100         /*---Create and Add Spheres to RBDSphere List----------------------------
+      ------------------------*/
+101 
+102         Particle p = Particle (SimulationParameters::s_nextRBDSphereId--,0,positi
+      on,colour,collisionRadius,drawRadius,velocity);
+103 
+104         o_rbdSphereList.push_back(p);
+105     }
+106 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{class_simulation_parameters_abdf9f384bef40423ebb38515f206b08d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{class_simulation_parameters_abdf9f384bef40423ebb38515f206b08d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_simulation_parameters_a216667d44e3d5498187a54ea1aa05116}{
+\index{SimulationParameters@{SimulationParameters}!initialiseExportParameters@{initialiseExportParameters}}
+\index{initialiseExportParameters@{initialiseExportParameters}!SimulationParameters@{SimulationParameters}}
+\subsubsection[{initialiseExportParameters}]{\setlength{\rightskip}{0pt plus 5cm}void SimulationParameters::initialiseExportParameters (bool \& {\em o\_\-exportEnabled}, \/  std::string \& {\em o\_\-exportPath}, \/  float \& {\em o\_\-exportFrameInterval})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_simulation_parameters_a216667d44e3d5498187a54ea1aa05116}
+
+
+initialise the parameter required to export simulation data out to disk 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\rightarrow$} {\em o\_\-exportEnabled}]flag to check exporting of simulation data \item[\mbox{$\rightarrow$} {\em o\_\-exportPath}]path, where the simulation data is to be exported \item[\mbox{$\rightarrow$} {\em o\_\-exportFrameInterval}]frame interval value at which the simulation data is to be exported \end{DoxyParams}
+
+
+Definition at line 273 of file SimulationParameters.cpp.
+
+
+
+References s\_\-settingsDocumentPath.
+
+
+
+
+\begin{DoxyCode}
+274 {
+275     //load settings xml file
+276     pugi::xml_document doc;
+277     doc.load_file(s_settingsDocumentPath.c_str());
+278     //load global settings here
+279     pugi::xpath_node_set node = doc.select_nodes("/Settings/Export");
+280 
+281     o_exportEnabled = node.first().node().attribute("enable").as_bool();
+282 
+283     o_exportPath = node.first().node().attribute("path").value();
+284 
+285     int i  = node.first().node().attribute("exportFPS").as_int();
+286 
+287     float temp = (1.0 / i) * 100;
+288     temp = floor(temp);
+289     temp = temp / 100.0 ;
+290     o_exportFrameInterval = temp ;
+291 
+292     std::cout << "o_exportFrameINterval :: " << o_exportFrameInterval << std::end
+      l;
+293 
+294 }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{class_simulation_parameters_a216667d44e3d5498187a54ea1aa05116_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_simulation_parameters_a3ed48742e248d138da5cbe4d5068b576}{
+\index{SimulationParameters@{SimulationParameters}!initialiseIntegrate@{initialiseIntegrate}}
+\index{initialiseIntegrate@{initialiseIntegrate}!SimulationParameters@{SimulationParameters}}
+\subsubsection[{initialiseIntegrate}]{\setlength{\rightskip}{0pt plus 5cm}void SimulationParameters::initialiseIntegrate (std::string \& {\em o\_\-IntegrateType}, \/  ngl::Real \& {\em o\_\-timeStep})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_simulation_parameters_a3ed48742e248d138da5cbe4d5068b576}
+
+
+initialise \hyperlink{class_integrate}{Integrate} 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\rightarrow$} {\em o\_\-IntegrateType}]method to use for integration \item[\mbox{$\rightarrow$} {\em o\_\-timeStep}]timestep value for integration \end{DoxyParams}
+
+
+Definition at line 225 of file SimulationParameters.cpp.
+
+
+
+References s\_\-settingsDocumentPath.
+
+
+
+
+\begin{DoxyCode}
+229 {
+230 
+231     //load settings xml file
+232     pugi::xml_document doc;
+233     doc.load_file(s_settingsDocumentPath.c_str());
+234     //load global settings here
+235     pugi::xpath_node_set node = doc.select_nodes("/Settings/Integration");
+236 
+237     o_IntegrateType = node.first().node().attribute("type").value();
+238     o_timeStep = node.first().node().attribute("timestep").as_float();
+239 
+240     std::cout << "\n Integration Type :: " << o_IntegrateType << "\t \t Time Step
+       Value :: " << o_timeStep << std::endl;
+241 
+242     std::cout << "\t" << std::endl;
+243 }
+\end{DoxyCode}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{class_simulation_parameters_a3ed48742e248d138da5cbe4d5068b576_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_simulation_parameters_aa9389962f767734ad8f0ffc63cb0ed46}{
+\index{SimulationParameters@{SimulationParameters}!initialiseSPHFluidSolver@{initialiseSPHFluidSolver}}
+\index{initialiseSPHFluidSolver@{initialiseSPHFluidSolver}!SimulationParameters@{SimulationParameters}}
+\subsubsection[{initialiseSPHFluidSolver}]{\setlength{\rightskip}{0pt plus 5cm}void SimulationParameters::initialiseSPHFluidSolver (ngl::Real \& {\em o\_\-smoothingLength}, \/  std::vector$<$ {\bf FluidParticle} $>$ \& {\em o\_\-fluidParticleList}, \/  std::string \& {\em o\_\-visualizationType}, \/  bool \& {\em o\_\-drawFluidParticles}, \/  std::vector$<$ std::string $>$ \& {\em o\_\-fluidNameList})\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_simulation_parameters_aa9389962f767734ad8f0ffc63cb0ed46}
+
+
+initialise solver 
+
+
+\begin{DoxyParams}{Parameters}
+\item[\mbox{$\rightarrow$} {\em o\_\-smoothingLength}]smoothing length of neighbour structure \item[\mbox{$\rightarrow$} {\em o\_\-fluidParticleList}]fluid particle list \item[\mbox{$\rightarrow$} {\em o\_\-visualizationType}]shader to be used while displaying simulation data realtime \item[\mbox{$\rightarrow$} {\em o\_\-drawFluidParticles}]flag to check rendering of fluid particle \item[\mbox{$\rightarrow$} {\em o\_\-fluidNameList}]name list of diffierent fluids created \end{DoxyParams}
+
+
+Definition at line 108 of file SimulationParameters.cpp.
+
+
+
+References getFloatVectorFromString(), s\_\-nextFluidParticleId, and s\_\-settingsDocumentPath.
+
+
+
+
+\begin{DoxyCode}
+115 {
+116     //load settings xml file
+117     pugi::xml_document doc;
+118     doc.load_file(s_settingsDocumentPath.c_str());
+119 
+120     //load global settings here
+121     pugi::xpath_node_set node = doc.select_nodes("/Settings/FluidSolver");
+122 
+123     //read smoothing length
+124     o_smoothingLength = node.first().node().attribute("smoothingLength").as_float
+      ();
+125 
+126     //initially reserve space for maximum growth of particle list
+127     int initialReservedParticleCount =node.first().node().attribute("initialReser
+      vedParticleCount").as_int();
+128     o_fluidParticleList.reserve(initialReservedParticleCount);
+129 
+130     o_visualizationType = node.first().node().attribute("visualization").value();
+      
+131     o_drawFluidParticles = node.first().node().attribute("enableVisulization").as
+      _bool();
+132 
+133     std::cout << "\n\t\tSmooth Particle Hydrodynamics Solver" << std::endl;
+134     std::cout << "\n\t Smoothing Length :: " << o_smoothingLength << "\t Visualiz
+      ation Shading Type :: " << o_visualizationType << "\n\n" << std::endl;
+135 
+136     //tmp variable
+137     std::vector<ngl::Real> tmp;
+138 
+139 
+140 
+141     /*------Getting List of Fluids-------------------------------*/
+142     node = doc.select_nodes("/Settings/FluidSolver/Fluid");
+143     for (pugi::xpath_node_set::const_iterator it = node.begin(); it != node.end()
+      ; ++it)
+144     {
+145         //get details for a fluid
+146         pugi::xpath_node node = *it;
+147 
+148         //get its active parameter
+149         bool isActive = node.node().attribute("active").as_bool();
+150 
+151         //skip this fluid if not active
+152         if (isActive)
+153         {
+154             //read parameters
+155             ngl::Real volume = boost::lexical_cast<ngl::Real>(node.node().select_
+      single_node("Volume").node().child_value());
+156 
+157             ngl::Real restDensity = boost::lexical_cast<ngl::Real>(node.node().se
+      lect_single_node("RestDensity").node().child_value());
+158 
+159             tmp = getFloatVectorFromString(node.node().select_single_node("Colour
+      ").node().attribute("value").value(), 3);
+160             ngl::Colour color(tmp[0], tmp[1], tmp[2]);
+161 
+162             std::string meshName = node.node().select_single_node("Obj").node().c
+      hild_value();
+163             ngl::Obj mesh(meshName);
+164 
+165             tmp = getFloatVectorFromString(node.node().select_single_node("Obj").
+      node().attribute("center").value(), 3);
+166             ngl::Vector centerOfMesh(tmp[0], tmp[1], tmp[2]);
+167 
+168             tmp = getFloatVectorFromString(node.node().select_single_node("Veloci
+      ty").node().attribute("value").value(), 3);
+169             ngl::Vector velocity(tmp[0], tmp[1], tmp[2]);
+170 
+171             ngl::Real viscosityConstant = boost::lexical_cast<ngl::Real>(node.nod
+      e().select_single_node("ViscosityConstant").node().child_value());
+172 
+173             ngl::Real gasConstant = boost::lexical_cast<ngl::Real>(node.node().se
+      lect_single_node("GasConstant").node().child_value());
+174 
+175             ngl::Real surfaceTensionCoefficient = node.node().select_single_node(
+      "SurfaceTension").node().attribute("coefficient").as_float();
+176             ngl::Real surfaceTensionThreshold = node.node().select_single_node("S
+      urfaceTension").node().attribute("threshold").as_float();
+177             ngl::Real surfaceColorCoefficient = node.node().select_single_node("S
+      urfaceTension").node().attribute("color").as_float();
+178 
+179             ngl::Real interfaceTensionCoefficient = node.node().select_single_nod
+      e("SurfaceInterface").node().attribute("coefficient").as_float();
+180             ngl::Real interfaceTensionThreshold = node.node().select_single_node(
+      "SurfaceInterface").node().attribute("threshold").as_float();
+181             ngl::Real interfaceColorCoefficient = node.node().select_single_node(
+      "SurfaceInterface").node().attribute("color").as_float();
+182 
+183             ngl::Real collisionRadius = boost::lexical_cast<ngl::Real>(node.node(
+      ).select_single_node("CollisionRadius").node().child_value());
+184 
+185             ngl::Real drawRadius = boost::lexical_cast<ngl::Real>(node.node().sel
+      ect_single_node("DrawRadius").node().child_value());
+186 
+187             std::string name = node.node().attribute("name").value();
+188 
+189             //calculate mass per particle
+190             int particleCount = mesh.getNumVerts();
+191             ngl::Real mass = restDensity * (volume / ((ngl::Real)particleCount));
+      
+192 
+193                 for (int i = 0; i < particleCount; i++)
+194                 {
+195                     FluidParticle f = FluidParticle(
+196                                                         
+      SimulationParameters::s_nextFluidParticleId++,
+197                                                         mass,
+198                                                         restDensity,
+199                                                         centerOfMesh + mesh.getVe
+      rtexAtIndex(i),
+200                                                         velocity,
+201                                                         viscosityConstant,
+202                                                         gasConstant,
+203                                                         surfaceTensionCoefficient
+      ,
+204                                                         surfaceTensionThreshold,
+205                                                         surfaceColorCoefficient,
+206                                                         interfaceTensionCoefficie
+      nt,
+207                                                         interfaceTensionThreshold
+      ,
+208                                                         interfaceColorCoefficient
+      ,
+209                                                         color,
+210                                                         collisionRadius,
+211                                                         drawRadius,
+212                                                         name
+213                                                     );
+214                     //create particle @ mesh vertices and add to particle list
+215                     o_fluidParticleList.push_back (f);
+216                 }
+217                 std::cout << "Fluid Name :: " << name << "\t \t Fluid Particles C
+      ount  :: " << particleCount << std::endl;
+218                 o_fluidNameList.push_back(name);
+219 
+220         }
+221     }
+222     std::cout << "\nTotal Number of Fluid Particles :: " << o_fluidParticleList.s
+      ize() << "\n" <<std::endl;
+223 }
+\end{DoxyCode}
+
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{class_simulation_parameters_aa9389962f767734ad8f0ffc63cb0ed46_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=209pt]{class_simulation_parameters_aa9389962f767734ad8f0ffc63cb0ed46_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_simulation_parameters_a7e0162b56c6960d1aceb3a88ee3326e3}{
+\index{SimulationParameters@{SimulationParameters}!s\_\-accelerationOfFreeFall@{s\_\-accelerationOfFreeFall}}
+\index{s\_\-accelerationOfFreeFall@{s\_\-accelerationOfFreeFall}!SimulationParameters@{SimulationParameters}}
+\subsubsection[{s\_\-accelerationOfFreeFall}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf SimulationParameters::s\_\-accelerationOfFreeFall} = -\/9.28\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_simulation_parameters_a7e0162b56c6960d1aceb3a88ee3326e3}
+
+
+acceleration due to gravity(free fall) value 
+
+
+
+Definition at line 29 of file SimulationParameters.h.
+
+\hypertarget{class_simulation_parameters_a8dcb13bd6eaf80cbc5cc06de425d4024}{
+\index{SimulationParameters@{SimulationParameters}!s\_\-boundaryColour@{s\_\-boundaryColour}}
+\index{s\_\-boundaryColour@{s\_\-boundaryColour}!SimulationParameters@{SimulationParameters}}
+\subsubsection[{s\_\-boundaryColour}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Colour {\bf SimulationParameters::s\_\-boundaryColour}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_simulation_parameters_a8dcb13bd6eaf80cbc5cc06de425d4024}
+
+
+colour of the boundry box 
+
+
+
+Definition at line 35 of file SimulationParameters.h.
+
+\hypertarget{class_simulation_parameters_a39c16940451c8d0ad3039112cf27f35c}{
+\index{SimulationParameters@{SimulationParameters}!s\_\-debug@{s\_\-debug}}
+\index{s\_\-debug@{s\_\-debug}!SimulationParameters@{SimulationParameters}}
+\subsubsection[{s\_\-debug}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf SimulationParameters::s\_\-debug} = true\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_simulation_parameters_a39c16940451c8d0ad3039112cf27f35c}
+
+
+debug parameter used in all the files to enable debugging and console output 
+
+
+
+Definition at line 26 of file SimulationParameters.h.
+
+\hypertarget{class_simulation_parameters_aa1a876c641060bd6d04306cf5aaf37d1}{
+\index{SimulationParameters@{SimulationParameters}!s\_\-gravityAcceleration@{s\_\-gravityAcceleration}}
+\index{s\_\-gravityAcceleration@{s\_\-gravityAcceleration}!SimulationParameters@{SimulationParameters}}
+\subsubsection[{s\_\-gravityAcceleration}]{\setlength{\rightskip}{0pt plus 5cm}ngl::Real {\bf SimulationParameters::s\_\-gravityAcceleration}\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_simulation_parameters_aa1a876c641060bd6d04306cf5aaf37d1}
+
+
+acceleration due to gravity(free fall) value 
+
+
+
+Definition at line 32 of file SimulationParameters.h.
+
+\hypertarget{class_simulation_parameters_a5d179885ab04a975dbc4f054b8ee22a1}{
+\index{SimulationParameters@{SimulationParameters}!s\_\-nextFluidParticleId@{s\_\-nextFluidParticleId}}
+\index{s\_\-nextFluidParticleId@{s\_\-nextFluidParticleId}!SimulationParameters@{SimulationParameters}}
+\subsubsection[{s\_\-nextFluidParticleId}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf SimulationParameters::s\_\-nextFluidParticleId} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_simulation_parameters_a5d179885ab04a975dbc4f054b8ee22a1}
+
+
+global unique id available for creation of next particle in a fluid 
+
+
+
+Definition at line 38 of file SimulationParameters.h.
+
+\hypertarget{class_simulation_parameters_ab66f45e106c43304340f7a5341b380b4}{
+\index{SimulationParameters@{SimulationParameters}!s\_\-nextRBDSphereId@{s\_\-nextRBDSphereId}}
+\index{s\_\-nextRBDSphereId@{s\_\-nextRBDSphereId}!SimulationParameters@{SimulationParameters}}
+\subsubsection[{s\_\-nextRBDSphereId}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf SimulationParameters::s\_\-nextRBDSphereId} = -\/1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_simulation_parameters_ab66f45e106c43304340f7a5341b380b4}
+
+
+global unique id available for creation of next passive sphere rigid body 
+
+
+
+Definition at line 41 of file SimulationParameters.h.
+
+\hypertarget{class_simulation_parameters_a31c9b138fd6c5519bdd51ac56c59a303}{
+\index{SimulationParameters@{SimulationParameters}!s\_\-settingsDocumentPath@{s\_\-settingsDocumentPath}}
+\index{s\_\-settingsDocumentPath@{s\_\-settingsDocumentPath}!SimulationParameters@{SimulationParameters}}
+\subsubsection[{s\_\-settingsDocumentPath}]{\setlength{\rightskip}{0pt plus 5cm}std::string {\bf SimulationParameters::s\_\-settingsDocumentPath} = \char`\"{}SolverParameters/Settings.xml\char`\"{}\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{class_simulation_parameters_a31c9b138fd6c5519bdd51ac56c59a303}
+
+
+the path of the configuration xml file 
+
+
+
+Definition at line 125 of file SimulationParameters.h.
+
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_simulation_parameters_8h}{SimulationParameters.h}\item 
+src/\hyperlink{_simulation_parameters_8cpp}{SimulationParameters.cpp}\end{DoxyCompactItemize}

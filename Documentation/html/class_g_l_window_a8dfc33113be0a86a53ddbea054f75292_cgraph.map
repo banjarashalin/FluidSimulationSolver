@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" href="$class_simulation_parameters.html#a95fed9bc4d0fec10543b5550f06e80ff" title="initialise Camera" alt="" coords="209,5,524,32"/>
+<area shape="rect" href="$class_simulation_parameters.html#a216667d44e3d5498187a54ea1aa05116" title="initialise the parameter required to export simulation data out to disk" alt="" coords="212,56,521,83"/>
+<area shape="rect" href="$class_simulation_parameters.html#ab6ed6ff4568848297f4a50603093d3d5" title="utility function to split a string into a vector of floats" alt="" coords="573,5,880,32"/>
+</map>
