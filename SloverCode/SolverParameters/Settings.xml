@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<Settings>
+<Camera eye="0,10,-15" look="0,5,0" up="0,1,0"/>
+
+<Integration type="SEMI_IMPLICIT_EULER" timestep="0.01"/>
+
+<Export enable="flase" path="exportedSimulationData/" exportFPS="100"/>
+
+
+<Environment>
+    <Boundary position="0,5,0" dimension="10,10,10" restitutionForFluid="0.05" colour="1,1,1">
+    </Boundary>
+
+        <Obstacles enabled="true" restitution="0.9">
+            <Sphere position="-4,-1,4" collisionRadius="2.4"  drawRadius="2.5" colour="0.5,0.5,0.5" />
+            <Sphere position="4,-1,-4" collisionRadius="2.4"  drawRadius="2.5" colour="0.5,0.5,0.5" />
+            <Sphere position="-4,-1,-4" collisionRadius="2.4"  drawRadius="2.5" colour="0.5,0.5,0.5" />
+            <Sphere position="4,-1,4" collisionRadius="2.4"  drawRadius="2.5" colour="0.5,0.5,0.5" />
+            <Sphere position="-5,2,5" collisionRadius="1.4"  drawRadius="1.5" colour="0.5,0.5,0.5" />
+            <Sphere position="5,2,-5" collisionRadius="1.4"  drawRadius="1.5" colour="0.5,0.5,0.5" />
+            <Sphere position="-5,2,-5" collisionRadius="1.4"  drawRadius="1.5" colour="0.5,0.5,0.5" />
+            <Sphere position="5,2,5" collisionRadius="1.4"  drawRadius="1.5" colour="0.5,0.5,0.5" />
+            <Sphere position="0,-0.5,0" collisionRadius="2.4"  drawRadius="2.5" colour="0.5,0.5,0.5" />
+        </Obstacles>
+    </Environment>
+
+    <FluidSolver smoothingLength="0.30" initialReservedParticleCount="25000" visualization="3DShading" enableVisulization="true">
+
+
+        <Fluid name="water1" active="false">
+            <Volume>1000.0</Volume>
+            <RestDensity>998.2</RestDensity>
+            <Colour value="0.4,0.6,0.8" />
+
+            <Obj center="3,-2,0">models/13566Sphere.obj</Obj>
+
+            <Velocity value="0,0,0" />
+            <ViscosityConstant>5000</ViscosityConstant>
+            <GasConstant>10.0</GasConstant>
+
+            <SurfaceTension coefficient="500" threshold="7.0" color="1.0" />
+            <SurfaceInterface coefficient="500.0" threshold="5.0" color="-0.5" />
+            <CollisionRadius>0.085</CollisionRadius>
+            <DrawRadius>0.12</DrawRadius>
+        </Fluid>
+
+        <Fluid name="water2" active="true">
+            <Volume>100.0</Volume>
+            <RestDensity>998.2</RestDensity>
+            <Colour value="0,0.5,1" />
+
+            <Obj center="-3,2,0">models/2732Sphere.obj</Obj>
+
+            <Velocity value="0,0,0" />
+            <ViscosityConstant>5000</ViscosityConstant>
+            <GasConstant>10</GasConstant>
+
+            <SurfaceTension coefficient="500" threshold="7.0" color="1.0" />
+            <SurfaceInterface coefficient="500.0" threshold="7.0" color="-0.5" />
+            <CollisionRadius>0.085</CollisionRadius>
+            <DrawRadius>0.12</DrawRadius>
+        </Fluid>
+
+        <Fluid name="water3" active="true">
+            <Volume>100.0</Volume>
+            <RestDensity>998.2</RestDensity>
+            <Colour value="0,1,0" />
+
+            <Obj center="3,2,0">models/2732Sphere.obj</Obj>
+
+            <Velocity value="0,0,0" />
+            <ViscosityConstant>5000</ViscosityConstant>
+            <GasConstant>10</GasConstant>
+
+            <SurfaceTension coefficient="500" threshold="7.0" color="1.0" />
+            <SurfaceInterface coefficient="500.0" threshold="7.0" color="-0.5" />
+            <CollisionRadius>0.085</CollisionRadius>
+            <DrawRadius>0.12</DrawRadius>
+        </Fluid>
+
+        <Fluid name="water4" active="false">
+            <Volume>100.0</Volume>
+            <RestDensity>990.2</RestDensity>
+            <Colour value="1,0,0" />
+
+            <Obj center="0,2,0">models/2732Sphere.obj</Obj>
+
+            <Velocity value="0,0,0" />
+            <ViscosityConstant>2500</ViscosityConstant>
+            <GasConstant>5.0</GasConstant>
+
+            <SurfaceTension coefficient="200" threshold="8.0" color="1.0" />
+            <SurfaceInterface coefficient="300" threshold="4.0" color="0.5" />
+
+            <CollisionRadius>0.085</CollisionRadius>
+            <DrawRadius>0.12</DrawRadius>
+        </Fluid>
+
+    </FluidSolver>
+
+</Settings>
+
