@@ -1,0 +1,8 @@
+title: Fluidsimulationsolver
+description: Smooth Particle Hydrodynamics solver written in C++ and OpenGL using OpenMP framework for parallel processing and spatial hashing technique for neighbour search.
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-time-machine
+
+gems:
+  - jekyll-mentions
